@@ -1,0 +1,131 @@
+// stylelint-disable declaration-no-important
+
+.mpl-rs {
+    position: relative;
+    background: $color_bg;
+
+    .tp-revslider-slidesli {
+        display: flex;
+    }
+
+    .hermes {
+        &.tparrows {
+            width: 52px;
+            height: 52px;
+            margin-bottom: -52px;
+            background-color: rgba($color_bg_2, .8);
+            border-radius: 100%;
+            @include backdrop-blur();
+
+            &::before {
+                line-height: 52px;
+            }
+        }
+        .tp-arr-allwrapper {
+            top: 50%;
+            height: 110px;
+            transform: translateY(-50%);
+        }
+
+        &.tp-leftarrow .tp-arr-allwrapper {
+            left: -20px;
+        }
+        &.tp-rightarrow .tp-arr-allwrapper {
+            right: -20px;
+        }
+    }
+
+    .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: $navbar_height;
+    }
+
+    .tp-parallax-wrap {
+        position: relative !important;
+        top: auto !important;
+        bottom: 0;
+        left: 0 !important;
+    }
+
+    .tp-loop-wrap,
+    .tp-mask-wrap {
+        position: static !important;
+    }
+
+    .tp-caption {
+        display: flex;
+        line-height: $body_line_height !important;
+        white-space: pre-wrap !important;
+    }
+
+    .tp-loop-wrap {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .tp-banner {
+        overflow: hidden;
+    }
+
+    .tp-bullet {
+        width: 10px;
+        height: 10px;
+        background-color: rgba($color_text, .2);
+        border: 0;
+        @include backdrop-blur();
+
+        &.selected {
+            background-color: $color_text;
+        }
+
+        &:hover {
+            background-color: $color_text;
+
+            .tp-bullet-image {
+                transform: translateX(-50%) scale(1);
+            }
+        }
+    }
+
+    .tp-bullet-image {
+        left: 50%;
+        transform: translateX(-50%) scale(.9);
+    }
+
+    // main image
+    .slotholder > .tp-bgimg::after,
+    .slotholder > .slot .slotslide::after,
+    .tp-arr-iwrapper::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: $color_bg;
+        opacity: .4;
+    }
+
+    // timer restyle
+    .tp-bannertimer {
+        top: auto;
+        bottom: 0;
+        height: 2px;
+        background-color: rgba(#fff, .1);
+    }
+
+    // links fix
+    .tp-caption a:not(.btn) {
+        color: $color_text;
+        transition: .3s ease;
+
+        &:hover {
+            color: $color_text;
+        }
+    }
+}

@@ -1,0 +1,102 @@
+.mpl-post {
+    > div,
+    > span,
+    > p {
+        margin-bottom: 1.5rem;
+    }
+
+    > h2,
+    > .h2,
+    > h3,
+    > .h3,
+    > h4,
+    > .h4,
+    > h5,
+    > .h5,
+    > h6,
+    > .h6 {
+        margin-top: 5rem;
+        margin-bottom: 2rem;
+    }
+
+    > h2:first-child,
+    > .h2:first-child {
+        margin-top: 0;
+    }
+
+
+    > .mpl-detached {
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+        &:not(:first-child) {
+            margin-top: 2rem;
+        }
+    }
+
+    > .mpl-rating-block {
+        margin-top: 3.125rem;
+        margin-bottom: 3.125rem;
+    }
+
+    > .mpl-list {
+        margin-bottom: 1rem;
+        font-size: .875rem;
+
+        > li > .icon {
+            width: 14px;
+            height: 14px;
+        }
+    }
+
+    > .mpl-list-social {
+        margin-top: 3.125rem;
+        margin-bottom: 3.125rem;
+    }
+
+
+    // page pagination
+    .mpl-page-pagination {
+        padding-top: 60px;
+        padding-bottom: 60px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        border-top: 2px solid $color_bg_2;
+        border-bottom: 2px solid $color_bg_2;
+    }
+
+
+    // tags
+    > .mpl-post-tags {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -2px -4px 1rem;
+
+        > li {
+            display: flex;
+            align-items: center;
+            padding: 2px 4px 0;
+            font-size: .875rem;
+            color: $color_text_2;
+
+            > .icon {
+                width: 14px;
+                height: 14px;
+            }
+
+            > a {
+                color: $color_text;
+
+                &:hover,
+                &:focus {
+                    color: $color_brand;
+                }
+            }
+
+            &:not(:last-child) > a::after {
+                content: ",";
+                color: $color_text;
+            }
+        }
+    }
+}

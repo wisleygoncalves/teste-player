@@ -1,0 +1,91 @@
+{% set header_title = blog_2.name %}
+{% set header_image = blog_2.image.full %}
+{% set header_small = true %}
+
+{% extends 'layouts/layout-1.html' %}
+
+{% block header %}
+<div class="mpl-banner-content mpl-box-lg">
+    <div class="container">
+        <h1 class="display-1 mb-0">{{ blog_2.name }}</h1>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="mpl-box-md">
+    <div class="container">
+        <div class="row hgap-lg vgap-lg">
+            <div class="col mpl-content mpl-post">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/checkout.html">Adquira</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ blog_2.name }}</li>
+                    </ol>
+                </nav>
+
+                <article class="mpl-post">
+                    <section class="text-justify">
+                        <h4>Player Coin</h4>
+
+                        <p><strong>PlayerCoin</strong> (PlayerC) é um token na rede BNB que vinculado à rede social PlayerBook, utilizado em todas as funções pagas e
+                        promovidas dentro da mesma, buscando agilidade nas transações, segurança para os usuários e desenvoltura no
+                        relacionamento com os membros.
+                        </p>
+                        <p>PlayerC é utilizado por jogadores, influenciadores, consumidores, administradores de jogos e empresas, dentro da interface
+                        da rede social com o fim de aquisição de produtos e serviços dentro dos jogos associados à plataforma, bem como
+                        utilizado como meio de impulsionamento, promoção, veiculação de postagens, compras, vendas, trocas, eventos e torneios.
+                        </p>
+
+                    </section>
+                    <section class="text-justify">
+                        <h4>Resumo</h4>
+                    
+                        <p>PlayerCoin apresenta uma mudança estratégica no mundo das criptomoedas por ser um token utilitário (Utility
+                            token) que
+                            traz consigo a simplicidade de compra, vendas e trocas para um público que já convive com esse tipo de
+                            utilização, porém
+                            de forma mais arcaica e tardia, jogadores fazem trocas entre moedas que usam em vários mundos (jogos) por itens
+                            ou por
+                            moeda fiduciária, que podem ser inseguras ou expor os usuários a riscos de fraude e roubo.</p>
+                    
+                        <p>Uma mudança na confiança, na tecnologia, na inclusão. Desenvolvido para trazer um sofisticado e bem estruturado
+                            ecossistema de transações e utilizações, onde oferecemos novas perspectivas aos modelos convencionais de
+                            estratégias de
+                            trocas, como a criação de espaço seguro e um sistema de complemento do seu mundo, onde inúmeras possibilidades
+                            surgem,
+                            trazendo principalmente mais segurança e facilidade, utilizando tecnologia blockchain e inteligência artificial
+                            (IA).</p>
+                    
+                    </section>
+
+
+                    <h3><a href="/images/whitepaper.pdf" >Baixe o WhitePaper</a></h3>
+                    <ul class="list-unstyled mpl-post-tags"{{ sr_post if sr_post }}>
+                        <li>{{ icon(['M21.3933 13.9061L13.9135 21.3879C13.7197 21.582 13.4896 21.7359 13.2363 21.8409C12.983 21.9459 12.7115 22 12.4373 22C12.1631 22 11.8916 21.9459 11.6383 21.8409C11.3851 21.7359 11.155 21.582 10.9612 21.3879L2 12.4348V2H12.4321L21.3933 10.9635C21.7819 11.3545 22 11.8835 22 12.4348C22 12.9862 21.7819 13.5151 21.3933 13.9061V13.9061Z', 'M7.00002 7H6.90002']) }}</li>
+                        {% for post_tag, post_tag_href in blog_1.tags %}
+                        <li><a href="{{ post_tag_href }}">{{ post_tag }}</a></li>
+                        {% endfor %}
+                    </ul>
+
+                    <ul class="list-unstyled mpl-list mpl-list-horizontal list-hgap-sm"{{ sr_post if sr_post }}>
+                        <li>
+                            {{ icon(['M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z']) -}}
+                            Author:<a href="#">PlayerBook</a>
+                        </li>
+                        <li>
+                            {{ icon(['M16 2V6M8 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z']) -}}
+                            Publicado:<a href="#">03/11/2021</a>
+                        </li>
+                        <li>
+                            {{ icon(['M4 15C4 15 5 14 8 14C11 14 13 16 16 16C19 16 20 15 20 15V3C20 3 19 4 16 4C13 4 11 2 8 2C5 2 4 3 4 3V15ZM4 15V22']) -}}
+                            Tipo:<a href="#">WhitePaper</a>
+                        </li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

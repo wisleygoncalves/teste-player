@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{{ headerComment | safe }}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>PlayerBook{% if page_title %}{{ ' | ' + page_title }}{% elif header_title %}{{ ' | ' + header_title }}{% endif %}</title>
+
+    <meta name="description" content="PlayerBook - Conexões Gamers">
+    <meta name="keywords" content="gaming, game, jogos, rede social, comunidade">
+    <meta name="author" content="Playerbook">
+
+    <link rel="icon" type="image/png" href="assets/images/Icon PNG.png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- START: Styles -->
+
+    {% if adobe_fonts %}
+    <!-- Adobe Fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/{{ adobe_fonts }}.css">
+    {% endif %}
+
+    {% if google_fonts %}
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="{{ google_fonts }}">
+    {% endif %}
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css" />
+
+    <!-- Fancybox -->
+    <link rel="stylesheet" href="assets/vendor/fancybox/dist/jquery.fancybox.min.css" />
+
+    <!-- Revolution Slider -->
+    <link rel="stylesheet" href="assets/vendor/slider-revolution/css/settings.css">
+    <link rel="stylesheet" href="assets/vendor/slider-revolution/css/layers.css">
+    <link rel="stylesheet" href="assets/vendor/slider-revolution/css/navigation.css">
+
+    <!-- MonsterPlay -->
+    <link rel="stylesheet" href="assets/css/{{ main_style_file }}{{ '.min' if ENV == 'production' }}.css">
+
+    <!-- RTL (uncomment this to enable RTL support) -->
+    <!-- <link rel="stylesheet" href="assets/css/monsterplay-rtl.min.css" /> -->
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+    {% if custom_css %}<link rel="stylesheet" href="{{ custom_css }}">{% endif %}
+
+    <!-- END: Styles -->
+
+    <!-- jQuery -->
+    <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+
+    <!-- Preloader -->
+    <script src="assets/js/preloader.min.js"></script>
+    {% block head %}{% endblock %}
+    {% if custom_styles %}
+    <style>{{ custom_styles }}</style>
+    {% endif %}
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MS2TFTQ');</script>
+    <!-- End Google Tag Manager -->
+</head>

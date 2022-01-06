@@ -1,0 +1,91 @@
+.collapse-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9.5px 25px;
+    font-family: $font_btn;
+    font-size: .75rem;
+    font-weight: 600;
+    color: $color_text;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    @if not $skew {
+        background-color: $color_bg_2;
+        @include border-radius(3px);
+        transition: background-color .2s ease-in-out;
+
+        &:hover {
+            background-color: $color_bg_3;
+        }
+    }
+    @if $skew {
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: $color_bg_2;
+            @include border-radius(3px);
+            transition: background-color .2s ease-in-out;
+            @include skew(sm);
+            z-index: -1;
+        }
+        &:hover::before {
+            background-color: $color_bg_3;
+        }
+        &:focus::before {
+            background-color: lighten($color_bg_3, 4);
+        }
+    }
+
+    ~ .collapse-toggle {
+        margin-top: 15px;
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        width: 16px;
+        height: 16px;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3e%3cpath fill='none' d='M9 18L15 12L9 6' stroke='%23#{str-replace('' + $color_text, '#', '')}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+        background-size: cover;
+        opacity: .5;
+        transition: transform .2s ease-in-out, opacity .15s;
+    }
+
+    &:not(.collapsed) {
+        @if not $skew {
+            background-color: $color_bg_3;
+        }
+        @if $skew {
+            &::before {
+                background-color: $color_bg_3;
+            }
+            &:focus::before {
+                background-color: lighten($color_bg_3, 4);
+            }
+        }
+        &::after {
+            opacity: 1;
+            transform: rotate(90deg);
+        }
+    }
+
+    &:hover,
+    &:focus {
+        color: $color_text;
+    }
+}
+
+.collapse-toggle-md {
+    padding: 11.5px 25px;
+    font-size: .875rem;
+}
+
+
+.collapse-content {
+    padding: 25px 25px 15px;
+}

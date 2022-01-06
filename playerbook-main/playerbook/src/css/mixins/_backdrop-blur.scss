@@ -1,0 +1,12 @@
+@mixin backdrop-blur($blur: $backdrop_blur) {
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+        @if $backdrop_blur and not $blur == 0 {
+            backdrop-filter: blur($backdrop_blur);
+        }
+        @if $blur == 0 {
+            backdrop-filter: blur(0);
+        } @else {
+            backdrop-filter: blur($blur);
+        }
+    }
+}

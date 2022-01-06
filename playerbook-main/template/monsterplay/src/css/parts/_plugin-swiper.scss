@@ -1,0 +1,72 @@
+.mpl-carousel {
+    position: relative;
+
+    // buttons
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 44px;
+        height: 44px;
+        color: $color_text;
+        background-color: $color_bg_3;
+        border-radius: 100%;
+        transition: background-color .2s ease-in-out;
+
+        &::after {
+            display: none;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: lighten($color_bg_3, 4);
+        }
+        &:focus {
+            outline: none;
+        }
+        &:active:not(:disabled):not(.disabled) {
+            background-color: lighten($color_bg_3, 6);
+        }
+    }
+
+    .swiper-button-prev {
+        @if not $skew {
+            left: -22px;
+        }
+        @if $skew {
+            left: -18px;
+        }
+    }
+
+    .swiper-button-next {
+        @if not $skew {
+            right: -22px;
+        }
+        @if $skew {
+            right: -18px;
+        }
+    }
+
+
+    // scrollbar
+    .swiper-scrollbar {
+        position: static;
+        width: 100%;
+        margin-top: 6px;
+        color: $color_bg_2;
+        background-color: transparent;
+        transition: color .2s ease-in-out;
+    }
+
+    .swiper-scrollbar-drag {
+        background-color: currentColor;
+    }
+
+    &:hover {
+        .swiper-scrollbar {
+            color: $color_bg_3;
+        }
+    }
+}
+
+.mpl-carousel-vertical-center .swiper-wrapper {
+    align-items: center;
+}

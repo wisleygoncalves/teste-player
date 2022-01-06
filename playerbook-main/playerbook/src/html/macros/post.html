@@ -1,0 +1,230 @@
+{% from "macros/icon-svg.html" import icon %}
+{% from "macros/img.html" import img %}
+
+
+{% macro post(image="", title="", texts="", tags="", date="", btn="", post_rating="", heading="h3", href="#", data="") %}
+<div class="mpl-post-item"{% if data %} {{ data }}{% endif %}>
+    <a href="{{ href }}" class="mpl-post-image">
+        {% if image | truncate(4) === 'http...' %}
+            <div class="mpl-image">
+                <img src="{{ image }}" alt="">
+            </div>
+        {% else %}
+            {{ img(image) }}
+        {% endif %}
+        {% if post_rating %}
+        <div class="mpl-hexagon-rating mpl-hexagon-rating-small" data-hexagon="{{ post_rating | replace('.', '') }}"><span>{{ post_rating | replace('0', '') }}</span></div>
+        {% endif %}
+    </a>
+    <div class="mpl-post-content">
+        <a href="{{ href }}" class="mpl-post-title {{ heading }}">{{ title }}</a>
+        <div class="mpl-post-meta">
+            <div class="mpl-post-date">
+                <span>
+                    {{ icon(['M16 2V6M8 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z']) }}
+                </span>
+                {{ date }}
+            </div>
+            <div class="mpl-post-tags">
+                <span>
+                    {{ icon(['M21.3933 13.9061L13.9135 21.3879C13.7197 21.582 13.4896 21.7359 13.2363 21.8409C12.983 21.9459 12.7115 22 12.4373 22C12.1631 22 11.8916 21.9459 11.6383 21.8409C11.3851 21.7359 11.155 21.582 10.9612 21.3879L2 12.4348V2H12.4321L21.3933 10.9635C21.7819 11.3545 22 11.8835 22 12.4348C22 12.9862 21.7819 13.5151 21.3933 13.9061V13.9061Z', 'M7.00002 7H6.90002']) }}
+                </span>
+                <ul class="list-unstyled">
+                    {% for tag, tag_href in tags %}
+                    <li><a href="{{ tag_href }}">{{ tag }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="mpl-post-description">
+            {% for text in texts %}
+            <p>{{ text }}</p>
+            {% endfor %}
+        </div>
+        <a href="{{ href }}" class="mpl-link">{{ btn }}</a>
+    </div>
+</div>
+{% endmacro %}
+
+
+{% macro post_md(image="", title="", texts="", tags="", date="", btn="", post_rating="", heading="h3", href="#", data="") %}
+<div class="mpl-post-item mpl-post-md"{% if data %} {{ data }}{% endif %}>
+    <a href="{{ href }}" class="mpl-post-image">
+        {% if image | truncate(4) === 'http...' %}
+            <div class="mpl-image">
+                <img src="{{ image }}" alt="">
+            </div>
+        {% else %}
+            {{ img(image) }}
+        {% endif %}
+        {% if post_rating %}
+        <div class="mpl-hexagon-rating mpl-hexagon-rating-small" data-hexagon="{{ post_rating | replace('.', '') }}"><span>{{ post_rating | replace('0', '') }}</span></div>
+        {% endif %}
+    </a>
+    <div class="mpl-post-content">
+        <a href="{{ href }}" class="mpl-post-title {{ heading }}">{{ title }}</a>
+        <div class="mpl-post-meta">
+            <div class="mpl-post-date">
+                <span>
+                    {{ icon(['M16 2V6M8 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z']) }}
+                </span>
+                {{ date }}
+            </div>
+            <div class="mpl-post-tags">
+                <span>
+                    {{ icon(['M21.3933 13.9061L13.9135 21.3879C13.7197 21.582 13.4896 21.7359 13.2363 21.8409C12.983 21.9459 12.7115 22 12.4373 22C12.1631 22 11.8916 21.9459 11.6383 21.8409C11.3851 21.7359 11.155 21.582 10.9612 21.3879L2 12.4348V2H12.4321L21.3933 10.9635C21.7819 11.3545 22 11.8835 22 12.4348C22 12.9862 21.7819 13.5151 21.3933 13.9061V13.9061Z', 'M7.00002 7H6.90002']) }}
+                </span>
+                <ul class="list-unstyled">
+                    {% for tag, tag_href in tags %}
+                    <li>
+                        <a href="{{ tag_href }}">{{ tag }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="mpl-post-description">
+            {% for text in texts %}
+            <p>{{ text }}</p>
+            {% endfor %}
+        </div>
+        <a href="{{ href }}" class="mpl-link">{{ btn }}</a>
+    </div>
+</div>
+{% endmacro %}
+
+
+{% macro post_md_date(image="", title="", texts="", tags="", date="", btn="", heading="h3", href="#", data="") %}
+<div class="mpl-post-item mpl-post-md"{% if data %} {{ data }}{% endif %}>
+    <a href="{{ href }}" class="mpl-post-image">
+        {% if image | truncate(4) === 'http...' %}
+            <div class="mpl-image">
+                <img src="{{ image }}" alt="">
+            </div>
+        {% else %}
+            {{ img(image) }}
+        {% endif %}
+        <span class="mpl-post-date">
+            <span>
+                {{ icon(['M16 2V6M8 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z']) }}
+            </span>
+            {{ date }}
+        </span>
+    </a>
+    <div class="mpl-post-content">
+        <a href="{{ href }}" class="mpl-post-title {{ heading }}">{{ title }}</a>
+        <div class="mpl-post-meta">
+            <div class="mpl-post-tags">
+                <span>
+                    {{ icon(['M21.3933 13.9061L13.9135 21.3879C13.7197 21.582 13.4896 21.7359 13.2363 21.8409C12.983 21.9459 12.7115 22 12.4373 22C12.1631 22 11.8916 21.9459 11.6383 21.8409C11.3851 21.7359 11.155 21.582 10.9612 21.3879L2 12.4348V2H12.4321L21.3933 10.9635C21.7819 11.3545 22 11.8835 22 12.4348C22 12.9862 21.7819 13.5151 21.3933 13.9061V13.9061Z', 'M7.00002 7H6.90002']) }}
+                </span>
+                <ul class="list-unstyled">
+                    {% for tag, tag_href in tags %}
+                    <li>
+                        <a href="{{ tag_href }}">{{ tag }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="mpl-post-description">
+            {% for text in texts %}
+            <p>{{ text }}</p>
+            {% endfor %}
+        </div>
+        <a href="{{ href }}" class="mpl-link">{{ btn }}</a>
+    </div>
+</div>
+{% endmacro %}
+
+
+{% macro post_block(image="", title="", tags="", date="", heading="h4", href="#", data="") %}
+<div class="mpl-post-item mpl-post-block"{% if data %} {{ data }}{% endif %}>
+    <a href="{{ href }}" class="mpl-post-image">
+        {% if image | truncate(4) === 'http...' %}
+            <div class="mpl-image">
+                <img src="{{ image }}" alt="">
+            </div>
+        {% else %}
+            {{ img(image) }}
+        {% endif %}
+    </a>
+    <div class="mpl-post-content">
+        <a href="{{ href }}" class="mpl-post-title {{ heading }}">{{ title }}</a>
+        <div class="mpl-post-meta">
+            {% if date %}
+            <div class="mpl-post-date">
+                <span>
+                    {{ icon(['M16 2V6M8 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z']) }}
+                </span>
+                {{ date }}
+            </div>
+            {% endif %}
+            {% if tags %}
+            <div class="mpl-post-tags">
+                <span>
+                    {{ icon(['M21.3933 13.9061L13.9135 21.3879C13.7197 21.582 13.4896 21.7359 13.2363 21.8409C12.983 21.9459 12.7115 22 12.4373 22C12.1631 22 11.8916 21.9459 11.6383 21.8409C11.3851 21.7359 11.155 21.582 10.9612 21.3879L2 12.4348V2H12.4321L21.3933 10.9635C21.7819 11.3545 22 11.8835 22 12.4348C22 12.9862 21.7819 13.5151 21.3933 13.9061V13.9061Z', 'M7.00002 7H6.90002']) }}
+                </span>
+                <ul class="list-unstyled">
+                    {% for tag, tag_href in tags %}
+                    <li>
+                        <a href="{{ tag_href }}">{{ tag }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+
+{% macro post_vertical(image="", title="", date="", heading="h4", href="#", data="") %}
+<a href="{{ href }}" class="mpl-post-item mpl-post-vertical"{% if data %} {{ data }}{% endif %}>
+    <span class="mpl-post-image">
+        {% if image | truncate(4) === 'http...' %}
+            <div class="mpl-image">
+                <img src="{{ image }}" alt="">
+            </div>
+        {% else %}
+            {{ img(image) }}
+        {% endif %}
+    </span>
+    <span class="mpl-post-title {{ heading }}">{{ title }}</span>
+    <span class="mpl-post-date">
+        <span>{{ icon(['M16 2V6M8 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z']) }}</span>
+        {{ date }}
+    </span>
+</a>
+{% endmacro %}
+
+
+{% macro post_overlay(image="", title="", texts="", post_rating="", heading="h4", href="#", data="") %}
+<a href="{{ href }}" class="mpl-post-item mpl-post-overlay{{ ' mpl-post-hidden' if texts }}"{% if data %} {{ data }}{% endif %}>
+    <span class="mpl-post-image">
+        {% if image | truncate(4) === 'http...' %}
+            <div class="mpl-image">
+                <img src="{{ image }}" alt="">
+            </div>
+        {% else %}
+            {{ img(image) }}
+        {% endif %}
+    </span>
+    <span class="mpl-post-content">
+        <span class="mpl-post-title {{ heading }}">{{ title }}</span>
+
+        {% if post_rating %}
+        <div class="mpl-hexagon-rating mpl-hexagon-rating-small" data-hexagon="{{ post_rating | replace('.', '') }}"><span>{{ post_rating | replace('0', '') }}</span></div>
+        {% endif %}
+
+        {% if texts %}
+        <span class="mpl-post-description">
+            {% for text in texts %}
+            <p>{{ text }}</p>
+            {% endfor %}
+        </span>
+        {% endif %}
+    </span>
+</a>
+{% endmacro %}

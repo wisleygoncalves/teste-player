@@ -1,0 +1,49 @@
+<!-- Footer -->
+<footer class="mpl-footer{{ ' mpl-footer-parallax' if footer_parallax }}{{ ' mpl-footer-social' if footer_social_block }}">
+    {% if footer_bg %}
+        <div class="mpl-image"{{ (' data-speed="' + footer_parallax_speed + '" data-img-position="50% 0%"') | safe if footer_parallax }}>
+            <img src="{{ footer_bg }}" alt=""{{ ' class="jarallax-img"' | safe if footer_parallax }}>
+        </div>
+    {% endif %}
+
+    <div class="mpl-footer-wrapper">
+        {% if footer_widgets_block %}
+            <div class="mpl-footer-contrainer container">
+                <div class="row hgap-lg vgap-lg"{% if sr_widget %} {{ sr_widget }}{% endif %}>
+                    <div class="col-lg">
+                        <a href="#" class="d-inline-block mb-20">
+                            <img src="{{ logo }}" alt="">
+                        </a>
+                        {{ footer_text | safe }}
+                    </div>
+                    <div class="col-lg">
+                        {{ widget_posts('Popular News', [
+                            {"image": blog_1.image.sm, "name": blog_1.name, "date": blog_1.date, "href": blog_1.href},
+                            {"image": blog_2.image.sm, "name": blog_2.name, "date": blog_2.date, "href": blog_2.href},
+                            {"image": blog_3.image.sm, "name": blog_3.name, "date": blog_3.date, "href": blog_3.href}
+                        ]) }}
+                    </div>
+                    <div class="col-lg">
+                        {{ widget_instagram('Instagram') }}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if footer_social_block %}
+            <div class="mpl-footer-container container">
+                <div class="mpl-footer-content">
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</footer>
+{% if footer_social_block %}
+<div class="mpl-footer-copyright">
+    <div class="container">
+        {{ footer_text | safe }}
+    </div>
+</div>
+{% endif %}
+<!-- /Footer -->

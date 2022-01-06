@@ -1,0 +1,464 @@
+{% set page_title = 'PlayerBook' %}
+{% set header_image = home_header_image %}
+{% set header_image_small = home_header_small %}
+
+{% extends 'layouts/layout-1.html' %}
+
+{% block header %}
+<div class="mpl-banner-content mpl-box-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9" data-sr="banner" data-sr-interval="200" data-sr-duration="1200" data-sr-distance="20">
+                <h1 class="display-1" data-sr-item="banner">PlayerBook</h1>
+                <p class="lead" data-sr-item="banner">
+                    Uma plataforma de conexões para jogadores.
+                </p>
+                <div class="row hgap-sm vgap-sm justify-content-center justify-content-sm-start">
+                    <div class="col-auto" data-sr-item="banner">
+                        <a class="btn btn-md btn-brand" href="#about-us">Institucional</a>
+                    </div>
+                    <div class="col-auto" data-sr-item="banner">
+                        <a class="btn btn-md btn-default" href="#">
+                            <span class="name">PlayerCoin</span>
+                            {{ icon(["M 16.121211,0.0951112 H 3.8985706 c -0.1388935,0 -0.2708423,0.07004
+                            -0.3472339,0.18908 L 0.07899548,5.4387832 C
+                            -0.02170239,5.592863 -0.01128535,5.795943 0.10330188,5.936035 L 9.6869641,17.870042 c
+                            0.166672,0.206601
+                            0.4791829,0.206601 0.6458549,0 L 19.91648,5.936035 c 0.114588,-0.14356 0.125004,-0.34316
+                            0.02432,-0.4972518 l
+                            -3.468881,-5.154576 c -0.07986,-0.11904 -0.20834,-0.18908 -0.350708,-0.18908 z m
+                            -0.670161,1.680844 2.197992,3.361696 H
+                            15.273961 L 13.47876,1.7759552 Z m -7.0176019,0 h 3.1494139 l 1.7952,3.361696 H 6.6417203 Z
+                            m -3.8647157,0 H 6.5410223 L
+                            4.745822,5.1376512 H 2.3707404 Z M 3.0756258,6.818495 h 1.7847834 l 2.371609,5.602823 z m
+                            3.5730393,0 h 6.7224529 l
+                            -3.361228,8.519791 z m 6.1390989,5.602823 2.368137,-5.602823 h 1.784783 z"]) }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="mpl-box-lg text-center" id="reserva" data-sr="reserva" data-sr-interval="200" data-sr-duration="1200"
+    data-sr-distance="20">
+    <div class="container">
+        <div class="mpl-banner-content mpl-box-lg">
+            <div class="container text-center" data-sr="coming-soon" data-sr-interval="200" data-sr-duration="1200"
+                data-sr-distance="20">
+                <h2>Você sabe qual criptomoeda integra o maior metaverso de jogadores da atualidade?</h2>
+                <h1 class="display-2" data-sr-item="reserva"><span class="text-brand">Player</span> Coin</h1>
+                <p>A criptomoeda desenvolvida para nós, jogadores.</p>
+                <div class="mpl-image col-md-12 col-xs-6">
+                    <img src="assets/images/logo playercoin.png" width="100px" />
+                </div>
+                <p>Countdount de Pré-Venda</p>
+                <div class="mpl-countdown mpl-countdown-transparent h4" data-end="2022-02-10 23:59" data-timezone="EST"
+                    data-sr-item="coming-soon"></div>
+                <center>
+                <table>
+                <tr>
+                <th><a href="/checkout.html" class="btn btn-md mt-60" data-sr-item="coming-soon">Reserve</a></th>
+                <th><a href="https://www.pinksale.finance/#/launchpad/0xa905AC820380963b8E2A47988054bF8c04De8569?chain=BSC" class="btn btn-md mt-60" data-sr-item="coming-soon">Saiba Mais</a></th>
+                </tr>
+            </table>
+            </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="mpl-box-lg bg-light" id="about-us" data-sr="feature" data-sr-interval="140" data-sr-duration="1200"
+    data-sr-distance="20">
+    <div class="container">
+        <h2 class="display-2 mb-60 text-center" data-sr-item="feature">Sobre Nós</h2>
+        <article class="mpl-post">
+            <div class="mpl-detached">
+                <div class="row hgap-sm vgap-sm">
+                    <div class="col-12 col-sm-6">
+                        <a class="mpl-gallery-item" href="{{ blog_2.video.full }}" data-fancybox="gallery"
+                            data-animation-effect="fade">
+                            {{ img(blog_1.image.md) }}
+                            {{ icon(['M5 3L19 12L5 21V3Z']) }}
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <a class="mpl-gallery-item" href="{{ blog_2.image.full }}" data-fancybox="gallery"
+                            data-animation-effect="fade">
+                            {{ img(blog_2.image.md) }}
+                            {{ icon(['M8 3H5C4.46957 3 3.96086 3.21071 3.58579 3.58579C3.21071 3.96086 3 4.46957 3
+                            5V8M21 8V5C21
+                            4.46957 20.7893 3.96086 20.4142 3.58579C20.0391 3.21071 19.5304 3 19 3H16M16 21H19C19.5304
+                            21
+                            20.0391 20.7893 20.4142 20.4142C20.7893 20.0391 21 19.5304 21 19V16M3 16V19C3 19.5304
+                            3.21071
+                            20.0391 3.58579 20.4142C3.96086 20.7893 4.46957 21 5 21H8']) }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-justify">
+                <p>
+                    A rede social PlayerBook apresenta-se como <strong>uma plataforma 100% voltada ao jogador</strong>,
+                    onde os jogadores podem utilizar
+                    recursos feitos e pensado neles, não mais tendo que se utilizar de diversas plataformas para
+                    adquirir um pouco de cada
+                    coisa que precisa. Nossa rede soluciona as maiores dores dos jogadores, como a confiabilidade,
+                    escalabilidade e
+                    sinceridade, a qual a PlayerBook dá certificado a cada conta, fazendo a verificação do jogador
+                    (Nickname) em conjunto
+                    com o jogo em questão, dando assim mais segurança e reduzindo a possibilidade de fraude.
+                </p>
+                
+                <p> PlayerCoin é uma criptomoeda criada para integrar a maior rede social de jogadores, onde traz várias 
+                    formas de ganhos para seus usuários e integra o maior metaverso de jogadores da atualidade, trazendo 
+                    campeonatos e eventos patrocinados por empresas patrocinadas com PlayerCoin, onde levaremos NFTs e 
+                    PlayerCoin em jogos tradicionais. Nosso objetivo é se tornar a segunda moeda de todos os jogos, junto 
+                    com nosso mercado de jogos, onde os jogadores poderão comprar e vender itens de todos os jogos via PLC.</p>
+
+                <p>
+                    Prezamos pela transparência e pelo respeito à privacidade dos nossos usuários e patrocinadores, pois
+                    consideramos que isto seja
+                    parte da essência dos jogos eletrônicos e das cripto moedas. Por falar nisso, nossa rede social é
+                    atrelada à rede <strong>Binance</strong>
+                    através de um cripto token chamado <strong>Player Coin</strong>, utilizado em nossa rede para
+                    aquisição de produtos e serviços
+                    de jogos parceiros.
+                </p>
+
+                <p>
+                    Você pode conhecer o <strong>whitepaper</strong> <a href="/token">aqui</a>. Se tiver dúvidas, pode
+                    entrar em contato conosco através do e-mail
+                    lancamento@playerbook.com.
+                </p>
+            </div>
+
+            <div class="mpl-rating-block" {{ sr_post if sr_post }}>
+                <h6 class="display-2 mb-60 text-center" data-sr-item="feature">Features</h6>
+                <div class="row vgap-md">
+                    <div class="col-12 col-xl-3 text-center">
+                        <small>versão</small>
+                        <br>
+                        <div class="mpl-hexagon-rating text-center"
+                            data-hexagon="{{ blog_1.rating | replace('.', '') }}">
+                            <span>{{ blog_1.rating }}</span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-xl">
+                        <h4 class="mb-20">Para Jogadores</h4>
+                        <ul class="list-unstyled mpl-list-positive mb-0">
+                            <li>Painel de Jogos</li>
+                            <li>Times e Grupos</li>
+                            <li>Perfil de Jogo</li>
+                            <li>Rivalização</li>
+                            <li>Chat</li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6 col-xl">
+                        <h4 class="mb-20">Para Empresas</h4>
+                        <ul class="list-unstyled mpl-list-positive mb-0">
+                            <li>Patrocínio</li>
+                            <li>Mineração</li>
+                            <li>Marketing de Nicho</li>
+                            <li>Associação</li>
+                            <li>Campanhas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </article>
+    </div>
+</section>
+
+<div class="mpl-box-lg text-center" id="institucional" data-sr="institucional" data-sr-interval="200"
+    data-sr-duration="1200" data-sr-distance="20">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6 col-xl-5">
+                <h2 class="display-2" data-sr-item="institucional">Institucional</h2>
+            </div>
+        </div>
+        <div class="row hgap-lg vgap-lg justify-content-center">
+            {% macro insti_item(image="", title="", description="", href="") %}
+            <div class="mpl-demo-item">
+                <a class="mpl-demo-item-title h3" href="{{ href }}" target="_blank">{{ title }}</a>
+                <span class="mpl-demo-item-description">{{ description | safe }}</span>
+                <br>
+                <a class="mpl-demo-item-image" href="{{ href }}" target="_blank">
+                    <img src="assets/images/{{ image }}" alt="">
+                </a>
+            </div>
+            {% endmacro %}
+            <div class="col-12 col-md-6" data-sr-item="institucional">
+                {{ insti_item('bau_colina.jpg', 'Whitepaper', 'Conheça nossa lógica de negócio', 'whitepaper.html') }}
+            </div>
+            <div class="col-12 col-md-6" data-sr-item="institucional">
+                {{ insti_item('cripto_pc.jpg', 'Reservas', 'Reserve suas PlayerCoins', 'checkout.html') }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mpl-box-md">
+
+    <div class="row justify-content-center">
+        <div class="col-md-12 col-lg-8 col-xl-6 text-center">
+            <h2 class="display-2">Cronograma de <span class="text-brand">Lançamento</span></h2>
+        </div>
+    </div>
+
+    <div class="mpl-changelog">
+        <div>
+            <div class="mpl-changelog-version">1.0.0</div>
+            <div class="mpl-changelog-date h5">Q4 2021</div>
+        </div>
+        <ul class="mpl-changelog-more">
+            <li>
+                <div class="mpl-changelog mpl-changelog-success">
+                    <div class="mpl-changelog-badge">LNC</div>
+                    <div class="mpl-changelog-info">ICO PlayerCoin</div>
+                </div>
+            </li>
+            <li>
+                <div class="mpl-changelog mpl-changelog-primary">
+                    <div class="mpl-changelog-badge">DVG</div>
+                    <div class="mpl-changelog-info">Divulgação da Rede</div>
+                </div>
+            </li>
+            <li>
+                <div class="mpl-changelog mpl-changelog-warning">
+                    <div class="mpl-changelog-badge">CDT</div>
+                    <div class="mpl-changelog-info">Pré-Cadastro</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mpl-changelog">
+        <div>
+            <div class="mpl-changelog-version">1.1.0</div>
+            <div class="mpl-changelog-date h5">Q1 2022</div>
+        </div>
+        <ul class="mpl-changelog-more">
+            <li>
+                <div class="mpl-changelog mpl-changelog-primary">
+                    <div class="mpl-changelog-badge">DVG</div>
+                    <div class="mpl-changelog-info">Eventos de Divulgação</div>
+                </div>
+            </li>
+            <li>
+                <div class="mpl-changelog mpl-changelog-primary">
+                    <div class="mpl-changelog-badge">DVG</div>
+                    <div class="mpl-changelog-info">Eventos de Promoção</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mpl-changelog">
+        <div>
+            <div class="mpl-changelog-version">1.5.0</div>
+            <div class="mpl-changelog-date h5">Q2 2022</div>
+        </div>
+        <ul class="mpl-changelog-more">
+            <li>
+                <div class="mpl-changelog mpl-changelog-success">
+                    <div class="mpl-changelog-badge">LNC</div>
+                    <div class="mpl-changelog-info">Lançamento da Rede Social - Open Beta</div>
+                </div>
+            </li>
+            <li>
+                <div class="mpl-changelog mpl-changelog-success">
+                    <div class="mpl-changelog-badge">LNC</div>
+                    <div class="mpl-changelog-info">Lançamento da PlayerC na rede BNB</div>
+                </div>
+            </li>
+            <li>
+                <div class="mpl-changelog mpl-changelog-success">
+                    <div class="mpl-changelog-badge">INC</div>
+                    <div class="mpl-changelog-info">Inclusão dos Primeiros Jogos Parceiros</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mpl-changelog">
+        <div>
+            <div class="mpl-changelog-version">2.0.0</div>
+            <div class="mpl-changelog-date h5">Q3 2022</div>
+        </div>
+        <ul class="mpl-changelog-more">
+            <li>
+                <div class="mpl-changelog mpl-changelog-success">
+                    <div class="mpl-changelog-badge">LNC</div>
+                    <div class="mpl-changelog-info">Lançamento da PlayerC a mercado</div>
+                </div>
+            </li>
+            <li>
+                <div class="mpl-changelog mpl-changelog-danger">
+                    <div class="mpl-changelog-badge">CRT</div>
+                    <div class="mpl-changelog-info">Criação do Sistema de Torneios</div>
+                </div>
+            </li>
+            <li>
+                <div class="mpl-changelog mpl-changelog-success">
+                    <div class="mpl-changelog-badge">LNC</div>
+                    <div class="mpl-changelog-info">Primeiros Torneios PlayerBook</div>
+                </div>
+            </li>
+            <li>
+                <div class="mpl-changelog mpl-changelog-success">
+                    <div class="mpl-changelog-badge">LNC</div>
+                    <div class="mpl-changelog-info">Primeiros Eventos PlayerBook</div>
+                </div>
+            </li>
+            <li>
+                <div class="mpl-changelog mpl-changelog-success">
+                    <div class="mpl-changelog-badge">LNC</div>
+                    <div class="mpl-changelog-info">Lançamento do Aplicativo PlayerBook</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mpl-changelog">
+        <div>
+            <div class="mpl-changelog-version">2.2.0</div>
+            <div class="mpl-changelog-date h5">Q4 2022</div>
+        </div>
+        <ul class="mpl-changelog-more">
+            <li>
+                <div class="mpl-changelog mpl-changelog-success">
+                    <div class="mpl-changelog-badge">LNC</div>
+                    <div class="mpl-changelog-info">Adição de Lojas de Jogos na PlayerBook</div>
+                </div>
+            </li>
+            <li>
+                <div class="mpl-changelog mpl-changelog-success">
+                    <div class="mpl-changelog-badge">LNC</div>
+                    <div class="mpl-changelog-info">Adição de Lojas de Jogadores na PlayerBook</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mpl-changelog">
+        <div>
+            <div class="mpl-changelog-version">3.0.0</div>
+            <div class="mpl-changelog-date h5">Q1 2023</div>
+        </div>
+        <ul class="mpl-changelog-more">
+            <li>
+                <div class="mpl-changelog mpl-changelog-primary">
+                    <div class="mpl-changelog-badge">DVG</div>
+                    <div class="mpl-changelog-info">Abertura de Token a Mercados</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mpl-changelog">
+        <div>
+            <div class="mpl-changelog-version">3.2.0</div>
+            <div class="mpl-changelog-date h5">Q2 2023</div>
+        </div>
+        <ul class="mpl-changelog-more">
+            <li>
+                <div class="mpl-changelog mpl-changelog-danger">
+                    <div class="mpl-changelog-badge">CRT</div>
+                    <div class="mpl-changelog-info">Criação dos NFTs</div>
+                </div>
+            </li>
+            <li>
+                <div class="mpl-changelog mpl-changelog-success">
+                    <div class="mpl-changelog-badge">LNC</div>
+                    <div class="mpl-changelog-info">Lançamento dos NFTs</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mpl-changelog">
+        <div>
+            <div class="mpl-changelog-version">3.5.0</div>
+            <div class="mpl-changelog-date h5">Q3 2023</div>
+        </div>
+        <ul class="mpl-changelog-more">
+            <li>
+                <div class="mpl-changelog mpl-changelog-success">
+                    <div class="mpl-changelog-badge">LNC</div>
+                    <div class="mpl-changelog-info">Lançamento da Carteira Virtual PlayerBook</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mpl-changelog">
+        <div>
+            <div class="mpl-changelog-version">4.0.0</div>
+            <div class="mpl-changelog-date h5">Q2 2024</div>
+        </div>
+        <ul class="mpl-changelog-more">
+            <li>
+                <div class="mpl-changelog mpl-changelog-success">
+                    <div class="mpl-changelog-badge">LNC</div>
+                    <div class="mpl-changelog-info">Lançamento da PlayerBook em outros países</div>
+                </div>
+            </li>
+            <li>
+                <div class="mpl-changelog mpl-changelog-warning">
+                    <div class="mpl-changelog-badge">OPN</div>
+                    <div class="mpl-changelog-info">Liberação da Reserva Restante para adição de Usuários</div>
+                </div>
+            </li>
+            <li>
+                <div class="mpl-changelog mpl-changelog-success">
+                    <div class="mpl-changelog-badge">LNC</div>
+                    <div class="mpl-changelog-info">Eventos Internacionais</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+{% endblock %}
+
+{% block javascript %}
+<script>
+    $('.mpl-countdown').each(function () {
+        const $this = $(this);
+        const tz = $this.attr('data-timezone');
+        let end = $this.attr('data-end');
+        end = moment.tz(end, tz).toDate();
+
+        $this.countdown(end, function (event) {
+            $this.html(event.strftime([
+                '<div class="mpl-countdown-item">',
+                '<span>Dias</span>',
+                '<span><span>%D</span></span>',
+                '</div>',
+                '<div class="mpl-countdown-item">',
+                '<span>Horas</span>',
+                '<span><span>%H</span></span>',
+                '</div>',
+                '<div class="mpl-countdown-item">',
+                '<span>Minutos</span>',
+                '<span><span>%M</span></span>',
+                '</div>',
+                '<div class="mpl-countdown-item">',
+                '<span>Segundos</span>',
+                '<span><span>%S</span></span>',
+                '</div>'
+            ].join('')));
+        });
+    });
+</script>
+{% endblock %}

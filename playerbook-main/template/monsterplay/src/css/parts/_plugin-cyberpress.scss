@@ -1,0 +1,862 @@
+// team
+.cyberpress-team {
+    background-color: $color_bg_2;
+    @include border-radius(5px);
+
+    @include media-breakpoint-up(sm) {
+        padding: 40px;
+    }
+    @include media-breakpoint-down(xs) {
+        padding: 30px;
+    }
+
+    .cyberpress-team-thumbnail {
+        display: block;
+        margin-bottom: 30px;
+
+        .mpl-image {
+            overflow: hidden;
+            @include border-radius(5px);
+        }
+    }
+
+    .cyberpress-team-title {
+        margin-bottom: 30px;
+    }
+
+    .cyberpress-team-info {
+        padding-left: 0;
+        margin-bottom: 0;
+        font-size: .875rem;
+        list-style: none;
+
+        > li {
+            display: block;
+
+            + li {
+                margin-top: 8px;
+            }
+
+            > a {
+                color: $color_text;
+
+                &:hover,
+                &:focus {
+                    color: $color_brand;
+                }
+            }
+
+            > .icon {
+                display: inline-block;
+                margin-right: 10px;
+                vertical-align: -.15em;
+            }
+        }
+
+        .icon {
+            width: 14px;
+            height: 14px;
+            stroke: $color_text_2;
+        }
+
+        .cyberpress-game-inline-link {
+            display: block;
+        }
+
+        .cyberpress-flag-img,
+        .cyberpress-game-inline-link img {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            margin-right: 10px;
+            object-fit: cover;
+            // stylelint-disable-next-line
+            font-family: "object-fit: cover";
+            @include border-radius(2px);
+            vertical-align: -.15em;
+        }
+    }
+
+    .cyberpress-social {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        margin-right: -5px;
+        margin-left: -5px;
+        list-style: none;
+
+        > li {
+            padding-right: 5px;
+            padding-left: 5px;
+
+            > a {
+                display: flex;
+            }
+
+            .icon {
+                stroke: currentColor;
+            }
+
+            .icon-fill {
+                stroke-width: 0;
+            }
+        }
+    }
+
+    @each $name, $color in $color_social {
+        .cyberpress-social-#{$name} {
+            color: $color;
+        }
+    }
+}
+
+// single team
+.single-team {
+    .cyberpress-team {
+        display: flex;
+
+        @include media-breakpoint-up(sm) {
+            padding: 30px;
+        }
+        @include media-breakpoint-down(sm) {
+            flex-direction: column;
+        }
+        @include media-breakpoint-down(xs) {
+            padding: 30px;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+
+        .cyberpress-team-thumbnail {
+            @include create-col(auto);
+            margin-bottom: 0;
+
+            @include media-breakpoint-up(md) {
+                margin-right: 30px;
+            }
+            @include media-breakpoint-down(sm) {
+                margin-bottom: 30px;
+            }
+
+            .mpl-image {
+                @include media-breakpoint-up(md) {
+                    width: 168px;
+                    height: 168px;
+                }
+            }
+        }
+    }
+}
+
+
+// player
+.cyberpress-player {
+    padding: 30px;
+    background-color: $color_bg_2;
+    @include border-radius(5px);
+
+    .cyberpress-player-thumbnail {
+        display: block;
+        margin-bottom: 30px;
+
+        .mpl-image {
+            overflow: hidden;
+            @include border-radius(5px);
+        }
+    }
+
+    .cyberpress-player-title {
+        margin-bottom: 30px;
+    }
+
+    .cyberpress-player-info {
+        padding-left: 0;
+        margin-bottom: 0;
+        font-size: .875rem;
+        list-style: none;
+
+        > li {
+            display: block;
+
+            + li {
+                margin-top: 8px;
+            }
+
+            > a {
+                color: $color_text;
+
+                &:hover,
+                &:focus {
+                    color: $color_brand;
+                }
+            }
+
+            > .icon {
+                display: inline-block;
+                margin-right: 10px;
+                vertical-align: -.15em;
+            }
+        }
+
+        .icon {
+            width: 14px;
+            height: 14px;
+            stroke: $color_text_2;
+        }
+
+        .cyberpress-flag-img,
+        .cyberpress-game-inline-link img {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            margin-right: 10px;
+            object-fit: cover;
+            // stylelint-disable-next-line
+            font-family: "object-fit: cover";
+            @include border-radius(2px);
+            vertical-align: -.15em;
+        }
+
+        .cyberpress-game-inline-link {
+            display: block;
+        }
+    }
+
+    .cyberpress-social {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        margin-right: -5px;
+        margin-left: -5px;
+        list-style: none;
+
+        > li {
+            padding-right: 5px;
+            padding-left: 5px;
+
+            > a {
+                display: flex;
+            }
+
+            .icon {
+                stroke: currentColor;
+            }
+
+            .icon-fill {
+                stroke-width: 0;
+            }
+        }
+    }
+
+    @each $name, $color in $color_social {
+        .cyberpress-social-#{$name} {
+            color: $color;
+        }
+    }
+}
+
+// single player
+.single-player {
+    .cyberpress-player {
+        display: flex;
+
+        @include media-breakpoint-up(sm) {
+            padding: 30px;
+        }
+        @include media-breakpoint-down(sm) {
+            flex-direction: column;
+        }
+        @include media-breakpoint-down(xs) {
+            padding: 30px;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+
+        .cyberpress-player-thumbnail {
+            @include create-col(auto);
+            margin-bottom: 0;
+
+            @include media-breakpoint-up(md) {
+                margin-right: 30px;
+            }
+            @include media-breakpoint-down(sm) {
+                margin-bottom: 30px;
+            }
+
+            .mpl-image {
+                @include media-breakpoint-up(md) {
+                    width: 168px;
+                    height: 168px;
+                }
+            }
+        }
+    }
+}
+
+
+// match
+.cyberpress-matchs-archive {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+
+    > li + li {
+        margin-top: 40px;
+    }
+}
+.cyberpress-match {
+    background-color: $color_bg_2;
+    @include border-radius(5px);
+
+    @include media-breakpoint-up(sm) {
+        padding: 40px;
+    }
+    @include media-breakpoint-down(xs) {
+        padding: 30px;
+    }
+
+    .cyberpress-match-participants {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        @include media-breakpoint-down(sm) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    .cyberpress-match-participant {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cyberpress-match-participant:last-of-type {
+        @include media-breakpoint-up(md) {
+            .cyberpress-match-participant-players {
+                display: flex;
+                justify-content: flex-end;
+            }
+            .cyberpress-match-participant-players-player > img {
+                order: 12;
+                margin-right: 0;
+                margin-left: 15px;
+            }
+        }
+    }
+    .cyberpress-match-participant-players {
+        width: 100%;
+        margin-top: 30px;
+
+        > ul {
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+
+            > li + li {
+                margin-top: 10px;
+            }
+        }
+
+        .cyberpress-match-participant-players-player {
+            display: flex;
+            align-items: center;
+            font-family: $font_headings;
+            font-size: 18px;
+            font-weight: 500;
+            color: $color_text;
+
+            > img {
+                width: 38px;
+                height: 38px;
+                margin-right: 15px;
+                border-radius: 100%;
+            }
+
+            &:hover,
+            &:focus {
+                color: $color_brand;
+            }
+        }
+    }
+
+    .cyberpress-match-participant-thumbnail {
+        margin-bottom: 14px;
+
+        > a {
+            display: block;
+        }
+
+        .mpl-image {
+            position: relative;
+            display: block;
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            @include border-radius(5px);
+            @include skew-img(xs);
+
+            > img {
+                @include img-ofi();
+                @include skew-img-inverse(xs);
+            }
+        }
+    }
+
+    .cyberpress-match-participant-title {
+        margin-bottom: 0;
+    }
+
+    .cyberpress-flag-img {
+        width: 20px;
+        height: 16px;
+        vertical-align: baseline;
+        @include border-radius(2px);
+    }
+
+
+    .cyberpress-match-participant-vs {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+
+        @include media-breakpoint-up(sm) {
+            height: 150px;
+        }
+        @include media-breakpoint-down(xs) {
+            padding: 40px 0;
+        }
+
+        > a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cyberpress-match-participant-time-start {
+            margin-bottom: 10px;
+            color: $color_text_1;
+        }
+
+        .cyberpress-match-points {
+            margin-bottom: 0;
+        }
+    }
+
+
+    // info
+    .cyberpress-match-info {
+        padding-left: 0;
+        margin-top: 30px;
+        margin-bottom: -6px;
+        font-size: .875rem;
+        list-style: none;
+
+        > li {
+            display: block;
+
+            + li {
+                margin-top: 8px;
+            }
+
+            .icon {
+                display: inline-block;
+                width: 14px;
+                height: 14px;
+                margin-right: 10px;
+                stroke: $color_text_2;
+                vertical-align: -.15em;
+            }
+        }
+
+    }
+
+    .cyberpress-game-inline-link,
+    .cyberpress-tournament-inline-link {
+        display: block;
+        color: $color_text;
+
+        > img {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            margin-right: 10px;
+            object-fit: cover;
+            // stylelint-disable-next-line
+            font-family: "object-fit: cover";
+            @include border-radius(2px);
+            vertical-align: -.15em;
+        }
+
+        &:hover,
+        &:focus {
+            color: $color_brand;
+        }
+    }
+}
+
+// single match
+.single-match {
+    .cyberpress-match:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+}
+
+
+// tournament
+.cyberpress-tournament {
+    padding: 24px 30px;
+    background-color: $color_bg_2;
+    @include border-radius(5px);
+
+    .cyberpress-tournament-title {
+        margin-bottom: 23px;
+    }
+
+
+    // info
+    .cyberpress-tournament-info {
+        padding-left: 0;
+        margin-bottom: 0;
+        font-size: .875rem;
+        list-style: none;
+
+        > li {
+            display: block;
+
+            + li {
+                margin-top: 8px;
+            }
+
+            > .icon {
+                display: inline-block;
+                width: 14px;
+                height: 14px;
+                margin-right: 10px;
+                stroke: $color_text_2;
+                vertical-align: -.15em;
+            }
+        }
+    }
+
+    .cyberpress-game-inline-link,
+    .cyberpress-tournament-inline-link {
+        display: block;
+        color: $color_text;
+
+        > img {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            margin-right: 10px;
+            object-fit: cover;
+            // stylelint-disable-next-line
+            font-family: "object-fit: cover";
+            @include border-radius(2px);
+            vertical-align: -.15em;
+        }
+
+        &:hover,
+        &:focus {
+            color: $color_brand;
+        }
+    }
+}
+
+// single tournament
+.single-tournament {
+    .cyberpress-tournament:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+}
+
+
+// game
+.cyberpress-game {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+
+    @if not $skew {
+        background-color: $color_bg_2;
+        @include border-radius(3px);
+        transition: background-color .2s ease-in-out;
+
+        &:hover {
+            background-color: lighten($color_bg_2, 4);
+        }
+    }
+
+    @if $skew {
+        &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: $color_bg_2;
+            @include border-radius(3px);
+            transition: background-color .2s ease-in-out;
+            @include skew(sm);
+            z-index: -1;
+        }
+
+        &:hover::before {
+            background-color: lighten($color_bg_2, 4);
+        }
+    }
+
+
+    .cyberpress-game-thumbnail {
+        display: block;
+        @include create-col(auto);
+        margin-right: 20px;
+
+        > a {
+            display: block;
+        }
+
+        .mpl-image {
+            position: relative;
+            width: 36px;
+            height: 36px;
+            overflow: hidden;
+            background-color: transparent;
+            @include border-radius(2px);
+
+            > img {
+                @include img-ofi();
+            }
+        }
+    }
+
+    .cyberpress-game-title {
+        margin-bottom: 0;
+    }
+}
+
+
+// table
+.cyberpress-table {
+    &.cyberpress-player-team {
+        @include media-breakpoint-up(md) {
+            tr:first-child td {
+                border-top: 2px solid $color_bg_3;
+            }
+        }
+        @include media-breakpoint-down(sm) {
+            .cyberpress-table-item-game {
+                position: absolute;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                justify-content: center;
+                top: 0;
+                left: 88px;
+                width: auto;
+                min-height: 38px;
+
+                &::before {
+                    display: none;
+                }
+
+                > a {
+                    display: block;
+                    width: 100%;
+                }
+            }
+        }
+
+    }
+    &.cyberpress-team-players,
+    &.cyberpress-player-games,
+    &.cyberpress-player-team {
+        td {
+            vertical-align: middle;
+
+            > a {
+                color: $color_text;
+
+                &:hover,
+                &:focus {
+                    color: $color_brand;
+                }
+            }
+        }
+
+        .cyberpress-team-players-thumb,
+        .cyberpress-team-games-thumb,
+        .cyberpress-player-team-thumb {
+            width: 38px;
+            height: 38px;
+            border-radius: 100%;
+        }
+
+        @include media-breakpoint-up(md) {
+            .cyberpress-table-item-image {
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+            tr {
+                position: relative;
+                display: block;
+                padding: 30px;
+                background-color: $color_bg_2;
+                @include border-radius(5px);
+
+                + tr {
+                    margin-top: 30px;
+                }
+            }
+
+            td {
+                border-bottom: 0;
+            }
+
+            .cyberpress-table-item-image {
+                justify-content: flex-start;
+
+                &::before {
+                    display: none;
+                }
+            }
+
+            .cyberpress-table-item-nickname,
+            .cyberpress-table-item-game {
+                position: absolute;
+                align-items: center;
+                top: 0;
+                left: 88px;
+                width: auto;
+                height: 38px;
+
+                &::before {
+                    display: none;
+                }
+            }
+        }
+
+        .cyberpress-player-team-dates {
+            font-size: .875rem;
+        }
+    }
+
+    &.cyberpress-player-games {
+        @include media-breakpoint-down(sm) {
+            .cyberpress-table-item-statistics {
+                display: block;
+
+                &::before {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .cyberpress-table-item-small {
+        width: 68px;
+        min-width: 68px;
+
+        > a {
+            display: block;
+        }
+    }
+
+
+    // progress
+    .cyberpress-progress-total {
+        margin-bottom: 4px;
+        font-size: .625rem;
+        color: $color_text_1;
+    }
+
+    .cyberpress-progress {
+        display: flex;
+        width: 100%;
+        min-width: 150px;
+        height: 8px;
+        overflow: hidden;
+        background-color: $color_bg_3;
+        @include border-radius(8px);
+    }
+
+    .cyberpress-progress-labels {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 4px;
+        font-size: .625rem;
+    }
+}
+
+
+// twitch
+.cyberpress-twitch {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    @include border-radius(5px);
+
+    .cyberpress-twitch-player {
+        display: flex;
+
+        @include media-breakpoint-up(md) {
+            @include create-col(grow);
+        }
+        @include media-breakpoint-down(sm) {
+            @include create-col(1, 1);
+        }
+
+        > iframe {
+            width: 100%;
+            min-height: 400px;
+        }
+    }
+    .cyberpress-twitch-chat {
+        display: flex;
+
+        @include media-breakpoint-up(md) {
+            @include create-col(auto);
+        }
+        @include media-breakpoint-down(sm) {
+            @include create-col(1, 1);
+        }
+
+        > iframe {
+            width: 100%;
+            min-height: 400px;
+        }
+    }
+}
+
+
+// video
+.cyberpress-video {
+    position: relative;
+    display: flex;
+
+    > iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @include border-radius(5px);
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        padding-top: 56.25%;
+    }
+}

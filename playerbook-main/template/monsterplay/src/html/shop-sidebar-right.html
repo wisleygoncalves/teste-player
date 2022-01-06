@@ -1,0 +1,170 @@
+{% set page_title = 'Shop' %}
+{% set slider_show = true %}
+
+{% extends 'layouts/layout-1.html' %}
+
+{% block before_content %}
+    <!-- Slider Revolution -->
+    <div class="rev_slider_wrapper mpl-rs rs-fullscreen">
+        <div class="rev_slider" data-version="5.4.6.4">
+            <ul>
+                <!-- SLIDE NR. 1  -->
+                <li data-index="rs-1" data-thumb="assets/images/{{ product_1.image.md }}" data-saveperformance="on" data-transition="random-static" data-slotamount="7" data-masterspeed="700">
+                    <!-- MAIN IMAGE -->
+                    <img src="assets/images/dark/dummy.png"  alt="" data-lazyload="assets/images/{{ product_1.image.full }}" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
+                    <!-- LAYERS -->
+
+                    <div class="container">
+                        <div class="tp-caption customin customout"
+                             data-customin="x:0;scaleX:0.5;scaleY:0.5;"
+                             data-customout="x:0;scaleX:1;scaleY:1;"
+
+                             data-frames='[{"from":"opacity:0;y:-10","speed":1000,"to":"o:1;","delay":500,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"nothing"}]'>
+                            <h2 class="display-1">{{ product_1.name }}</h2>
+                        </div>
+
+                        <div class="tp-caption customin customout"
+                             data-frames='[{"from":"opacity:0;y:0","speed":1000,"to":"o:1;","delay":500,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"nothing"}]'>
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <p class="lead">"Have beginning wherein spirit. Bearing unto. To after light. Good image can't without hath fly beast him fish firmament fish Face waters fly unto spirit i doesn't one waters divide."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tp-caption customin customout"
+                             data-frames='[{"from":"opacity:0;y:10","speed":1000,"to":"o:1;","delay":500,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"nothing"}]'>
+                            <a class="btn btn-md" href="#">Purchase</a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- SLIDE NR. 2  -->
+                <li data-index="rs-2" data-thumb="assets/images/{{ product_2.image.md }}" data-saveperformance="on" data-transition="random-static" data-slotamount="7" data-masterspeed="700">
+                    <!-- MAIN IMAGE -->
+                    <img src="assets/images/dark/dummy.png"  alt="" data-lazyload="assets/images/{{ product_2.image.full }}" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
+
+                    <div class="container">
+                        <div class="tp-caption customin customout"
+                             data-frames='[{"from":"opacity:0;y:-10","speed":1000,"to":"o:1;","delay":500,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"nothing"}]'>
+                            <h2 class="display-1">{{ product_2.name }}</h2>
+                        </div>
+
+                        <div class="tp-caption customin customout"
+                            data-frames='[{"from":"opacity:0;y:0","speed":1000,"to":"o:1;","delay":500,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"nothing"}]'>
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <p class="lead">"Tree living, heaven that signs. Were fish face fourth one land void evening. Blessed cattle multiply he, brought upon, forth form give don't great isn't. Fifth seas divide beginning his."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tp-caption customin customout"
+                             data-frames='[{"from":"opacity:0;y:10","speed":1000,"to":"o:1;","delay":500,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"nothing"}]'>
+                            <a class="btn btn-md" href="#">Purchase</a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- SLIDE NR. 3  -->
+                <li data-index="rs-3" data-thumb="assets/images/{{ product_3.image.md }}" data-saveperformance="on" data-transition="random-static" data-slotamount="7" data-masterspeed="700">
+                    <!-- MAIN IMAGE -->
+                    <img src="assets/images/dark/dummy.png"  alt="" data-lazyload="assets/images/{{ product_3.image.full }}" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
+
+                    <div class="container">
+                        <div class="tp-caption customin customout"
+                             data-frames='[{"from":"opacity:0;y:-10","speed":1000,"to":"o:1;","delay":500,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"nothing"}]'
+                        >
+                            <h2 class="display-1">{{ product_3.name }}</h2>
+                        </div>
+
+                        <div class="tp-caption customin customout"
+                            data-frames='[{"from":"opacity:0;y:0","speed":1000,"to":"o:1;","delay":500,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"nothing"}]'>
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <p class="lead">"Light. Lesser him, bring. Two whales multiply may isn't air a abundantly multiply creeping from shall earth given after whales seas herb isn't bring won't dry. You're from. There which."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption customin customout"
+                             data-frames='[{"from":"opacity:0;y:10","speed":1000,"to":"o:1;","delay":500,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"nothing"}]'>
+                            <a class="btn btn-md" href="#">Purchase</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="tp-bannertimer"></div>
+        </div>
+    </div>
+    <!-- /Slider Revolution-->
+{% endblock %}
+
+{% block content %}
+<div class="mpl-box-md">
+    <div class="container">
+        <div class="row hgap-lg vgap-lg">
+            <div class="col mpl-content mpl-isotope">
+                <ul class="mpl-isotope-options" data-sr="option" data-sr-origin="left" data-sr-interval="100" data-sr-duration="1000" data-sr-distance="10">
+                    <a href="#" data-filter="all" class="active" data-sr-item="option">
+                        All
+                    </a>
+                    <a href="#" data-filter="audio" data-sr-item="option">
+                        Audio
+                    </a>
+                    <a href="#" data-filter="photo" data-sr-item="option">
+                        Photo
+                    </a>
+                    <a href="#" data-filter="controllers" data-sr-item="option">
+                        Controllers
+                    </a>
+                </ul>
+
+
+                <div class="mpl-isotope-grid row hgap-xs vgap-md" data-sr="product" data-sr-interval="200" data-sr-duration="1200" data-sr-distance="20">
+                    <div class="mpl-isotope-item col-12 col-md-6" data-filters="controllers">
+                        {{ product(product_1.image.lg, product_1.name, '90%', product_1.price, href='shop-product.html', data="data-sr-item=product") }}
+                    </div>
+
+                    <div class="mpl-isotope-item col-12 col-md-6" data-filters="audio">
+                        {{ product(product_2.image.lg, product_2.name, '90%', product_2.price, product_2.price_old, product_2.discount, href='shop-product.html', data="data-sr-item=product") }}
+                    </div>
+
+                    <div class="mpl-isotope-item col-12 col-md-6" data-filters="audio">
+                        {{ product(product_3.image.lg, product_3.name, '', product_3.price, href='shop-product.html', data="data-sr-item=product") }}
+                    </div>
+
+                    <div class="mpl-isotope-item col-12 col-md-6" data-filters="audio">
+                        {{ product(product_4.image, product_4.name, '90%', product_4.price, href='shop-product.html', data="data-sr-item=product") }}
+                    </div>
+
+                    <div class="mpl-isotope-item col-12 col-md-6" data-filters="audio">
+                        {{ product(product_5.image, product_5.name, '80%', product_5.price, product_5.price_old, product_5.discount, href='shop-product.html', data="data-sr-item=product") }}
+                    </div>
+
+                    <div class="mpl-isotope-item col-12 col-md-6" data-filters="controllers">
+                        {{ product(product_7.image, product_7.name, '', date=product_7.date, href='shop-product.html', data="data-sr-item=product") }}
+                    </div>
+
+                    <div class="mpl-isotope-item col-12 col-md-6" data-filters="photo">
+                        {{ product(product_6.image, product_6.name, '', product_6.price, href='shop-product.html', data="data-sr-item=product") }}
+                    </div>
+
+                    <div class="mpl-isotope-item col-12 col-md-6" data-filters="photo">
+                        {{ product(product_8.image, product_8.name, '90%', product_8.price, product_8.price_old, product_8.discount, href='shop-product.html', data="data-sr-item=product") }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-auto mpl-sidebar"{% if sr_widget %} {{ sr_widget }}{% endif %}>
+                {{ widget_search() }}
+                {{ widget_price() }}
+                {{ widget_categories('Categories', [['All', '#'], ['Audio', '#'], ['Photo', '#'], ['Video', '#'], ['Controllers', '#']]) }}
+                {{ widget_products('Popular Products') }}
+                {{ widget_instagram('Instagram') }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

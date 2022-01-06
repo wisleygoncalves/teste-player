@@ -1,0 +1,13 @@
+{% macro img(name="", width="", height="", class="", alt="") %}
+
+{% set img_path = "assets/images/" %}
+<span class="mpl-image{% if class %} {{ class }}{% endif %}">
+    {% if name | truncate(4) === 'http...' %}
+    <img src="{{ name }}" alt="{{ alt }}"{% if width %} width="{{ width }}"{% endif %}{% if height %} height="{{ height }}"{% endif %}>
+    {% elif name | truncate(6) === 'assets...' %}
+    <img src="{{ name }}" alt="{{ alt }}"{% if width %} width="{{ width }}"{% endif %}{% if height %} height="{{ height }}"{% endif %}>
+    {% else %}
+    <img src="{{ img_path }}{{ name }}" alt="{{ alt }}"{% if width %} width="{{ width }}"{% endif %}{% if height %} height="{{ height }}"{% endif %}>
+    {% endif %}
+</span>
+{% endmacro %}

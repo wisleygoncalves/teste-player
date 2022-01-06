@@ -1,0 +1,153 @@
+{% set page_title = 'User Messages' %}
+{% set header_image = bg_2 %}
+{% set header_small = true %}
+
+{% extends 'layouts/layout-1.html' %}
+
+{% block header %}
+<div class="mpl-banner-content mpl-box-lg">
+    <div class="container">
+        {% include "shared/user-header.html" %}
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container" data-sr="user-links" data-sr-interval="120" data-sr-duration="1000" data-sr-distance="20">
+    <ul class="mpl-user-navigation mpl-carousel" data-gap="0" data-slides="auto">
+        <li data-sr-item="user-links"><a href="user-activity.html">Activity</a></li>
+        <li data-sr-item="user-links"><a href="user-profile.html">Profile</a></li>
+        <li class="active" data-sr-item="user-links"><a href="user-messages.html">Messages<span class="badge badge-brand">8</span></a></li>
+        <li data-sr-item="user-links"><a href="user-settings.html">Settings</a></li>
+        <li data-sr-item="user-links"><a href="#">Groups</a></li>
+        <li data-sr-item="user-links"><a href="#">Forums</a></li>
+    </ul>
+</div>
+
+<div class="mpl-box-md">
+    <div class="container">
+        <div class="row hgap-lg vgap-lg">
+            <div class="col-lg mpl-content">
+                <ul class="nav nav-tabs nav-tabs-md" role="tablist">
+                    <li class="nav-item"><a href="#inbox" class="nav-link active" aria-controls="inbox" role="tab" data-toggle="tab" aria-selected="true">Inbox</a></li>
+                    <li class="nav-item"><a href="#compose" class="nav-link" aria-controls="compose" role="tab" data-toggle="tab" aria-selected="false">compose</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade show active" id="inbox">
+                        <form action="#" class="mb-30">
+                            <div class="row hgap-xs justify-content-center">
+                                <div class="col">
+                                    {{ form_control('message_search', 'text', '', 'message_search', 'Search Messages...') }}
+                                </div>
+                                <div class="col-auto">
+                                    <a href="#" class="btn btn-md btn-default">
+                                        {{ icon(['M21 21L16.65 16.65M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z']) }}
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+
+                        <ul class="mpl-user-messages" data-sr="user-message" data-sr-duration="1000" data-sr-distance="20">
+                            <li data-sr-item="user-message">
+                                <div class="media-wrap">
+                                    <a href="#" class="media media-filled">
+                                        <span class="media-head">
+                                            <span class="media-image">{{ img(user_1.img) }}</span>
+                                            <span>
+                                                <span class="media-title h5">{{ user_1.name }}<span class="badge badge-brand">3</span></span>
+                                                <span class="media-subtitle">10th January 2021 at 6:29 am</span>
+                                            </span>
+                                        </span>
+                                        <span class="media-body">
+                                            Vestibulum vulputate nunc faucibus mauris. Nulla vel tortor.
+                                        </span>
+                                    </a>
+                                    <a href="#" class="media-close">{{ icon(['M18 6L6 18M6 6L18 18']) }}</a>
+                                </div>
+                            </li>
+
+                            <li data-sr-item="user-message">
+                                <div class="media-wrap">
+                                    <a href="#" class="media media-filled">
+                                        <span class="media-head">
+                                            <span class="media-image">{{ img(user_2.img) }}</span>
+                                            <span>
+                                                <span class="media-title h5">{{ user_2.name }}</span>
+                                                <span class="media-subtitle">9th January 2021 at 11:57 pm</span>
+                                            </span>
+                                        </span>
+                                        <span class="media-body">
+                                            Quisque sagittis neque. Vestibulum laoreet. Nullam cursus, odio.
+                                        </span>
+                                    </a>
+                                    <a href="#" class="media-close">{{ icon(['M18 6L6 18M6 6L18 18']) }}</a>
+                                </div>
+                            </li>
+
+                            <li data-sr-item="user-message">
+                                <div class="media-wrap">
+                                    <a href="#" class="media media-filled">
+                                        <span class="media-head">
+                                            <span class="media-image">{{ img(user_3.img) }}</span>
+                                            <span>
+                                                <span class="media-title h5">{{ user_3.name }}</span>
+                                                <span class="media-subtitle">9th January 2021 at 11:50 pm</span>
+                                            </span>
+                                        </span>
+                                        <span class="media-body">
+                                            Aliquam et tellus. Nullam sed nisl. Nullam lobortis dui at.
+                                        </span>
+                                    </a>
+                                    <a href="#" class="media-close">{{ icon(['M18 6L6 18M6 6L18 18']) }}</a>
+                                </div>
+                            </li>
+
+                            <li data-sr-item="user-message">
+                                <div class="media-wrap">
+                                    <a href="#" class="media media-filled">
+                                        <span class="media-head">
+                                            <span class="media-image">{{ img(user_4.img) }}</span>
+                                            <span>
+                                                <span class="media-title h5">{{ user_4.name }}</span>
+                                                <span class="media-subtitle">8th January 2021 at 8:50 am</span>
+                                            </span>
+                                        </span>
+                                        <span class="media-body">
+                                            :)
+                                        </span>
+                                    </a>
+                                    <a href="#" class="media-close">{{ icon(['M18 6L6 18M6 6L18 18']) }}</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="compose">
+                        <form action="#" method="POST" role="form" class="mpl-form-ajax" data-toggle="validator">
+                            <div class="row hgap-sm vgap-sm">
+                                <div class="col-12 col-sm-6">
+                                    {{ form_control('message_send', 'text', '', 'message_send', 'Send To') }}
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    {{ form_control('message_subject', 'text', '', 'message_subject', 'Subject') }}
+                                </div>
+                                <div class="col-12">
+                                    {{ form_textarea('message_text', '', 'message_text', 'Message') }}
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-md">Send</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-auto-lg mpl-sidebar"{% if sr_widget %} {{ sr_widget }}{% endif %}>
+                {{ widget_about('About', ["Ecce dabo Pinkman Isai OK? Sicut locutus est tibi, et datus est, et hic sine Semper consequat volumus ... et ille in urbe ista licet? Et infernus, ubi tu non Virginiae ornare vel ipsum. Ut enim Albuquerque et ille eum iure hic, et ego ducam te ad iustitiam."]) }}
+                {{ widget_location('Location') }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

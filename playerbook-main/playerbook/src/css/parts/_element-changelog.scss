@@ -1,0 +1,144 @@
+.mpl-changelog {
+    position: relative;
+    padding-bottom: 20px;
+    font-family: $font_headings;
+
+    + .mpl-changelog {
+        margin-top: 20px;
+    }
+
+    > div {
+        display: flex;
+        align-items: center;
+    }
+
+    @include media-breakpoint-up(sm) {
+        &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 50px;
+            bottom: 0;
+            left: 28px;
+            width: 3px;
+            background-color: $color_bg_2;
+            border-radius: 3px;
+        }
+    }
+}
+
+.mpl-changelog-version {
+    position: relative;
+    padding: 2px 12px 3px;
+    margin-right: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: $color_text_1;
+    letter-spacing: .01em;
+
+    @if not $skew {
+        background-color: $color_bg_3;
+        @include border-radius(3px);
+    }
+    @if $skew {
+        &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: $color_bg_3;
+            @include border-radius(3px);
+            @include skew(xs);
+            z-index: -1;
+        }
+    }
+}
+
+.mpl-changelog-date {
+    margin-bottom: 0;
+}
+
+.mpl-changelog-more {
+    margin-top: 20px;
+    margin-bottom: 0;
+    list-style: none;
+
+    @include media-breakpoint-up(sm) {
+        padding-left: 79px;
+    }
+    @include media-breakpoint-up(xs) {
+        padding-left: 20px;
+    }
+
+    li + li {
+        margin-top: 12px;
+    }
+
+    .mpl-changelog {
+        display: flex;
+        align-items: flex-start;
+        padding-bottom: 0;
+
+
+        &::before {
+            display: none;
+        }
+    }
+}
+
+.mpl-changelog-badge {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    min-width: 54px;
+    padding: 2px 12px 3px;
+    margin-right: 14px;
+    overflow: hidden;
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .01em;
+    @include border-radius(3px);
+
+    @if not $skew {
+        background-color: $color_bg_3;
+    }
+    @if $skew {
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 0;
+            bottom: 0;
+        }
+        &::before {
+            right: 2px;
+            left: 2px;
+            background-color: $color_bg_3;
+            @include border-radius(3px);
+            @include skew(sm);
+            z-index: -1;
+        }
+        &::after {
+            left: -2px;
+            width: 5px;
+            background-color: $color_brand;
+            transform: rotate(6deg);
+        }
+    }
+}
+
+.mpl-changelog-info {
+    margin-top: -1px;
+    font-size: 1rem;
+    color: $color_text;
+}
+
+@each $name, $color in $color_alert {
+    .mpl-changelog-#{$name} > .mpl-changelog-badge::after {
+        background-color: $color;
+    }
+}

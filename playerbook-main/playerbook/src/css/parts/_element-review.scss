@@ -1,0 +1,46 @@
+.mpl-review-content {
+    position: relative;
+    padding: 24px 30px;
+    background-color: $color_bg_2;
+    @include border-radius(5px);
+
+    &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 100%;
+        left: 48px;
+        width: 0;
+        height: 0;
+        border-color: $color_bg_2 transparent;
+        border-style: solid;
+        border-width: 6px 7px 0 7px;
+    }
+}
+
+.mpl-review-text {
+    p:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+.mpl-review-name {
+    margin-top: 20px;
+    font-size: .875rem;
+    color: $color_text_2;
+}
+
+.mpl-review-avatar {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 30px;
+    overflow: hidden;
+    background-color: $color_bg;
+    border-radius: 100%;
+
+    > img {
+        @include img-ofi();
+    }
+}

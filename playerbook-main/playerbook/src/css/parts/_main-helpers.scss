@@ -1,0 +1,248 @@
+// stylelint-disable declaration-no-important
+
+/*
+ * Text Color Helper
+ */
+.text-1 {
+    color: $color_text_1;
+}
+.text-2 {
+    color: $color_text_2;
+}
+.text-default {
+    color: $color_text;
+}
+.text-brand {
+    color: $color_brand !important;
+}
+@each $name, $color in $color_alert {
+    .text-#{$name} {
+        color: $color !important;
+    }
+}
+
+
+/*
+ * Bg Color Helper
+ */
+.bg-1 {
+    background-color: $color_bg_1;
+}
+.bg-2 {
+    background-color: $color_bg_2;
+}
+.bg-3 {
+    background-color: $color_bg_3;
+}
+.bg-brand {
+    background-color: $color_brand !important;
+}
+.bg-light {
+    background-color: $color_bg_light !important;
+}
+@each $name, $color in $color_alert {
+    .bg-#{$name} {
+        background-color: $color !important;
+    }
+}
+
+
+/*
+ * Cursor Pointer Helper
+ */
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+
+/*
+ * Text Transform Helper
+ */
+.text-uppercase {
+    text-transform: uppercase !important;
+}
+
+
+/*
+ * Font Weight Helper
+ */
+$helper-fw: 100, 200, 300, 400, 500, 600, 700, 800, 900 !default;
+@each $item in $helper-fw {
+    .fw-#{$item} {
+        font-weight: #{$item} !important;
+    }
+}
+
+
+/*
+ * Font Size Helper
+ */
+$helper-fs: 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100 !default;
+@each $item in $helper-fs {
+    .fs-#{$item} {
+        font-size: #{$item}px !important;
+    }
+}
+
+
+/*
+ * Line Height Helper
+ */
+$helper-lh: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50 !default;
+@each $item in $helper-lh {
+    .lh-#{$item} {
+        line-height: #{$item}px !important;
+    }
+}
+
+
+/*
+ * Text Ellipsis Helper
+ */
+.text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/*
+ * Overflow Helper
+ */
+.of-a {
+    overflow: auto !important;
+}
+.of-h {
+    overflow: hidden !important;
+}
+
+
+/*
+ * Paddings Helper
+ */
+$helper-p: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 120, 140, 160 !default;
+@each $item in $helper-p {
+    .p-#{$item} {
+        padding: #{$item}px !important;
+    }
+}
+@each $item in $helper-p {
+    .pt-#{$item} {
+        padding-top: #{$item}px !important;
+    }
+}
+@each $item in $helper-p {
+    .pl-#{$item} {
+        padding-left: #{$item}px !important;
+    }
+}
+@each $item in $helper-p {
+    .pr-#{$item} {
+        padding-right: #{$item}px !important;
+    }
+}
+@each $item in $helper-p {
+    .pb-#{$item} {
+        padding-bottom: #{$item}px !important;
+    }
+}
+
+
+/*
+ * Margins Helper
+ */
+$helper-m: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 35, 40, 50, 60, 70, 80, 90, 100, 120, 140, 160 !default;
+@each $item in $helper-m {
+    .m-#{$item} {
+        margin: #{$item}px !important;
+    }
+}
+@each $item in $helper-m {
+    .mt-#{$item} {
+        margin-top: #{$item}px !important;
+    }
+}
+@each $item in $helper-m {
+    .ml-#{$item} {
+        margin-left: #{$item}px !important;
+    }
+}
+@each $item in $helper-m {
+    .mr-#{$item} {
+        margin-right: #{$item}px !important;
+    }
+}
+@each $item in $helper-m {
+    .mb-#{$item} {
+        margin-bottom: #{$item}px !important;
+    }
+}
+
+
+/*
+ * Negative Margins Helper
+ */
+@each $item in $helper-m {
+    .mn-#{$item} {
+        margin: #{$item * -1}px !important;
+    }
+}
+@each $item in $helper-m {
+    .mnt-#{$item} {
+        margin-top: #{$item * -1}px !important;
+    }
+}
+@each $item in $helper-m {
+    .mnl-#{$item} {
+        margin-left: #{$item * -1}px !important;
+    }
+}
+@each $item in $helper-m {
+    .mnr-#{$item} {
+        margin-right: #{$item * -1}px !important;
+    }
+}
+@each $item in $helper-m {
+    .mnb-#{$item} {
+        margin-bottom: #{$item * -1}px !important;
+    }
+}
+
+
+/*
+ * Opacity
+ */
+$helper-op: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 !default;
+@each $item in $helper-op {
+    .op-#{$item} {
+        opacity: #{$item / 10} !important;
+    }
+}
+
+
+/*
+ * Responsive embeds
+ */
+.responsive-embed {
+    position: relative;
+    display: block;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    clear: both;
+
+    &.responsive-embed-16x9 {
+        padding-bottom: 56.25%;
+    }
+    &.responsive-embed-4x3 {
+        padding-bottom: 75%;
+    }
+
+    > .embed-item,
+    > iframe,
+    > embed,
+    > object,
+    > img {
+        @include img-ofi();
+    }
+}

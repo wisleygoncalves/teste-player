@@ -1,0 +1,189 @@
+{% macro submenu(nav) -%}
+    {% for file, item in nav %}
+        {%- if item.sub -%}
+        <li class="mpl-dropdown{{ ' active' if isActiveMenuItem(file, item, filename) }}">
+            <a href="{{ file | safe }}" class="mpl-nav-link" role="button">
+                <span class="mpl-nav-link-name">
+                    {{ item.name | safe -}}
+                    {%- if item.badge %}<span class="badge badge-brand">{{ item.badge | safe }}</span>{% endif %}
+                </span>
+            </a>
+            <div class="mpl-dropdown-menu">
+                {%- if item.mega -%}
+                    {{- megamenu(item.sub) -}}
+                {% else %}
+                <ul class="mpl-navbar-nav">
+                    {{- submenu(item.sub) -}}
+                </ul>
+                {%- endif -%}
+            </div>
+        </li>
+        {% else %}
+        <li {% if isActiveMenuItem(file, item, filename) %} class="{{ 'active' if isActiveMenuItem(file, item, filename) }}"{% endif %}>
+            <a href="{{ file | safe }}" class="mpl-nav-link"{{ ' target="' + item.target + '"' if item.target }}>
+                <span class="mpl-nav-link-name">
+                    {{ item.name | safe -}}
+                    {%- if item.badge %}<span class="badge badge-brand">{{ item.badge | safe }}</span>{% endif %}
+                </span>
+            </a>
+        </li>
+        {% endif %}
+    {%- endfor %}
+{%- endmacro %}
+
+{% macro megamenu(nav) %}
+    <div class="mpl-navbar-nav-mega">
+    {% for file, item in nav %}
+        <ul role="menu" class="mpl-navbar-nav">
+            {% if item.sub %}
+                {{ submenu(item.sub) }}
+            {% endif %}
+        </ul>
+    {% endfor %}
+    </div>
+{% endmacro %}
+
+
+<!-- Navbar -->
+<nav class="mpl-navbar-top mpl-navbar{{ ' navbar-small' if nav_small }}">
+    <div class="mpl-navbar-mobile-overlay"></div>
+
+    <div class="container mpl-navbar-container">
+        <a href="#" class="mpl-navbar-toggle"></a>
+        <div class="mpl-navbar-brand">
+            {% if logo %}
+                <a href="/">
+                    <img src="{{ logo }}" alt="">
+                </a>
+            {% endif %}
+        </div>
+        <div class="mpl-navbar-content">
+            {% if navigation %}
+                <ul class="mpl-navbar-nav">
+                    {{ submenu(navigation) }}
+                </ul>
+            {% endif %}
+
+            {% if navigation_right or nav_search or nav_cart or nav_login or nav_social or nav_social_game %}
+            <ul class="mpl-navbar-nav mpl-navbar-right">
+                {% if navigation_right %}
+                    {{ submenu(navigation_right) }}
+                {% endif %}
+
+                {% if nav_social %}
+                <li>
+                    <a href="#" class="mpl-nav-link">
+                        {{ icon_fill(['M21.533 7.11163C21.5482 7.32482 21.5482 7.53805 21.5482 7.75124C21.5482 14.2537 16.599 21.7461 7.5533 21.7461C4.76648 21.7461 2.17767 20.939 0 19.538C0.395953 19.5837 0.776625 19.5989 1.18781 19.5989C3.48727 19.5989 5.60405 18.8223 7.29441 17.4974C5.13197 17.4517 3.31978 16.0355 2.69541 14.0863C3 14.1319 3.30455 14.1624 3.62437 14.1624C4.06598 14.1624 4.50764 14.1014 4.91878 13.9949C2.66498 13.538 0.974578 11.5583 0.974578 9.16747V9.10658C1.62937 9.47206 2.39086 9.70049 3.19791 9.73091C1.87303 8.84764 1.00505 7.34005 1.00505 5.63446C1.00505 4.72077 1.24866 3.88321 1.67508 3.15224C4.09641 6.137 7.73602 8.08621 11.8172 8.29944C11.7411 7.93396 11.6954 7.55328 11.6954 7.17257C11.6954 4.46188 13.8883 2.25378 16.6141 2.25378C18.0304 2.25378 19.3095 2.84769 20.208 3.80708C21.3197 3.59389 22.3857 3.18271 23.3299 2.61927C22.9643 3.76142 22.1877 4.72082 21.1674 5.32991C22.1573 5.22336 23.1167 4.94919 23.9999 4.56852C23.33 5.5431 22.4924 6.41108 21.533 7.11163Z']) }}
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="mpl-nav-link">
+                        {{ icon_fill(['M23.625 12C23.625 5.57812 18.4219 0.375 12 0.375C5.57812 0.375 0.375 5.57812 0.375 12C0.375 17.8022 4.62609 22.6116 10.1836 23.4844V15.3605H7.23047V12H10.1836V9.43875C10.1836 6.52547 11.918 4.91625 14.5744 4.91625C15.8466 4.91625 17.1769 5.14313 17.1769 5.14313V8.0025H15.7106C14.2669 8.0025 13.8164 8.89875 13.8164 9.81797V12H17.0405L16.5248 15.3605H13.8164V23.4844C19.3739 22.6116 23.625 17.8022 23.625 12Z']) }}
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="mpl-nav-link">
+                        {{ icon_fill(['M23 12.2719C23 18.9047 18.433 23.625 11.6885 23.625C5.22213 23.625 0 18.4312 0 12C0 5.56875 5.22213 0.375 11.6885 0.375C14.8369 0.375 17.4857 1.52344 19.5264 3.41719L16.3451 6.45938C12.1834 2.46563 4.44447 5.46563 4.44447 12C4.44447 16.0547 7.70123 19.3406 11.6885 19.3406C16.3168 19.3406 18.0512 16.0406 18.3246 14.3297H11.6885V10.3312H22.8162C22.9246 10.9266 23 11.4984 23 12.2719Z']) }}
+                    </a>
+                </li>
+                {% endif %}
+
+                {% if nav_social_game %}
+                <li>
+                    <a href="#" class="mpl-nav-link">
+                        {{ icon_fill(['M22.9023 6.37853C22.6406 5.37072 21.8695 4.577 20.8904 4.30764C19.1159 3.81818 12 3.81818 12 3.81818C12 3.81818 4.88415 3.81818 3.10953 4.30764C2.13048 4.57704 1.3594 5.37072 1.09769 6.37853C0.622192 8.20525 0.622192 12.0165 0.622192 12.0165C0.622192 12.0165 0.622192 15.8278 1.09769 17.6545C1.3594 18.6623 2.13048 19.423 3.10953 19.6924C4.88415 20.1818 12 20.1818 12 20.1818C12 20.1818 19.1158 20.1818 20.8904 19.6924C21.8695 19.423 22.6406 18.6623 22.9023 17.6545C23.3778 15.8278 23.3778 12.0165 23.3778 12.0165C23.3778 12.0165 23.3778 8.20525 22.9023 6.37853V6.37853ZM9.67269 15.4769V8.55617L15.6201 12.0166L9.67269 15.4769V15.4769Z']) }}
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="mpl-nav-link">
+                        {{ icon_fill(['M18.3361 4.85016H16.5253V9.99234H18.3361V4.85016ZM13.3594 4.82812H11.5486V9.97266H13.3594V4.82812ZM5.6639 0L1.13953 4.28531V19.7147H6.56906V24L11.0939 19.7147H14.715L22.8605 12V0H5.6639ZM21.0502 11.1445L17.4305 14.572H13.8098L10.6411 17.572V14.572H6.56906V1.71469H21.0502V11.1445Z']) }}
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="mpl-nav-link">
+                        {{ icon_fill(['M24 12C24 18.629 18.6194 24 11.9806 24C6.47419 24 1.83871 20.3081 0.416129 15.271L5.02258 17.1726C5.33226 18.7258 6.71129 19.9016 8.35645 19.9016C10.2532 19.9016 11.8355 18.3339 11.7532 16.3452L15.8419 13.4323C18.3629 13.4952 20.4774 11.4532 20.4774 8.90806C20.4774 6.41129 18.4452 4.38387 15.9435 4.38387C13.4419 4.38387 11.4097 6.41613 11.4097 8.90806V8.96613L8.54516 13.1129C7.79516 13.0694 7.05968 13.2774 6.44032 13.6984L0 11.0371C0.493548 4.85806 5.66613 0 11.9806 0C18.6194 0 24 5.37097 24 12ZM7.53387 18.2081L6.05806 17.5984C6.32926 18.1615 6.79752 18.6057 7.37419 18.8468C8.67581 19.3887 10.171 18.7694 10.7129 17.4726C10.9742 16.8435 10.979 16.1516 10.7177 15.5226C10.4565 14.8935 9.96774 14.4 9.33871 14.1387C8.71452 13.8774 8.04677 13.8871 7.45645 14.1097L8.98065 14.7387C9.93871 15.1355 10.3935 16.2339 9.99193 17.1919C9.59032 18.1548 8.49193 18.6048 7.53387 18.2081ZM15.9435 11.9226C14.279 11.9226 12.9242 10.5677 12.9242 8.90806C12.9242 7.24839 14.279 5.89355 15.9435 5.89355C17.6081 5.89355 18.9629 7.24839 18.9629 8.90806C18.9629 10.5677 17.6129 11.9226 15.9435 11.9226ZM15.9484 11.1677C17.2016 11.1677 18.2177 10.1516 18.2177 8.90323C18.2177 7.65 17.2016 6.63871 15.9484 6.63871C14.6952 6.63871 13.679 7.65484 13.679 8.90323C13.6839 10.1516 14.7 11.1677 15.9484 11.1677Z']) }}
+                    </a>
+                </li>
+                {% endif %}
+
+                {% if nav_search %}
+                    <li>
+                        <a class="mpl-nav-link" href="#" data-fancybox data-src="#popup-search" data-touch="false" data-small-btn="false" data-toolbar="false" data-close-existing="true" data-auto-focus="true">
+                            {{ icon(["M21 21L16.65 16.65M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"]) }}
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% if nav_cart %}
+                    <li class="mpl-dropdown mpl-dropdown-cart">
+                        <a class="mpl-nav-link" role="button" href="#">
+                            {{ icon(["M1 1H5L7.68 14.39M7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6L7.68 14.39ZM10 21C10 21.5523 9.55228 22 9 22C8.44772 22 8 21.5523 8 21C8 20.4477 8.44772 20 9 20C9.55228 20 10 20.4477 10 21ZM21 21C21 21.5523 20.5523 22 20 22C19.4477 22 19 21.5523 19 21C19 20.4477 19.4477 20 20 20C20.5523 20 21 20.4477 21 21Z"]) }}
+                        </a>
+                        <div class="mpl-dropdown-menu">
+                            <div class="row justify-content-between vgap">
+                                <div class="col-12">
+                                    <table class="table mpl-table-shop mpl-table-shop-sm mpl-table-responsive mb-0">
+                                        <tbody>
+                                            {{ product_horizontal_cart_sm(product_1.image.sm, product_1.name, product_1.price, href='shop-product.html') }}
+                                            {{ product_horizontal_cart_sm(product_2.image.sm, product_2.name, product_2.price, href='shop-product.html') }}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-between h5 mb-0">
+                                        <span>Subtotal:</span>
+                                        <span>$204.99</span>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row hgap-xs vgap-xs">
+                                        <div class="col">
+                                            <a href="{% if main_style_file === 'monsterplay' %}cart.html{% else %}light-cart.html{% endif %}" class="btn btn-block btn-default">View cart</a>
+                                        </div>
+                                        <div class="col">
+                                            <a href="{% if main_style_file === 'monsterplay' %}checkout.html{% else %}light-checkout.html{% endif %}" class="btn btn-block btn-default">Checkout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                {% endif %}
+
+                {% if nav_login %}
+                    <li class="mpl-dropdown mpl-dropdown-user">
+                        <a href="#" class="mpl-nav-link" role="button">
+                            {{ icon(['M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z']) }}
+                        </a>
+                        <div class="mpl-dropdown-menu">
+                            <form class="mpl-navbar-login-form" action="#" method="post">
+                                <div class="row hgap-sm vgap-sm align-items-center">
+                                    <div class="col-12">
+                                        {{ form_control('username', 'text', 'Usuário:', 'nav_username', 'Usuário', class="form-control-sm") }}
+                                    </div>
+                                    <div class="col-12">
+                                        {{ form_control('password', 'text', 'Senha:', 'nav_password', 'Senha', class="form-control-sm") }}
+                                    </div>
+                                    <div class="col">
+                                        {{ form_checkbox('rememberme', 'Lembrar-me', 'nav_rememberme') }}
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="#" class="small">Esqueci a Senha</a>
+                                    </div>
+                                    <div class="col-12">
+                                        <a href="sign-in.html" class="btn btn-block btn-default">Entrar</a>
+                                    </div>
+                                    <div class="col-12 small">
+                                        Novo por aqui? <a href="sign-up.html">Cadastre-se</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                {% endif %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+<!-- /Navbar -->

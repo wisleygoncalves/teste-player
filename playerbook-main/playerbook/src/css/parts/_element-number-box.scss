@@ -1,0 +1,30 @@
+.mpl-counter-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 27px 30px;
+    @if not $skew {
+        background-color: $color_bg_2;
+        @include border-radius(5px);
+    }
+    @if $skew {
+        &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: $color_bg_2;
+            @include border-radius(5px);
+            @include skew(xs);
+            z-index: -1;
+        }
+    }
+}
+
+.mpl-counter-box-number {
+    margin-right: 30px;
+    margin-bottom: 0;
+}

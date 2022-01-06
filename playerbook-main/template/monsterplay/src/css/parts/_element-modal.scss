@@ -1,0 +1,59 @@
+.modal-content {
+    background-color: $color_bg_2;
+    border: 0;
+    @include border-radius(6px);
+}
+
+.modal-header {
+    padding: 1.5625rem 1.875rem;
+    border-color: $color_bg_3;
+
+    .close {
+        padding: 1.9375rem 1.875rem;
+        margin: -1.5625rem -1.875rem -1.5625rem 0;
+        color: $color_text_2;
+        opacity: 1;
+        transition: color .15s;
+
+        .icon {
+            width: 14px;
+            height: 14px;
+        }
+
+        &:not(:disabled):not(.disabled):hover {
+            color: $color_text;
+            opacity: 1;
+        }
+    }
+}
+
+.modal-body {
+    padding: 1.5625rem 1.875rem;
+    color: $color_text_1;
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.modal-footer {
+    padding: 1.875rem;
+    border-color: $color_bg_3;
+
+    > .btn:not(:first-child) {
+        margin-left: 5px;
+    }
+    > .btn:not(:last-child) {
+        margin-right: 5px;
+    }
+}
+
+
+.modal-backdrop {
+    background-color: rgba($color_bg, .9);
+
+    &.show {
+        opacity: 1;
+    }
+}
+

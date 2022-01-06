@@ -1,0 +1,476 @@
+{% from "macros/icon-svg.html" import icon %}
+{% from "macros/img.html" import img %}
+{% include "data/global.json" %}
+{% set sr_widget = true %}
+
+{% set product_1 = {
+    "name": "Gamepad MPL",
+    "price": "$120.00",
+    "image": {
+        "sm": "dark/product-260x200.jpg"
+    }
+} %}
+{% set product_2 = {
+    "name": "Headphones MPL",
+    "price": "$84.99",
+    "price_old": "$114.99",
+    "discount": "-30%",
+    "image": {
+        "sm": "dark/product-2-260x200.jpg"
+    }
+} %}
+{% set product_3 = {
+    "name": "Headphones MPS",
+    "price": "$74.99",
+    "image": {
+        "sm": "dark/product-3-260x200.jpg"
+    }
+} %}
+{% set blog_1 = {
+    "name": "Notícias",
+    "image": "assets/images/dark/blog-1-160x140.jpg",
+    "tags": [["Black Mesa", "#"], ["First try", "#"], ["First boss problem", "#"]],
+    "date": "January 18, 2021",
+    "rating": "9.1",
+    "href": "blog-post-gallery.html"
+} %}
+{% set blog_2 = {
+    "name": "Eventos",
+    "image": "assets/images/dark/blog-2-160x140.jpg",
+    "tags": [["Nioh 2", "#"], ["Coming soon", "#"], ["First review", "#"], ["Sale date", "#"]],
+    "date": "January 17, 2021",
+    "rating": "90",
+    "href": "blog-post-carousel.html"
+} %}
+{% set blog_3 = {
+    "name": "Cronograma",
+    "image": "assets/images/dark/blog-3-160x140.jpg",
+    "tags": [["Death Stranding", "#"], ["Game", "#"], ["Review", "#"]],
+    "date": "January 17, 2021",
+    "rating": "3.8",
+    "href": "blog-post-simple.html"
+} %}
+
+
+{% macro widget_search(title="") %}
+<div class="mpl-widget mpl-widget-search">
+    {% if title %}
+    <h4 class="mpl-widget-title"{% if sr_widget %} data-sr-item="widget"{% endif %}>{{ title }}</h4>
+    {% endif %}
+    <div{% if sr_widget %} data-sr-item="widget"{% endif %}>
+        <form action="#">
+            <input type="text" class="form-control" name="s" placeholder="Enter a search term">
+            <div class="form-control-bg"></div>
+        </form>
+    </div>
+</div>
+{% endmacro %}
+
+
+{% macro widget_price(title="") %}
+<div class="mpl-widget mpl-widget-price">
+    {% if title %}
+    <h4 class="mpl-widget-title"{% if sr_widget %} data-sr-item="widget"{% endif %}>{{ title }}</h4>
+    {% endif %}
+    <input class="mpl-rangeslider" type="text" data-min="0" data-max="150" data-from="25" data-to="125" data-type="double" data-prefix="$" value="" />
+</div>
+{% endmacro %}
+
+
+{% macro widget_categories(title="", lists="") %}
+<div class="mpl-widget mpl-widget-categories">
+    {% if title %}
+    <h4 class="mpl-widget-title"{% if sr_widget %} data-sr-item="widget"{% endif %}>{{ title }}</h4>
+    {% endif %}
+    <ul class="list-unstyled"{% if sr_widget %} data-sr-item="widget"{% endif %}>
+        {% for list, href in lists %}
+        <li><a href="{{ href }}">{{ list }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endmacro %}
+
+{% macro widget_categories_badge(title="", lists="") %}
+<div class="mpl-widget mpl-widget-categories">
+    {% if title %}
+    <h4 class="mpl-widget-title"{% if sr_widget %} data-sr-item="widget"{% endif %}>{{ title }}</h4>
+    {% endif %}
+    <ul class="list-unstyled"{% if sr_widget %} data-sr-item="widget"{% endif %}>
+        {% for list, badge, href in lists %}
+        <li><a href="{{ href }}">{{ list }}<span class="badge">{{ badge }}</span></a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endmacro %}
+
+
+{% macro widget_product(image="", title="", price="", price_old="", date="", heading="h5", href="#", class="") %}
+<a href="{{ href }}" class="mpl-product-widget mpl-product-item{% if class %} {{ class }}{% endif %}">
+    <span class="mpl-product-image">
+        {% if image | truncate(4) === 'http...' %}
+            <div class="mpl-image">
+                <img src="{{ image }}" alt="">
+            </div>
+        {% else %}
+            {{ img(image) }}
+        {% endif %}
+    </span>
+    <span class="mpl-product-content">
+        <span class="mpl-product-title text-truncate {{ heading }}">{{ title }}</span>
+        {% if date %}
+        <span class="mpl-product-date">
+            {{ icon(['M16 2V6M8 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z']) }}{{ date }}
+        </span>
+        {% else %}
+        <span class="mpl-price{{ ' mpl-price-success' if price == 'free!' }}{{ ' mpl-price-danger' if price == 'never' }}">
+            {{ price }}
+            {% if price_old %}<span>{{ price_old }}</span>{% endif %}
+        </span>
+        {% endif %}
+    </span>
+</a>
+{% endmacro %}
+
+{% macro widget_products(title="", products="") %}
+<div class="mpl-widget mpl-widget-products">
+    {% if title %}
+    <h4 class="mpl-widget-title"{% if sr_widget %} data-sr-item="widget"{% endif %}>{{ title }}</h4>
+    {% endif %}
+    <ul class="list-unstyled"{% if sr_widget %} data-sr-item="widget"{% endif %}>
+        {% if products %}
+            {% for product in products %}
+            <li>
+                {{ widget_product(product.image, product.name, product.price, href='shop-product.html') }}
+            </li>
+            {% endfor %}
+        {% else %}
+        <li>
+            {{ widget_product(product_1.image.sm, product_1.name, product_1.price, href='shop-product.html') }}
+        </li>
+        <li>
+            {{ widget_product(product_2.image.sm, product_2.name, product_2.price, product_2.price_old, href='shop-product.html') }}
+        </li>
+        <li>
+            {{ widget_product(product_3.image.sm, product_3.name, product_3.price, href='shop-product.html') }}
+        </li>
+        {% endif %}
+    </ul>
+</div>
+{% endmacro %}
+
+
+{% macro widget_post(image="", title="", tags="", date="", texts="", heading="h5", href="#") %}
+<div class="mpl-widget-post mpl-post-item">
+    {% if image %}
+    <a href="{{ href }}" class="mpl-post-image">
+        {% if image | truncate(4) === 'http...' %}
+            <div class="mpl-image">
+                <img src="{{ image }}" alt="">
+            </div>
+        {% else %}
+            {{ img(image) }}
+        {% endif %}
+    </a>
+    {% endif %}
+    {% if image %}<div class="mpl-post-content">{% endif %}
+        <a href="{{ href }}" class="mpl-post-title {{ heading }}">{{ title }}</a>
+        <div class="mpl-post-meta">
+            {% if date %}
+            <div class="mpl-post-date">
+                <span>
+                    {{ icon(['M16 2V6M8 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z']) }}
+                </span>
+                {{ date }}
+            </div>
+            {% endif %}
+            {% if tags %}
+            <div class="mpl-post-tags">
+                <span>
+                    {{ icon(['M21.3933 13.9061L13.9135 21.3879C13.7197 21.582 13.4896 21.7359 13.2363 21.8409C12.983 21.9459 12.7115 22 12.4373 22C12.1631 22 11.8916 21.9459 11.6383 21.8409C11.3851 21.7359 11.155 21.582 10.9612 21.3879L2 12.4348V2H12.4321L21.3933 10.9635C21.7819 11.3545 22 11.8835 22 12.4348C22 12.9862 21.7819 13.5151 21.3933 13.9061V13.9061Z', 'M7.00002 7H6.90002']) }}
+                </span>
+                <ul class="list-unstyled">
+                    {% for tag, tag_href in tags %}
+                    <li>
+                        <a href="{{ tag_href }}">{{ tag }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+        {% if texts %}
+        <div class="mpl-post-description">
+            {% for text in texts %}
+            <p>{{ text }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+    {% if image %}</div>{% endif %}
+</div>
+{% endmacro %}
+
+{% macro widget_posts(title="", posts="") %}
+<div class="mpl-widget mpl-widget-posts">
+    {% if title %}
+    <h4 class="mpl-widget-title"{% if sr_widget %} data-sr-item="widget"{% endif %}>{{ title }}</h4>
+    {% endif %}
+    <ul class="list-unstyled"{% if sr_widget %} data-sr-item="widget"{% endif %}>
+        {% if posts %}
+            {% for post in posts %}
+            <li>
+                {{ widget_post(
+                    post.image, post.name,
+                    '', post.date, href=post.href
+                ) }}
+            </li>
+            {% endfor %}
+        {% else %}
+        <li>
+            {{ widget_post(
+                blog_1.image, blog_1.name,
+                '', blog_1.date, href="blog-post-gallery.html"
+            ) }}
+        </li>
+        <li>
+            {{ widget_post(
+                blog_2.image, blog_2.name,
+                '', blog_2.date, href="blog-post-carousel.html"
+            ) }}
+        </li>
+        <li>
+            {{ widget_post(
+                blog_3.image, blog_3.name,
+                '', blog_3.date, href="blog-post-simple.html"
+            ) }}
+        </li>
+        {% endif %}
+    </ul>
+</div>
+{% endmacro %}
+
+{% macro widget_posts_2(title="") %}
+<div class="mpl-widget mpl-widget-posts-2">
+    {% if title %}
+    <h4 class="mpl-widget-title"{% if sr_widget %} data-sr-item="widget"{% endif %}>{{ title }}</h4>
+    {% endif %}
+    <ul class="list-unstyled"{% if sr_widget %} data-sr-item="widget"{% endif %}>
+        <li>
+            {{ widget_post(
+                title=blog_1.name,
+                texts=["Years. Female, rule lights is gathering made upon image moved."], href="blog-post-gallery.html"
+            ) }}
+        </li>
+        <li>
+            {{ widget_post(
+                title=blog_2.name,
+                texts=["Dominion there together winged lesser gathered stars be given also."], href="blog-post-carousel.html"
+            ) }}
+        </li>
+        <li>
+            {{ widget_post(
+                title=blog_3.name,
+                texts=["Seasons one void them morning years creature moveth make shall."], href="blog-post-simple.html"
+            ) }}
+        </li>
+    </ul>
+</div>
+{% endmacro %}
+
+
+{% macro widget_instagram(title="") %}
+<div class="mpl-widget mpl-widget-instagram">
+    {% if title %}
+    <h4 class="mpl-widget-title"{% if sr_widget %} data-sr-item="widget"{% endif %}>{{ title }}</h4>
+    {% endif %}
+    <div class="mpl-instagram row hgap-xs vgap-xs"{% if sr_widget %} data-sr-item="widget"{% endif %} data-instagram-quality="md" data-instagram-column-class="col-6 col-sm-4" data-instagram-count="6"></div>
+</div>
+{% endmacro %}
+
+
+{% macro widget_twitter(title="") %}
+<div class="mpl-widget mpl-widget-twitter">
+    {% if title %}
+    <h4 class="mpl-widget-title"{% if sr_widget %} data-sr-item="widget"{% endif %}>{{ title }}</h4>
+    {% endif %}
+    <div class="mpl-twitter"{% if sr_widget %} data-sr-item="widget"{% endif %} data-twitter-user-name="nkdevv" data-twitter-count="3" data-twitter-hide-replies="false"></div>
+</div>
+{% endmacro %}
+
+
+{% macro widget_facebook(title="") %}
+<div class="mpl-widget mpl-widget-facebook">
+    {% if title %}
+    <h4 class="mpl-widget-title"{% if sr_widget %} data-sr-item="widget"{% endif %}>{{ title }}</h4>
+    {% endif %}
+    <div class="fb-page mpl-facebook"{% if sr_widget %} data-sr-item="widget"{% endif %} data-href="https://www.facebook.com/DarkSoulsGame" data-width="700" data-height="350" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"></div>
+</div>
+{% endmacro %}
+
+
+{% macro widget_about(title="", texts="") %}
+<div class="mpl-widget mpl-widget-about">
+    {% if title %}
+    <h4 class="mpl-widget-title">{{ title }}</h4>
+    {% endif %}
+    {% for text in texts %}
+    <div{% if sr_widget %} data-sr-item="widget"{% endif %}>
+        <p>{{ text }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endmacro %}
+
+
+{% macro widget_location(title="") %}
+<div class="mpl-widget mpl-widget-location">
+    {% if title %}
+    <h4 class="mpl-widget-title"{% if sr_widget %} data-sr-item="widget"{% endif %}>{{ title }}</h4>
+    {% endif %}
+    <div class="mpl-widget-map"{% if sr_widget %} data-sr-item="widget"{% endif %}>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423284.59051352815!2d-118.41173249999999!3d34.0204989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2z0JvQvtGBLdCQ0L3QtNC20LXQu9C10YEsINCa0LDQu9C40YTQvtGA0L3QuNGPLCDQodCo0JA!5e0!3m2!1sru!2sru!4v1430158354122"></iframe>
+    </div>
+</div>
+{% endmacro %}
+
+
+{% macro match_1(name="") %}
+<li class="cyberpress-match">
+    <div class="cyberpress-match-participants">
+        <div class="cyberpress-match-participant">
+            <div class="cyberpress-match-participant-thumbnail">
+                <a href="esports-single-team.html">{{ img('esports/queend_120x120.png') }}</a>
+            </div>
+            <h6 class="cyberpress-match-participant-title">
+                <a href="esports-single-team.html">Queend</a>
+            </h2>
+        </div>
+        <div class="cyberpress-match-participant-vs">
+            <a href="esports-single-match.html">
+                <span class="cyberpress-match-participant-time-start">January 15, 2021 4:00 pm</span>
+                <span class="cyberpress-match-points">VS</span>
+            </a>
+        </div>
+        <div class="cyberpress-match-participant">
+            <div class="cyberpress-match-participant-thumbnail">
+                <a href="esports-single-team.html">{{ img('esports/military-skull_120x120.png') }}</a>
+            </div>
+            <h6 class="cyberpress-match-participant-title">
+                <a href="esports-single-team.html">Military Skull</a>
+            </h2>
+        </div>
+    </div>
+</li>
+{% endmacro %}
+
+{% macro match_2(name="") %}
+<li class="cyberpress-match">
+    <div class="cyberpress-match-participants">
+        <div class="cyberpress-match-participant">
+            <div class="cyberpress-match-participant-thumbnail">
+                <a href="esports-single-team.html">{{ img('esports/wolves_120x120.png') }}</a>
+            </div>
+            <h6 class="cyberpress-match-participant-title">
+                <a href="esports-single-team.html">Wolves</a>
+            </h2>
+        </div>
+        <div class="cyberpress-match-participant-vs">
+            <a href="esports-single-match.html">
+                <span class="cyberpress-match-participant-time-start">January 8, 2021 12:00 pm</span>
+                <span class="cyberpress-match-points">13:15</span>
+            </a>
+        </div>
+        <div class="cyberpress-match-participant">
+            <div class="cyberpress-match-participant-thumbnail">
+                <a href="esports-single-team.html">{{ img('esports/reaper_120x120.png') }}</a>
+            </div>
+            <h6 class="cyberpress-match-participant-title">
+                <a href="esports-single-team.html">Reaper</a>
+            </h2>
+        </div>
+    </div>
+</li>
+{% endmacro %}
+
+{% macro match_3(name="") %}
+<li class="cyberpress-match">
+    <div class="cyberpress-match-participants">
+        <div class="cyberpress-match-participant">
+            <div class="cyberpress-match-participant-thumbnail">
+                <a href="esports-single-team.html">{{ img('esports/reaper_120x120.png') }}</a>
+            </div>
+            <h6 class="cyberpress-match-participant-title">
+                <a href="esports-single-team.html">Reaper</a>
+            </h2>
+        </div>
+        <div class="cyberpress-match-participant-vs">
+            <a href="esports-single-match.html">
+                <span class="cyberpress-match-participant-time-start">January 6, 2021 3:00 pm</span>
+                <span class="cyberpress-match-points">11:10</span>
+            </a>
+        </div>
+        <div class="cyberpress-match-participant">
+            <div class="cyberpress-match-participant-thumbnail">
+                <a href="esports-single-team.html">{{ img('esports/military-skull_120x120.png') }}</a>
+            </div>
+            <h6 class="cyberpress-match-participant-title">
+                <a href="esports-single-team.html">Military Skull</a>
+            </h2>
+        </div>
+    </div>
+</li>
+{% endmacro %}
+
+{% macro widget_matches(title="") %}
+<div class="mpl-widget mpl-widget-matches">
+    {% if title %}
+    <h4 class="mpl-widget-title"{% if sr_widget %} data-sr-item="widget"{% endif %}>{{ title }}</h4>
+    {% endif %}
+
+    <div role="tabpanel"{% if sr_widget %} data-sr-item="widget"{% endif %}>
+        <ul class="nav nav-tabs nav-tabs-sm" role="tablist">
+            <li role="presentation" class="nav-item"><a href="#all_matches" class="nav-link active" aria-controls="all_matches" role="tab" data-toggle="tab" aria-selected="true">All</a></li>
+            <li role="presentation" class="nav-item"><a href="#cs_matches" class="nav-link" aria-controls="cs_matches" role="tab" data-toggle="tab" aria-selected="false">CS</a></li>
+            <li role="presentation" class="nav-item"><a href="#dota2_matches" class="nav-link" aria-controls="dota2_matches" role="tab" data-toggle="tab" aria-selected="false">Dota 2</a></li>
+            <li role="presentation" class="nav-item"><a href="#lol_matches" class="nav-link" aria-controls="lol_matches" role="tab" data-toggle="tab" aria-selected="false">LOL</a></li>
+        </ul>
+
+        <div class="tab-content tab-content-frame">
+            <div role="tabpanel" class="tab-pane fade show active" id="all_matches">
+                <ul class="cyberpress-matchs-archive">
+                    {{ match_1() }}
+                    {{ match_2() }}
+                    {{ match_3() }}
+                </ul>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="cs_matches">
+                <ul class="cyberpress-matchs-archive">
+                    {{ match_1() }}
+                </ul>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="dota2_matches">
+                <ul class="cyberpress-matchs-archive">
+                    {{ match_2() }}
+                </ul>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="lol_matches">
+                <ul class="cyberpress-matchs-archive">
+                    {{ match_3() }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro widget_match(title="") %}
+<div class="mpl-widget mpl-widget-match">
+    {% if title %}
+    <h4 class="mpl-widget-title"{% if sr_widget %} data-sr-item="widget"{% endif %}>{{ title }}</h4>
+    {% endif %}
+
+    <ul class="cyberpress-matchs-archive"{% if sr_widget %} data-sr-item="widget"{% endif %}>
+        {{ match_2() }}
+    </ul>
+</div>
+{% endmacro %}
+

@@ -1,0 +1,52 @@
+// stylelint-disable scss/dollar-variable-default
+
+$container-max-widths: (
+    sm: 500px,
+    md: 750px,
+    lg: 970px,
+    xl: 1170px
+);
+
+.container {
+    @include make-container();
+    @include make-container-max-widths();
+}
+
+
+// gaps
+$row_gaps: (
+    "xs": 10px,
+    "sm": 20px,
+    "md": 45px,
+    "lg": 60px
+) !default;
+
+.vgap {
+    margin-bottom: -30px;
+
+    > .col,
+    > [class*="col-"] {
+        padding-bottom: 30px;
+    }
+}
+
+@each $name, $gap in $row_gaps {
+    .hgap-#{$name} {
+        margin-right: #{$gap / -2};
+        margin-left: #{$gap / -2};
+
+        > .col,
+        > [class*="col-"] {
+            padding-right: #{$gap / 2};
+            padding-left: #{$gap / 2};
+        }
+    }
+    .vgap-#{$name} {
+        margin-bottom: #{$gap / -1};
+
+        > .col,
+        > [class*="col-"] {
+            padding-bottom: $gap;
+        }
+    }
+}

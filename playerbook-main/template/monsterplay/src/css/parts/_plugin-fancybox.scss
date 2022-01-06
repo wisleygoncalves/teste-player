@@ -1,0 +1,333 @@
+body.compensate-for-scrollbar {
+    margin-right: 0;
+    overflow: initial;
+}
+
+.mpl-fancybox-content {
+    position: static;
+    display: none;
+    background-color: transparent;
+}
+
+
+.fancybox-container {
+    background-color: rgba($color_bg_1, .9);
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity .3s ease-in-out;
+}
+
+// disable default bg
+.fancybox-bg {
+    display: none;
+}
+
+// image
+.fancybox-image {
+    @include border-radius(5px);
+}
+
+// content
+.fancybox-content {
+    @include media-breakpoint-down(xs) {
+        padding: 15px;
+        overflow: initial;
+    }
+}
+
+// infobar
+.fancybox-infobar {
+    color: $color_text_1;
+}
+
+// toolbar
+.fancybox-toolbar {
+    top: 10px;
+    right: 10px;
+
+    > .fancybox-button {
+        &:first-child {
+            @include border-radius(4px 0 0 4px);
+        }
+        &:last-child {
+            @include border-radius(0 4px 4px 0);
+        }
+    }
+}
+
+// buttons
+.fancybox-button {
+    color: $color_text_1;
+    background: $color_bg_2;
+    transition: color .15s;
+}
+
+.fancybox-button--arrow_left,
+.fancybox-button--arrow_right {
+    background: transparent;
+
+    > div {
+        background-color: $color_bg_2;
+        border-radius: 100%;
+        transition: background-color .15s, color .15s;
+    }
+
+    &:hover > div {
+        background-color: lighten($color_bg_2, 4);
+    }
+}
+
+// navigation
+.fancybox-navigation {
+    .fancybox-button--arrow_left {
+        left: 4px;
+    }
+
+    .fancybox-button--arrow_right {
+        right: 4px;
+    }
+}
+
+// thumbs
+.fancybox-show-thumbs .fancybox-inner {
+    right: 230px;
+}
+
+.fancybox-thumbs {
+    width: 230px;
+    padding: 6px;
+    background-color: $color_bg_2;
+
+    .fancybox-thumbs__list {
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $color_bg_3;
+        }
+        &::-webkit-scrollbar-track {
+            background: lighten($color_bg_2, 6);
+        }
+    }
+}
+
+.fancybox-thumbs__list {
+    @include create-row();
+    align-items: flex-start;
+    height: initial;
+    max-height: 100%;
+
+    a {
+        @include create-col(45, 100);
+        float: none;
+        height: initial;
+        max-height: initial;
+        margin: 4px;
+        @include border-radius(4px);
+        border: 1px solid $color_bg_3;
+        opacity: .8;
+        transition: border-color .15s, opacity .15s;
+
+        &.fancybox-thumbs-active {
+            border-color: $color_brand;
+            opacity: 1;
+        }
+
+        &::before {
+            position: static;
+            display: block;
+            padding-top: 80%;
+            border: 0;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+
+// custom close
+.mpl-fancybox-close {
+    position: absolute;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    top: 30px;
+    right: 30px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    color: $color_text;
+    background-color: transparent;
+    border: 0;
+    transition: color .15s;
+    z-index: 1;
+
+    > .icon {
+        width: 20px;
+        height: 20px;
+        stroke: currentColor;
+    }
+
+    &:hover,
+    &:focus {
+        color: $color_brand;
+        outline: none;
+    }
+
+    @include media-breakpoint-down(xs) {
+        display: flex;
+    }
+}
+
+
+// Search
+.mpl-fancybox-search {
+    @include media-breakpoint-down(xs) {
+        margin-top: 56px;
+        vertical-align: top;
+    }
+
+    .mpl-fancybox-search-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .mpl-fancybox-search-input {
+        @include create-col(grow);
+        font-size: 3.875rem;
+
+        @include media-breakpoint-between(sm, md) {
+            font-size: 3rem;
+        }
+
+        @include media-breakpoint-down(xs) {
+            font-size: 2rem;
+        }
+
+        &:focus ~ .mpl-fancybox-search-line::before {
+            border-color: $color_text;
+        }
+    }
+
+    .mpl-fancybox-search-btn {
+        @include create-col(auto);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        padding: 0;
+        color: $color_text;
+        background-color: transparent;
+        border: 0;
+        transition: color .2s ease-in-out;
+
+        > .icon {
+            width: 38px;
+            height: 38px;
+
+            @include media-breakpoint-between(sm, md) {
+                width: 34px;
+                height: 34px;
+            }
+
+            @include media-breakpoint-down(xs) {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            color: $color_brand;
+        }
+    }
+
+    .mpl-fancybox-search-line {
+        width: 100%;
+        overflow: hidden;
+
+        &::before {
+            content: "";
+            display: block;
+            border-bottom: 2px solid $color_bg_3;
+            transition: border-color .3s ease-in-out;
+            transition-delay: .1s;
+        }
+    }
+}
+
+@keyframes mpl-search-input-show {
+    0%,
+    20% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+}
+
+@keyframes mpl-search-btn-show {
+    0%,
+    40% {
+        opacity: 0;
+    }
+    60%,
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes mpl-search-line-show {
+    0%,
+    20% {
+        transform: translateX(-100%);
+    }
+    40% {
+        transform: translateX(0);
+    }
+}
+
+
+// sign
+.mpl-fancybox-sign-content {
+    @include max-width(400px);
+    text-align: center;
+}
+
+// cart
+.mpl-fancybox-cart {
+    @include max-width(500px);
+
+    .mpl-table-product::before {
+        display: none;
+    }
+
+    .mpl-fancybox-cart-content {
+        @include media-breakpoint-up(sm) {
+            padding: 50px;
+            background-color: $color_bg_2;
+        }
+        @include media-breakpoint-down(xs) {
+            padding: 30px;
+        }
+    }
+}
+
+.fancybox-is-open {
+    opacity: 1;
+
+    .mpl-fancybox-search-input {
+        animation: mpl-search-input-show 2s ease-in-out;
+    }
+
+    .mpl-fancybox-search-btn {
+        animation: mpl-search-btn-show 2s ease-in-out;
+    }
+
+    .mpl-fancybox-search-line::before {
+        animation: mpl-search-line-show 1s ease-in-out;
+    }
+}

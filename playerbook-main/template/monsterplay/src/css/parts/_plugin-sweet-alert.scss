@@ -1,0 +1,42 @@
+.sweet-alert {
+    padding: 30px;
+    padding-bottom: 40px;
+    color: $color_bg_2;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5 {
+        color: inherit;
+    }
+
+    .btn {
+        color: inherit;
+
+        &::before {
+            border-color: inherit;
+        }
+
+        &:hover,
+        &:focus,
+        &.focus,
+        &:active,
+        &.active {
+            color: $color_text;
+
+            &::before {
+                background: $color_brand;
+                border-color: $color_brand;
+            }
+        }
+    }
+}
+.sweet-overlay {
+    background-color: rgba($color_bg_2, .7);
+}

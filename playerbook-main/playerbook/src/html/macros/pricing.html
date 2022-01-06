@@ -1,0 +1,26 @@
+{% macro pricing(name="", price="", text="", lists="", btn="", btn_class="", href="#") %}
+<div class="mpl-pricing">
+    <div class="mpl-pricing-head">
+        <h3>{{ name }}</h3>
+        {% if price %}
+        <div class="mpl-pricing-price h3">{{ price }}</div>
+        {% endif %}
+    </div>
+    <div class="mpl-pricing-body">
+        {% if text %}
+        <p>{{ text }}</p>
+        {% endif %}
+
+        {% if lists %}
+        <ul class="list-unstyled mpl-pricing-list">
+            {% for list in lists %}
+            <li>{{ list }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    <div class="mpl-pricing-footer">
+        <a href="{{ href }}" class="btn btn-md btn-block{% if btn_class %} {{ btn_class }}{% endif %}">{{ btn }}</a>
+    </div>
+</div>
+{% endmacro %}

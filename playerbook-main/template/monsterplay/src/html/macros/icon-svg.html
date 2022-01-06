@@ -1,0 +1,15 @@
+{%- macro icon(paths="", width="", height="", stroke_width="", stroke="") -%}
+<svg{% if width %} width="{{ width }}"{% endif %}{% if height %} height="{{ height }}"{% endif %} class="icon" viewBox="0 0 24 24" stroke="{% if stroke %}{{ stroke }}{% else %}currentColor{% endif %}" fill="none" {% if stroke_width %} stroke-width="{{ stroke_width }}"{% endif %} xmlns="http://www.w3.org/2000/svg">
+    {% for path in paths %}
+    <path d="{{ path }}"/>
+    {% endfor %}
+</svg>
+{%- endmacro -%}
+
+{%- macro icon_fill(paths="", width="", height="", stroke_width="", fill="") -%}
+<svg{% if width %} width="{{ width }}"{% endif %}{% if height %} height="{{ height }}"{% endif %} class="icon icon-fill" fill="{% if fill %}{{ fill }}{% else %}currentColor{% endif %}" viewBox="0 0 24 24" {% if stroke_width %} stroke-width="{{ stroke_width }}"{% endif %} xmlns="http://www.w3.org/2000/svg">
+    {% for path in paths %}
+    <path d="{{ path }}"/>
+    {% endfor %}
+</svg>
+{%- endmacro -%}

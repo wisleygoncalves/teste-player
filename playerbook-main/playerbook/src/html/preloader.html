@@ -1,0 +1,27 @@
+{% set page_title = 'Preloader' %}
+{% set header_image = bg_1 %}
+{% set header_small = true %}
+
+{% extends 'layouts/layout-1.html' %}
+
+{% block preloader %}
+<div class="mpl-preloader">
+    <div class="mpl-preloader-content">
+        <div class="mpl-preloader-circle">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle class="mpl-circle" cx="40" cy="40" r="36"/>
+            </svg>
+        </div>
+		<div class="mpl-preloader-triangle">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="mpl-triangle" d="M8 76L72 40L8 4V76Z">
+            </svg>
+        </div>
+        <div class="mpl-preloader-square">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect class="mpl-square" x="4" y="4" width="72" height="72"/>
+            </svg>
+        </div>
+	</div>
+</div>
+{% endblock %}

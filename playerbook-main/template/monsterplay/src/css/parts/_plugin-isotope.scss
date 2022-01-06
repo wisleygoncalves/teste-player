@@ -1,0 +1,97 @@
+.mpl-isotope-options {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin: -10px -4px 60px;
+    list-style: none;
+
+    > a,
+    > li {
+        position: relative;
+        display: inline-flex;
+        align-items: stretch;
+        padding: 9.5px 25px;
+        margin: 10px 4px 0;
+        font-family: $font_btn;
+        font-size: .75rem;
+        font-weight: 600;
+        color: $color_text;
+        text-transform: uppercase;
+        letter-spacing: .07em;
+        cursor: pointer;
+        transition: color .2s ease-in-out, background-color .2s ease-in-out, border-color .2s ease-in-out;
+
+        @if not $skew {
+            background-color: $color_bg_2;
+            border-color: $color_bg_2;
+
+            &:hover {
+                background-color: $color_btn_default;
+                border-color: $color_btn_default;
+            }
+
+            &:focus {
+                background-color: $color_btn_default;
+                border-color: $color_btn_default;
+            }
+
+            &:not(:disabled):not(.disabled):active {
+                background-color: $color_btn_default;
+                border-color: $color_btn_default;
+            }
+
+            &.active {
+                background-color: $color_brand;
+                border-color: $color_brand;
+            }
+        }
+
+        @if $skew {
+            &::before {
+                content: "";
+                position: absolute;
+                display: block;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: $color_bg_2;
+                @include border-radius(3px);
+                transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
+                @include skew(sm);
+                z-index: -1;
+            }
+
+            &:hover::before {
+                background-color: $color_btn_default;
+            }
+
+            &:focus {
+                background-color: transparent;
+                border-color: transparent;
+
+                &::before {
+                    background-color: $color_btn_default;
+                }
+            }
+
+            &:not(:disabled):not(.disabled):active::before {
+                background-color: $color_btn_default;
+                border-color: $color_btn_default;
+            }
+
+            &.active::before {
+                background-color: $color_brand;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            color: $color_btn_default_text;
+
+            &.active {
+                color: $color_text;
+            }
+        }
+    }
+}

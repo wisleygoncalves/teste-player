@@ -1,0 +1,92 @@
+.nav-tabs {
+    margin-bottom: -2px;
+    border: 0;
+
+    .nav-item {
+        margin-bottom: 0;
+    }
+
+    .nav-link {
+        padding: 9.5px 25px;
+        font-family: $font_btn;
+        font-size: .75rem;
+        font-weight: 600;
+        color: $color_text_1;
+        text-transform: uppercase;
+        letter-spacing: .07em;
+        border: 0;
+        @if not $skew {
+            @include border-radius(3px);
+            transition: background-color .2s ease-in-out, color .15s;
+
+            &.active {
+                background-color: $color_bg_3;
+            }
+        }
+        @if $skew {
+            position: relative;
+            border-radius: 0;
+
+            &.active {
+                background-color: transparent;
+
+                &::before {
+                    background-color: $color_bg_3;
+                }
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                @include border-radius(3px);
+                transition: background-color .2s ease-in-out;
+                @include skew-fix(sm, "x");
+                z-index: -1;
+            }
+        }
+
+        &.active {
+            color: $color_text;
+        }
+
+        &:hover,
+        &:focus {
+            color: $color_text;
+        }
+    }
+
+    + .tab-content-frame {
+        margin-top: 10px;
+    }
+}
+
+.tab-content {
+    padding: 30px 0;
+}
+
+.tab-content-frame {
+    padding: 30px;
+    border: 2px solid $color_bg_3;
+    @include border-radius(5px);
+}
+
+
+// sm
+.nav-tabs-sm {
+    .nav-link {
+        padding: 8 20px 7px;
+        font-size: .75rem;
+    }
+}
+
+
+// md
+.nav-tabs-md {
+    .nav-link {
+        padding: 12px 25px 11px;
+    }
+}

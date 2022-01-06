@@ -1,0 +1,38 @@
+.mpl-snippet:not(.mpl-snippet-unstyled) {
+    @include media-breakpoint-up(sm) {
+        padding: 30px;
+    }
+    @include media-breakpoint-down(xs) {
+        padding: 20px;
+    }
+    border: 3px solid rgba($color_bg_2, .5);
+    @include border-radius(6px);
+}
+
+.mpl-snippet {
+    &:not(:last-child) {
+        margin-bottom: 60px;
+    }
+
+    .progress:last-child {
+        margin-bottom: 0;
+    }
+
+    .table + .table {
+        margin-top: 60px;
+    }
+
+    .breadcrumb {
+        margin-bottom: 0;
+    }
+}
+
+.mpl-snippet-fill {
+    padding: 30px;
+    background-color: $color_bg_2;
+    @include border-radius(4px);
+
+    + .mpl-snippet-fill {
+        margin-top: 30px;
+    }
+}

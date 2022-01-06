@@ -1,0 +1,81 @@
+.mpl-feature {
+    position: relative;
+    display: block;
+    padding: 40px 30px;
+    text-align: center;
+    @if not $skew {
+        background-color: $color_bg_2;
+        @include border-radius(5px);
+        transition: background-color .2s ease-in-out;
+
+        &:hover,
+        &:focus {
+            background-color: lighten($color_bg_2, 2);
+        }
+    }
+    @if $skew {
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: $color_bg_2;
+            @include border-radius(5px);
+            transition: background-color .2s ease-in-out;
+            @include skew(xs);
+            z-index: -1;
+        }
+        &:hover::before,
+        &:focus::before {
+            background-color: lighten($color_bg_2, 2);
+        }
+    }
+    z-index: 1;
+}
+
+
+.mpl-feature-transparent {
+    @if not $skew {
+        background-color: rgba($color_bg_1, .9);
+
+        &:hover {
+            background-color: $color_bg_1;
+        }
+    }
+    @if $skew {
+        &::before {
+            background-color: rgba($color_bg_1, .9);
+        }
+        &:hover::before {
+            background-color: $color_bg_1;
+        }
+    }
+}
+
+.mpl-feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 26px;
+    color: $color_text;
+    background-color: rgba($color_text, .05);
+    border-radius: 100%;
+
+    > .icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+.mpl-feature-title {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.mpl-feature-text {
+    color: $color_text_1;
+}

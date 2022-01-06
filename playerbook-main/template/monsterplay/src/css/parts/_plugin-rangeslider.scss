@@ -1,0 +1,97 @@
+$height: 8px !default;
+
+.mpl-rangeslider {
+    display: none;
+}
+.irs {
+    position: relative;
+    display: block;
+    padding-top: 26px;
+
+    > .irs {
+        position: static;
+        padding-top: 0;
+    }
+
+    .irs-line {
+        display: block;
+        height: $height;
+        background-color: $color_bg_2;
+        @include border-radius(4px);
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .irs-bar {
+        position: absolute;
+        display: block;
+        top: 26px;
+        height: $height;
+        background-color: $color_bg_3;
+    }
+
+
+    .irs-min,
+    .irs-max {
+        position: absolute;
+        display: block;
+        top: 0;
+        font-size: .75rem;
+        color: $color_text_2;
+    }
+
+    .irs-min {
+        left: 0;
+    }
+
+    .irs-max {
+        right: 0;
+    }
+
+
+    .irs-from,
+    .irs-to {
+        position: absolute;
+        display: block;
+        bottom: 0;
+        font-size: .75rem;
+        color: $color_text_1;
+        cursor: pointer;
+        transition: color .15s;
+
+        &:hover {
+            color: $color_text;
+        }
+    }
+
+    .irs-from {
+        transform: translateX(50%);
+    }
+
+    .irs-to {
+        transform: translateX(-50%);
+    }
+
+
+    .irs-handle {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        top: 24px;
+        width: 2px;
+        height: #{$height + 4px};
+        cursor: pointer;
+        background-color: $color_bg_4;
+        transition: background-color .15s;
+
+        &:hover {
+            background-color: $color_text;
+        }
+
+        &.state_hover {
+            background-color: $color_brand;
+        }
+    }
+}

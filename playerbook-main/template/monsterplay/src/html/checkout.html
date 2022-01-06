@@ -1,0 +1,63 @@
+{% set page_title = 'Reserva' %}
+{% set header_image = bg_1 %}
+{% set header_small = true %}
+
+{% extends 'layouts/layout-1.html' %}
+
+{% block header %}
+<div class="mpl-banner-content mpl-box-lg">
+    <div class="container">
+        <h1 class="display-1 mb-0"> de Token</h1>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="mpl-box-md">
+    <div class="container">
+        <form action="#" class="row hgap-lg vgap-lg">
+            <div class="col-12 col-lg-8 mpl-shop">
+                <h2>Sobre Você</h2>
+
+                <!-- Country -->
+                <div class="row vgap" data-sr="checkout" data-sr-duration="1000" data-sr-distance="20">
+                    <div class="col-12 col-md-6" data-sr-item="checkout">
+                        {{ form_control('firstname', 'text', 'Nome:', 'firstname', 'Nome') }}
+                    </div>
+                    <div class="col-12 col-md-6" data-sr-item="checkout">
+                        {{ form_control('lastname', 'text', 'Sobrenome:', 'lastname', 'Sobrenome') }}
+                    </div>
+                    <div class="col-12 col-md-6" data-sr-item="checkout">
+                        {{ form_control('email', 'email', 'Email:', 'email', 'Email') }}
+                    </div>
+                    <div class="col-12 col-md-6" data-sr-item="checkout">
+                        {{ form_control('phone', 'text', 'Whatsapp:', 'phone', 'Whatsapp') }}
+                    </div>
+                    <div class="col-12 col-md-6" data-sr-item="checkout">
+                        {{ form_control('country_input', 'text', 'País:', 'country_input', 'País') }}
+                    </div>
+                    <div class="col-12 col-md-6" data-sr-item="checkout">
+                        {{ form_control('wallet', 'text', 'ID da Carteira:', 'wallet', 'Id da Carteira') }}
+                    </div>
+                    <div class="col-12" data-sr-item="checkout">
+                        {{ form_control('reserve', 'text', 'Quantidade Reservada:', 'reserve', 'Quantidade reservada de PlayerC') }}
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-12 col-lg-4" data-sr="checkout" data-sr-duration="1200" data-sr-distance="10">
+
+                <h4 class="mt-60" data-sr-item="checkout">Forma de Pagamento</h4>
+                {{ form_radio('payment_type', 'PIX', 'payment_radio_1', 'true', data="data-sr-item=checkout") }}
+                {{ form_radio('payment_type', 'Cartão de Crédito', 'payment_radio_2', data="data-sr-item=checkout") }}
+                {{ form_radio('payment_type', 'Boleto', 'payment_radio_3', data="data-sr-item=checkout") }}
+                {{ form_radio('payment_type', 'Binance', 'payment_radio_4', data="data-sr-item=checkout") }}
+                {{ form_radio('payment_type', 'Ether', 'payment_radio_5', data="data-sr-item=checkout") }}
+                {{ form_radio('payment_type', 'Ether', 'payment_radio_6', data="data-sr-item=checkout") }}
+
+                <button class="btn btn-md mt-35" data-sr data-sr-duration="1200" data-sr-distance="10">Reservar</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

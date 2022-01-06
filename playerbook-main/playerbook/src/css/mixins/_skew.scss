@@ -1,0 +1,229 @@
+@mixin skew($size) {
+    @if $skew {
+        @if $size == xs {
+            transform: skew($skew_sm * -1);
+        }
+        @if $size == sm {
+            transform: skew($skew_md * -1);
+        }
+        @if $size == md {
+            transform: skew($skew_lg * -1);
+        }
+        @if $size == lg {
+            transform: skew($skew_lg * -1);
+        }
+    }
+}
+
+@mixin skew-inverse($size) {
+    @if $skew {
+        @if $size == xs {
+            transform: skew($skew_sm);
+        }
+        @if $size == sm {
+            transform: skew($skew_md);
+        }
+        @if $size == md {
+            transform: skew($skew_lg);
+        }
+        @if $size == lg {
+            transform: skew($skew_lg);
+        }
+    }
+}
+
+
+// fix
+@mixin skew-fix($size, $scale: 0) {
+    @if $skew {
+        @if $scale == 0 {
+            @if $size == xs {
+                transform: skew(#{$skew_sm * -1}) scale(1 - abs(strip-units($skew_sm)) * .014);
+            }
+            @if $size == sm {
+                transform: skew(#{$skew_md * -1}) scale(1 - abs(strip-units($skew_md)) * .014);
+            }
+            @if $size == md {
+                transform: skew(#{$skew_lg * -1}) scale(1 - abs(strip-units($skew_lg)) * .014);
+            }
+            @if $size == lg {
+                transform: skew(#{$skew_lg * -1}) scale(1 - abs(strip-units($skew_lg)) * .014);
+            }
+        }
+
+        @if $scale == "x" {
+            @if $size == xs {
+                transform: skew(#{$skew_sm * -1}) scaleX(1 - abs(strip-units($skew_sm)) * .007);
+            }
+            @if $size == sm {
+                transform: skew(#{$skew_md * -1}) scaleX(1 - abs(strip-units($skew_md)) * .007);
+            }
+            @if $size == md {
+                transform: skew(#{$skew_lg * -1}) scaleX(1 - abs(strip-units($skew_lg)) * .007);
+            }
+            @if $size == lg {
+                transform: skew(#{$skew_lg * -1}) scaleX(1 - abs(strip-units($skew_lg)) * .007);
+            }
+        }
+
+        @if $scale == "y" {
+            @if $size == xs {
+                transform: skew(#{$skew_sm * -1}) scaleY(1 - abs(strip-units($skew_sm)) * .007);
+            }
+            @if $size == sm {
+                transform: skew(#{$skew_md * -1}) scaleY(1 - abs(strip-units($skew_md)) * .007);
+            }
+            @if $size == md {
+                transform: skew(#{$skew_lg * -1}) scaleY(1 - abs(strip-units($skew_lg)) * .007);
+            }
+            @if $size == lg {
+                transform: skew(#{$skew_lg * -1}) scaleY(1 - abs(strip-units($skew_lg)) * .007);
+            }
+        }
+    }
+}
+
+@mixin skew-fix-inverse($size, $scale: 0) {
+    @if $skew {
+        @if $scale == 0 {
+            @if $size == xs {
+                transform: skew($skew_sm) scale(1 + abs(strip-units($skew_sm)) * .014);
+            }
+            @if $size == sm {
+                transform: skew($skew_md) scale(1 + abs(strip-units($skew_md)) * .014);
+            }
+            @if $size == md {
+                transform: skew($skew_lg) scale(1 + abs(strip-units($skew_lg)) * .014);
+            }
+            @if $size == lg {
+                transform: skew($skew_lg) scale(1 + abs(strip-units($skew_lg)) * .014);
+            }
+        }
+
+        @if $scale == "x" {
+            @if $size == xs {
+                transform: skew($skew_sm) scaleX(1 + abs(strip-units($skew_sm)) * .007);
+            }
+            @if $size == sm {
+                transform: skew($skew_md) scaleX(1 + abs(strip-units($skew_md)) * .007);
+            }
+            @if $size == md {
+                transform: skew($skew_lg) scaleX(1 + abs(strip-units($skew_lg)) * .007);
+            }
+            @if $size == lg {
+                transform: skew($skew_lg) scaleX(1 + abs(strip-units($skew_lg)) * .007);
+            }
+        }
+
+        @if $scale == "y" {
+            @if $size == xs {
+                transform: skew($skew_sm) scaleY(1 + abs(strip-units($skew_sm)) * .007);
+            }
+            @if $size == sm {
+                transform: skew($skew_md) scaleY(1 + abs(strip-units($skew_md)) * .007);
+            }
+            @if $size == md {
+                transform: skew($skew_lg) scaleY(1 + abs(strip-units($skew_lg)) * .007);
+            }
+            @if $size == lg {
+                transform: skew($skew_lg) scaleY(1 + abs(strip-units($skew_lg)) * .007);
+            }
+        }
+    }
+}
+
+
+// images
+@mixin skew-img($size, $scale: 0) {
+    @if $skew {
+        @if $scale == 0 {
+            @if $size == xs {
+                transform: skew(#{$skew_sm * -1}) scale(1 - abs(strip-units($skew_sm)) * .014);
+            }
+            @if $size == sm {
+                transform: skew(#{$skew_md * -1}) scale(1 - abs(strip-units($skew_md)) * .014);
+            }
+            @if $size == md {
+                transform: skew(#{$skew_lg * -1}) scale(1 - abs(strip-units($skew_lg)) * .014);
+            }
+            @if $size == lg {
+                transform: skew(#{$skew_lg * -1}) scale(1 - abs(strip-units($skew_lg)) * .014);
+            }
+        }
+        @if $scale == "x" {
+            @if $size == xs {
+                transform: skew(#{$skew_sm * -1}) scaleX(1 - abs(strip-units($skew_sm)) * .014);
+            }
+            @if $size == sm {
+                transform: skew(#{$skew_md * -1}) scaleX(1 - abs(strip-units($skew_md)) * .014);
+            }
+            @if $size == md {
+                transform: skew(#{$skew_lg * -1}) scaleX(1 - abs(strip-units($skew_lg)) * .014);
+            }
+            @if $size == lg {
+                transform: skew(#{$skew_lg * -1}) scaleX(1 - abs(strip-units($skew_lg)) * .014);
+            }
+        }
+        @if $scale == "y" {
+            @if $size == xs {
+                transform: skew(#{$skew_sm * -1}) scaleY(1 - abs(strip-units($skew_sm)) * .014);
+            }
+            @if $size == sm {
+                transform: skew(#{$skew_md * -1}) scaleY(1 - abs(strip-units($skew_md)) * .014);
+            }
+            @if $size == md {
+                transform: skew(#{$skew_lg * -1}) scaleY(1 - abs(strip-units($skew_lg)) * .014);
+            }
+            @if $size == lg {
+                transform: skew(#{$skew_lg * -1}) scaleY(1 - abs(strip-units($skew_lg)) * .014);
+            }
+        }
+    }
+}
+
+@mixin skew-img-inverse($size, $scale: 0) {
+    @if $skew {
+        @if $scale == 0 {
+            @if $size == xs {
+                transform: skew($skew_sm) scale(1 + abs(strip-units($skew_sm)) * .014);
+            }
+            @if $size == sm {
+                transform: skew($skew_md) scale(1 + abs(strip-units($skew_md)) * .014);
+            }
+            @if $size == md {
+                transform: skew($skew_lg) scale(1 + abs(strip-units($skew_lg)) * .014);
+            }
+            @if $size == lg {
+                transform: skew($skew_lg) scale(1 + abs(strip-units($skew_lg)) * .014);
+            }
+        }
+        @if $scale == "x" {
+            @if $size == xs {
+                transform: skew($skew_sm) scaleX(1 + abs(strip-units($skew_sm)) * .014);
+            }
+            @if $size == sm {
+                transform: skew($skew_md) scaleX(1 + abs(strip-units($skew_md)) * .014);
+            }
+            @if $size == md {
+                transform: skew($skew_lg) scaleX(1 + abs(strip-units($skew_lg)) * .014);
+            }
+            @if $size == lg {
+                transform: skew($skew_lg) scaleX(1 + abs(strip-units($skew_lg)) * .014);
+            }
+        }
+        @if $scale == "y" {
+            @if $size == xs {
+                transform: skew($skew_sm) scaleY(1 + abs(strip-units($skew_sm)) * .014);
+            }
+            @if $size == sm {
+                transform: skew($skew_md) scaleY(1 + abs(strip-units($skew_md)) * .014);
+            }
+            @if $size == md {
+                transform: skew($skew_lg) scaleY(1 + abs(strip-units($skew_lg)) * .014);
+            }
+            @if $size == lg {
+                transform: skew($skew_lg) scaleY(1 + abs(strip-units($skew_lg)) * .014);
+            }
+        }
+    }
+}

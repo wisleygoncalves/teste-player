@@ -1,0 +1,370 @@
+.mpl-navbar-mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    @include media-breakpoint-up(sm) {
+        width: $navbar_mobile_width;
+    }
+    @include media-breakpoint-down(xs) {
+        width: 320px;
+    }
+    max-height: 100vh;
+    padding: 0;
+    background-color: $color_bg_2;
+    will-change: transform, filter;
+    transition: transform .8s cubic-bezier(.2, 1, .2, 1), filter .3s ease-in-out;
+    transform: translateX(100%);
+    z-index: 13;
+
+    &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        visibility: visible;
+        background-color: rgba($color_bg_1, .9);
+        opacity: 1;
+        will-change: transform, opacity;
+        transition: visibility .4s cubic-bezier(.2, 1, .2, 1), opacity .4s cubic-bezier(.2, 1, .2, 1);
+        z-index: 2;
+    }
+
+    .mpl-navbar-container {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        top: 4px;
+        right: 4px;
+        bottom: 4px;
+        @include media-breakpoint-up(sm) {
+            width: #{$navbar_mobile_width - 4};
+        }
+        @include media-breakpoint-down(xs) {
+            width: 316px;
+        }
+        padding: 0;
+    }
+
+    .mpl-navbar-head {
+        display: flex;
+        align-items: center;
+        @include media-breakpoint-up(sm) {
+            padding: 35px 50px 20px;
+            margin-bottom: 15px;
+        }
+        @include media-breakpoint-down(xs) {
+            padding: 20px 30px;
+        }
+        background-color: $color_bg_2;
+        z-index: 1;
+    }
+
+    .mpl-navbar-body {
+        flex-basis: 0;
+        flex-grow: 1;
+        overflow-y: scroll;
+        @include scrollbar_v(5px);
+
+        @include media-breakpoint-up(sm) {
+            padding: 0 50px;
+        }
+        @include media-breakpoint-down(xs) {
+            padding: 0 30px;
+        }
+
+        .mpl-nav-link {
+            padding: .5rem 0;
+        }
+
+        .mpl-nav-link-name {
+            position: relative;
+
+            > .badge {
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: translateX(100%);
+            }
+        }
+    }
+
+    .mpl-navbar-footer {
+        @include media-breakpoint-up(sm) {
+            padding: 10px 50px 20px;
+            margin-top: 10px;
+        }
+        @include media-breakpoint-down(xs) {
+            padding: 10px 30px;
+        }
+
+        .mpl-navbar-nav {
+            display: flex;
+            flex-direction: row;
+            margin: 0 -20px;
+
+            > li {
+                padding: 0 10px;
+            }
+        }
+
+        .mpl-nav-link {
+            padding: 10px;
+        }
+    }
+
+
+    // brand
+    .mpl-navbar-brand {
+        display: block;
+        max-width: $navbar_mobile_logo_width;
+        height: auto;
+        opacity: 0;
+        will-change: opacity;
+        transition: opacity .5s ease-in-out;
+        transition-delay: .2s;
+    }
+
+    @keyframes mpl-toggle-top {
+        0%,
+        15% {
+            opacity: 0;
+            transform: rotate(45deg) translateX(-100%);
+        }
+        30%,
+        100% {
+            opacity: 1;
+            transform: rotate(45deg) translateX(0);
+        }
+    }
+
+    @keyframes mpl-toggle-left {
+        0%,
+        25% {
+            opacity: 0;
+            transform: rotate(-45deg) translateX(-100%);
+        }
+        40%,
+        100% {
+            opacity: 1;
+            transform: rotate(-45deg) translateX(0);
+        }
+    }
+
+    @keyframes mpl-toggle-bottom {
+        0%,
+        35% {
+            opacity: 0;
+            transform: rotate(45deg) translateX(100%);
+        }
+        50%,
+        100% {
+            opacity: 1;
+            transform: rotate(45deg) translateX(0);
+        }
+    }
+
+    @keyframes mpl-toggle-right {
+        0%,
+        45% {
+            opacity: 0;
+            transform: rotate(-45deg) translateX(100%);
+        }
+        60%,
+        100% {
+            opacity: 1;
+            transform: rotate(-45deg) translateX(0);
+        }
+    }
+
+    @keyframes mpl-toggle-rotate {
+        0%,
+        50% {
+            transform: rotate(45deg);
+        }
+        80%,
+        100% {
+            transform: rotate(0);
+        }
+    }
+
+    // toggle
+    .mpl-navbar-toggle {
+        position: relative;
+        width: 45px;
+        height: 45px;
+        margin-right: -15px;
+        margin-left: auto;
+
+        > span {
+            position: absolute;
+            display: block;
+            width: 6px;
+            height: 2px;
+            background-color: $color_text_1;
+            @include border-radius(2px);
+            transition: background-color .2s, transform .2s ease-in-out;
+
+            &:nth-child(1) {
+                top: 17px;
+                left: 15px;
+                transform: rotate(45deg);
+            }
+            &:nth-child(2) {
+                top: 17px;
+                right: 15px;
+                transform: rotate(-45deg);
+            }
+            &:nth-child(3) {
+                bottom: 17px;
+                left: 15px;
+                transform: rotate(-45deg);
+            }
+            &:nth-child(4) {
+                right: 15px;
+                bottom: 17px;
+                transform: rotate(45deg);
+            }
+        }
+
+        &:hover > span {
+            background-color: $color_brand;
+        }
+    }
+
+
+    // active nav link
+    .active > .mpl-nav-link {
+        color: $color_text;
+
+        > .mpl-nav-link-name {
+            background-position: left center;
+            background-size: 100% 1.4em, 100% 1.4em;
+        }
+    }
+
+    // nav link
+    .mpl-nav-link {
+        font-size: 1.125rem;
+        color: $color_text_1;
+
+        &.mpl-nav-link-collapse {
+            &::after {
+                content: "";
+                display: block;
+                width: 3px;
+                height: 3px;
+                margin-left: auto;
+                background-color: $color_bg_3;
+                border-radius: 100%;
+                transition: background-color .2s;
+            }
+
+            &:not(.mpl-collapsed) {
+                color: $color_text;
+
+                &::after {
+                    background-color: $color_bg_4;
+                }
+
+                > .mpl-nav-link-name {
+                    background-position: left center;
+                    background-size: 100% 1.4em, 100% 1.4em;
+                }
+            }
+
+            &:focus::after,
+            &:hover::after {
+                background-color: $color_bg_4;
+            }
+        }
+    }
+
+
+    // Collapse
+    .mpl-navbar-collapse {
+        .mpl-navbar-nav {
+            padding-left: 15px;
+        }
+
+        // active link
+        .active > .mpl-nav-link {
+            color: $color_text;
+        }
+
+        // nav link
+        .mpl-nav-link {
+            font-size: 1rem;
+            color: $color_text_1;
+
+            &:hover,
+            &:focus {
+                color: $color_text;
+
+                > .mpl-nav-link-name {
+                    background-position: left center;
+                    background-size: 100% 1.4em, 100% 1.4em;
+                }
+            }
+        }
+    }
+}
+
+
+// backdrop close
+.mpl-navbar-mobile-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+    background-color: rgba($color_bg_1, 0);
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity .6s cubic-bezier(.2, 1, .2, 1), background-color .6s cubic-bezier(.2, 1, .2, 1), visibility .6s cubic-bezier(.2, 1, .2, 1);
+    z-index: 12;
+}
+
+// show close block
+.mpl-navbar-mobile-open {
+    .mpl-navbar-mobile {
+        transform: translateX(0);
+
+        .mpl-navbar-brand {
+            opacity: 1;
+        }
+
+        .mpl-navbar-toggle {
+            animation: mpl-toggle-rotate 1.3s ease-in-out;
+
+            > span {
+                &:nth-child(1) {
+                    animation: mpl-toggle-top 1.6s ease-in-out;
+                }
+                &:nth-child(2) {
+                    animation: mpl-toggle-right 1.6s ease-in-out;
+                }
+                &:nth-child(3) {
+                    animation: mpl-toggle-left 1.6s ease-in-out;
+                }
+                &:nth-child(4) {
+                    animation: mpl-toggle-bottom 1.6s ease-in-out;
+                }
+            }
+        }
+
+        &::after {
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+    .mpl-navbar-mobile-overlay {
+        visibility: visible;
+        background-color: rgba($color_bg_1, .9);
+        opacity: 1;
+    }
+}

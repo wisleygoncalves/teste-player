@@ -1,0 +1,48 @@
+.mpl-footer {
+    position: relative;
+    padding: 120px 0;
+    overflow: hidden;
+    background-color: $color_bg_footer;
+
+    > .mpl-image {
+        opacity: 1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: linear-gradient(180deg, rgba(darken($color_bg_footer, 10), .6) 0%, rgba(darken($color_bg_footer, 10), 0) 100%);
+        }
+
+        img {
+            opacity: $banners_opacity;
+        }
+    }
+
+    .mpl-footer-content {
+        @include max-width(580px);
+    }
+
+    .mpl-footer-wrapper {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.mpl-footer-social {
+    text-align: center;
+}
+
+.mpl-footer-copyright {
+    padding: 48px 0;
+    color: $color_text;
+    text-align: center;
+    background-color: $color_bg_footer;
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}

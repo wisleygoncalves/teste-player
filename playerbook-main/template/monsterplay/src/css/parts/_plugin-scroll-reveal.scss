@@ -1,0 +1,5 @@
+[data-sr-item],
+[data-sr=""] {
+    visibility: hidden;
+    will-change: transform, opacity;
+}

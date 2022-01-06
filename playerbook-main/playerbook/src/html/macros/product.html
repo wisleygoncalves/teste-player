@@ -1,0 +1,132 @@
+{% from "macros/icon-svg.html" import icon %}
+{% from "macros/rating.html" import rating %}
+{% from "macros/img.html" import img %}
+
+
+{% macro product_overlay(image="", title="", rating_width="", heading="h5", href="#", data="") %}
+<a href="{{ href }}" class="mpl-product-item mpl-product-overlay"{% if data %} {{ data }}{% endif %}>
+    <span class="mpl-product-image">
+        {{ img(image) }}
+    </span>
+    <span class="mpl-product-content">
+        <span class="mpl-product-title {{ heading }}">{{ title }}</span>
+        <span class="mpl-product-rating">{{ rating(rating_width) }}</span>
+    </span>
+</a>
+{% endmacro %}
+
+
+{% macro product(image="", title="", rating_width="", price="", price_old="", badge="", date="", heading="h4", href="#", class="", data="") %}
+<a href="{{ href }}" class="mpl-product-item{% if class %} {{ class }}{% endif %}"{% if data %} {{ data }}{% endif %}>
+    <span class="mpl-product-image">
+        {{ img(image) }}
+        {% if not date %}
+        <span class="mpl-product-rating">{{ rating(rating_width) }}</span>
+        {% endif %}
+    </span>
+    <span class="mpl-product-content">
+        <span class="mpl-product-title {{ heading }}">{{ title }}</span>
+        {% if date %}
+        <span class="mpl-product-date">
+            {{ icon(['M16 2V6M8 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z']) }}{{ date }}
+        </span>
+        {% else %}
+        <span class="mpl-price{{ ' mpl-price-success' if price == 'free!' }}{{ ' mpl-price-danger' if price == 'never' }}">
+            {{ price }}
+            {% if price_old %}<span>{{ price_old }}</span>{% endif %}
+        </span>
+        {% endif %}
+        {% if badge %}
+        <span class="badge badge-brand">{{ badge }}</span>
+        {% endif %}
+    </span>
+</a>
+{% endmacro %}
+
+
+{% macro product_horizontal(image="", title="", rating_width="", price="", price_old="", badge="", date="", heading="h4", href="#", class="", data="") %}
+<a href="{{ href }}" class="mpl-product-item mpl-product-horizontal{% if class %} {{ class }}{% endif %}"{% if data %} {{ data }}{% endif %}>
+    <span class="mpl-product-image">
+        {{ img(image) }}
+    </span>
+    <span class="mpl-product-content">
+        <span class="mpl-product-title {{ heading }}">{{ title }}</span>
+        {% if date %}
+        <span class="mpl-product-date">
+            {{ icon(['M16 2V6M8 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z']) }}{{ date }}
+        </span>
+        {% else %}
+        <span class="mpl-price{{ ' mpl-price-success' if price == 'free!' }}{{ ' mpl-price-danger' if price == 'never' }}">
+            {{ price }}
+            {% if price_old %}<span>{{ price_old }}</span>{% endif %}
+        </span>
+        <span class="mpl-product-rating">{{ rating(rating_width) }}</span>
+        {% endif %}
+        {% if badge %}
+        <span class="badge badge-brand">{{ badge }}</span>
+        {% endif %}
+    </span>
+</a>
+{% endmacro %}
+
+
+{% macro product_horizontal_checkout(title="", price="", price_old="", heading="h5", href="#", class="", data="") %}
+<a href="{{ href }}" class="mpl-product-item mpl-product-checkout mpl-product-horizontal{% if class %} {{ class }}{% endif %}"{% if data %} {{ data }}{% endif %}>
+    <span class="mpl-product-title {{ heading }}">{{ title }}</span>
+    <span class="mpl-price">
+        {{ price }}
+        {% if price_old %}<span>{{ price_old }}</span>{% endif %}
+    </span>
+</a>
+{% endmacro %}
+
+
+{% macro product_horizontal_cart(image="", title="", rating_width="", price="", price_old="", badge="", heading="h4", href="#", href_close="#", class="", data="") %}
+<tr class="mpl-table-product{% if class %} {{ class }}{% endif %}"{% if data %} {{ data }}{% endif %}>
+    <td class="mpl-table-image">
+        <a href="{{ href }}" class="mpl-table-product-image">
+            {{ img(image) }}
+            {% if badge %}
+            <span class="badge badge-brand">{{ badge }}</span>
+            {% endif %}
+        </a>
+    </td>
+    <td class="mpl-table-name" data-title="Product">
+        <a href="{{ href }}" class="mpl-table-product-title {{ heading }}">{{ title }}</a>
+        <span class="mpl-table-product-rating" data-title="Rating">{{ rating(rating_width) }}</span>
+    </td>
+    <td class="mpl-table-price" data-title="Price">
+        <span class="mpl-price{{ ' mpl-price-success' if price == 'free!' }}{{ ' mpl-price-danger' if price == 'never' }}">
+            {{ price }}
+            {% if price_old %}<span>{{ price_old }}</span>{% endif %}
+        </span>
+    </td>
+    <td class="mpl-table-remove">
+        <a href="{{ href_close }}" class="mpl-table-product-remove">
+            {{ icon(['M18 6L6 18M6 6L18 18']) }}
+        </a>
+    </td>
+</tr>
+{% endmacro %}
+
+
+{% macro product_horizontal_cart_sm(image="", title="", price="", heading="h5", href="#", href_close="#", class="", data="") %}
+<tr class="mpl-table-product mpl-table-product-sm{% if class %} {{ class }}{% endif %}"{% if data %} {{ data }}{% endif %}>
+    <td class="mpl-table-image">
+        <a href="{{ href }}" class="mpl-table-product-image">
+            {{ img(image) }}
+        </a>
+    </td>
+    <td class="mpl-table-name" data-title="Product">
+        <a href="{{ href }}" class="mpl-table-product-title {{ heading }}">{{ title }}</a>
+        <span class="mpl-price{{ ' mpl-price-success' if price == 'free!' }}">
+            {{ price }}
+        </span>
+    </td>
+    <td class="mpl-table-remove">
+        <a href="{{ href_close }}" class="mpl-table-product-remove">
+            {{ icon(['M18 6L6 18M6 6L18 18']) }}
+        </a>
+    </td>
+</tr>
+{% endmacro %}

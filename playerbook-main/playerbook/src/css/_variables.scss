@@ -1,0 +1,143 @@
+// colors text
+$color_text: #fff !default;
+$color_text_1: #b9b7c0 !default;
+$color_text_2: #827f92 !default;
+
+
+// colors backgrounds
+$color_bg: #000000 !default;
+$color_bg_1: #484848 !default;
+$color_bg_2: #000000 !default;
+$color_bg_3: #202020 !default;
+$color_bg_4: #303030 !default;
+$color_bg_light: #211f2c !default;
+$color_bg_footer: #232129 !default;
+$color_backdrop: rgba($color_bg_1, .6) !default;
+
+
+// colors alerts
+$color_brand: #ffc02a !default;
+$color_primary: #2b6ad9 !default;
+$color_success: #44c441 !default;
+$color_info: #30c6bd !default;
+$color_warning: #eb8324 !default;
+$color_danger: #c93f36 !default;
+$color_secondary: #2a2838 !default;
+
+$color_alert: (
+    "primary": $color_primary,
+    "success": $color_success,
+    "info": $color_info,
+    "warning": $color_warning,
+    "danger": $color_danger,
+    "secondary": $color_secondary
+) !default;
+
+
+// colors social
+$color_social: (
+    "rss": #e06618,
+    "behance": #487cfb,
+    "bitbucket": #36517e,
+    "dropbox": #4d86d9,
+    "dribbble": #ea4c89,
+    "deviantart": #4a5d4e,
+    "facebook": #3b5998,
+    "flickr": #f40083,
+    "foursquare": #040405,
+    "github": #464646,
+    "google-plus": #df4a32,
+    "instagram": #c32a68,
+    "linkedin": #007bb6,
+    "medium": #03a87a,
+    "odnoklassniki": #d8732a,
+    "paypal": #1d3283,
+    "pinterest": #cb2027,
+    "reddit": #ff5700,
+    "skype": #00aff0,
+    "soundcloud": #f50,
+    "slack": #543b56,
+    "steam": #272425,
+    "snapchat": #fffc00,
+    "swarm": #ffb000,
+    "stumbleupon": #eb4924,
+    "spotify": #1ed760,
+    "tumblr": #2c4762,
+    "twitch": #5c43a1,
+    "twitter": #00b6f1,
+    "vimeo": #45bbff,
+    "vk": #657da0,
+    "wordpress": #4072a1,
+    "youtube": #f00
+) !default;
+
+
+// fonts
+$font_body: proxima-nova, sans-serif !default;
+$font_headings: futura-pt, sans-serif !default;
+$font_btn: futura-pt, sans-serif !default;
+$font_nav: futura-pt, sans-serif !default;
+
+
+// settings
+$body_font_size: 16px !default;
+$body_line_height: 1.8 !default;
+$body_letter_spacing: .02em !default;
+$body_border_radius: true !default;
+
+// backdrop blur
+$backdrop_blur: 8px !default;
+
+// heading
+$heading_weight: 500 !default;
+
+// skew
+$skew: true !default;
+$skew_sm: 2deg !default;
+$skew_md: 4deg !default;
+$skew_lg: 6deg !default;
+
+// images opacity
+$banners_opacity: .5 !default;
+$images_opacity: .7 !default;
+$images_hover_opacity: .9 !default;
+
+// buttons
+$color_btn_default: #fff !default;
+$color_btn_default_text: #15112b !default;
+
+// navbar
+$navbar_position: fixed !default; // fixed, absolute, sticky
+$navbar_height: 100px !default;
+$navbar_height_sm: 60px !default;
+$navbar_logo_width: 30px !default;
+$navbar_logo_width_sm: 20px !default;
+$navbar_expand: md !default; // xl, lg, md, sm, xs
+
+// navbar mobile
+$navbar_mobile_width: 350px !default;
+$navbar_mobile_logo_width: 90px !default;
+
+
+// function replace
+@function replace($list, $old-value, $new-value, $recursive: false) {
+    $result: ();
+
+    @for $i from 1 through length($list) {
+        @if type-of(nth($list, $i)) == list and $recursive {
+            $result: append($result, replace(nth($list, $i), $old-value, $new-value, $recursive));
+        }
+
+        @else {
+            @if nth($list, $i) == $old-value {
+                $result: append($result, $new-value);
+            }
+
+            @else {
+                $result: append($result, nth($list, $i));
+            }
+        }
+    }
+
+    @return $result;
+}

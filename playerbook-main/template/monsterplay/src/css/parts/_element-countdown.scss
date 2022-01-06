@@ -1,0 +1,76 @@
+.mpl-countdown {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -20px -10px 0;
+
+}
+.text-center > .mpl-countdown {
+    justify-content: center;
+}
+
+.mpl-countdown-item {
+    display: flex;
+    @include create-col(auto);
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px 0;
+
+    > span:first-child {
+        display: block;
+        order: 12;
+        width: 120px;
+        max-width: 100%;
+        margin-top: 16px;
+        font-family: $font_body;
+        font-size: 1rem;
+        font-weight: 400;
+        color: $color_text_1;
+        text-align: center;
+    }
+
+    > span:last-child {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 120px;
+        height: 100px;
+
+        @if not $skew {
+            background-color: $color_bg_2;
+            @include border-radius(5px);
+        }
+
+        @if $skew {
+            &::before {
+                content: "";
+                position: absolute;
+                display: block;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: $color_bg_2;
+                @include border-radius(5px);
+                @include skew(sm);
+                z-index: -1;
+            }
+        }
+    }
+}
+
+
+// style transparent
+.mpl-countdown-transparent {
+    .mpl-countdown-item > span:last-child {
+        @if not $skew {
+            background-color: rgba($color_bg_1, .9);
+        }
+
+        @if $skew {
+            &::before {
+                background-color: rgba($color_bg_1, .9);
+            }
+        }
+    }
+}

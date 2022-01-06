@@ -1,0 +1,14 @@
+.mpl-link-brand {
+    display: block;
+
+    > img {
+        will-change: filter;
+        filter: brightness(1);
+        transition: filter .2s ease-in-out;
+    }
+
+    &:hover > img,
+    &:focus > img {
+        filter: brightness(.8);
+    }
+}

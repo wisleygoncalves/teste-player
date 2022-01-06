@@ -1,0 +1,104 @@
+{% set main_style_file = 'monsterplay-shooter' %}
+{% set footer_bg = true %}
+{% set footer_widgets_block = false %}
+{% set footer_social_block = false %}
+{% set footer_parallax = true %}
+{% set logo = 'assets/images/logo-shooter.svg' %}
+{% set nav_search = true %}
+{% set nav_cart = false %}
+
+{% set navigation_right = false %}
+{% set navigation = {
+    "shooter-index.html": {
+        "name": "Demos",
+        "sub": {
+            "dark-index.html": {
+                "name": "Main"
+            },
+            "shooter-index.html": {
+                "name": "Shooter"
+            },
+            "gamer-index.html": {
+                "name": "Gamer"
+            },
+            "studio-index.html": {
+                "name": "Studio"
+            }
+        }
+    },
+    "shooter-blog.html": {
+        "name": "News",
+        "sub": {
+            "shooter-blog.html": {
+                "name": "News"
+            },
+            "shooter-blog-post.html": {
+                "name": "Single Post"
+            }
+        }
+    },
+    "shooter-index.html#pricing": {
+        "name": "Pricing"
+    }
+} %}
+
+{% set blog_1 = {
+    "name": "Prepare for the frontline",
+    "image": {
+        "full": "assets/images/shooter/blog-1-1920x1080.jpg",
+        "md": "assets/images/shooter/blog-1-700x420.jpg",
+        "sm": "assets/images/shooter/blog-1-160x140.jpg"
+    },
+    "tags": [["Mode", "#"], ["Review", "#"]],
+    "rating": "1.0",
+    "date": "January 18, 2021",
+    "href": "shooter-blog-post.html"
+} %}
+
+{% set blog_2 = {
+    "name": "Go hard or go home",
+    "image": {
+        "md": "assets/images/shooter/blog-2-700x420.jpg",
+        "sm": "assets/images/shooter/blog-2-160x140.jpg"
+    },
+    "tags": [["Mode", "#"], ["Hard", "#"]],
+    "date": "January 18, 2021",
+    "href": "shooter-blog-post.html"
+} %}
+
+{% set blog_3 = {
+    "name": "Fair play update",
+    "image": {
+        "md": "assets/images/shooter/blog-3-700x420.jpg",
+        "sm": "assets/images/shooter/blog-3-160x140.jpg"
+    },
+    "tags": [["Test play", "#"], ["Review", "#"]],
+    "date": "January 18, 2021",
+    "href": "shooter-blog-post.html"
+} %}
+
+{% set blog_4 = {
+    "name": "Strike them for good",
+    "image": "assets/images/shooter/blog-4-700x420.jpg",
+    "tags": [["Battle", "#"], ["5x5", "#"]],
+    "date": "January 18, 2021",
+    "href": "shooter-blog-post.html"
+} %}
+
+{% set blog_5 = {
+    "name": "Update 2.0",
+    "image": "assets/images/shooter/blog-5-700x420.jpg",
+    "tags": [["Update", "#"], ["Review", "#"]],
+    "date": "January 18, 2021",
+    "href": "shooter-blog-post.html"
+} %}
+
+{% set blog_6 = {
+    "name": "Preload update 2.0 right now!",
+    "image": "assets/images/shooter/blog-6-700x420.jpg",
+    "tags": [["Preload", "#"], ["Update", "#"], ["Review", "#"]],
+    "date": "January 18, 2021",
+    "href": "shooter-blog-post.html"
+} %}
+
+{% extends 'layouts/layout-1.html' %}

@@ -1,0 +1,166 @@
+{% set header_title = blog_1.name %}
+{% set header_image = blog_1.image.full %}
+{% set header_small = true %}
+
+{% extends 'layouts/layout-1.html' %}
+
+{% block header %}
+<div class="mpl-banner-content mpl-box-lg">
+    <div class="container">
+        <h1 class="display-1 mb-0">{{ blog_1.name }}</h1>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="mpl-box-md">
+    <div class="container">
+        <div class="row hgap-lg vgap-lg">
+            <div class="col mpl-content mpl-post">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="blog-post-gallery.html">Blog</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ blog_1.name }}</li>
+                    </ol>
+                </nav>
+
+                <article class="mpl-post">
+                    <div class="mpl-detached">
+                        <div class="row hgap-sm vgap-sm">
+                            <div class="col-12 col-sm-6">
+                                <a class="mpl-gallery-item" href="https://www.youtube.com/watch?v=TAIJich73NY" data-fancybox="gallery" data-animation-effect="fade">
+                                    {{ img(blog_1.image.md) }}
+                                    {{ icon(['M5 3L19 12L5 21V3Z']) }}
+                                </a>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <a class="mpl-gallery-item" href="{{ blog_2.image.full }}" data-fancybox="gallery" data-animation-effect="fade">
+                                    {{ img(blog_2.image.md) }}
+                                    {{ icon(['M8 3H5C4.46957 3 3.96086 3.21071 3.58579 3.58579C3.21071 3.96086 3 4.46957 3 5V8M21 8V5C21 4.46957 20.7893 3.96086 20.4142 3.58579C20.0391 3.21071 19.5304 3 19 3H16M16 21H19C19.5304 21 20.0391 20.7893 20.4142 20.4142C20.7893 20.0391 21 19.5304 21 19V16M3 16V19C3 19.5304 3.21071 20.0391 3.58579 20.4142C3.96086 20.7893 4.46957 21 5 21H8']) }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>Nonne vides quid sit? Tu es ... Jesse me respice. Tu ... blowfish sunt. A blowfish! Cogitare. Statura pusillus, nec sapientium panem, nec artificum. Sed predators facile prædam blowfish secretum telum non se habet. Non ille? Quid faciam blowfish, Isai. Blowfish quid faciat? In blowfish inflat, purus?</p>
+                    <p>Blowfish librantur in se quatuor, quinquies maior quam normalis, et quare? Quare id faciam? Ut terrorem facit, qui quid. Terrent! Ut alter, scarier pisces agminis off. Et quod tu es? Vos blowfish. Tu iustus in omnibus visio. Vides ... suus ' suus 'non aliud aerem. Nunc ... qui cum partibus blowfish Isai? Tu damnare ius. Vos blowfish. Dicere iterum. Dicere illam quasi velis eam. Es BLOWFISH!</p>
+                    <p>Ut sibi fuerat socius sagittis. Ego intervenerit. Vere quia a te nuper iratus occidit illos undecim annorum puer. Deinde, si hoc forte qui fuit imperavit.</p>
+
+                    <div class="mpl-rating-block"{{ sr_post if sr_post }}>
+                        <div class="row vgap-md">
+                            <div class="col-12 col-xl-3">
+                                <div class="mpl-hexagon-rating" data-hexagon="{{ blog_1.rating | replace('.', '') }}"><span>{{ blog_1.rating | replace('0', '') }}</span></div>
+                            </div>
+                            <div class="col-12 col-md-6 col-xl">
+                                <h4 class="mb-20">Good</h4>
+                                <ul class="list-unstyled mpl-list-positive mb-0">
+                                    <li>Impressive story</li>
+                                    <li>Absolute cool gameplay</li>
+                                    <li>Lasting appeal</li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-md-6 col-xl">
+                                <h4 class="mb-20">Bad</h4>
+                                <ul class="list-unstyled mpl-list-negative mb-0">
+                                    <li>Bad rating delivered for demonstration purposes only. Really cool game.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="list-unstyled mpl-post-tags"{{ sr_post if sr_post }}>
+                        <li>{{ icon(['M21.3933 13.9061L13.9135 21.3879C13.7197 21.582 13.4896 21.7359 13.2363 21.8409C12.983 21.9459 12.7115 22 12.4373 22C12.1631 22 11.8916 21.9459 11.6383 21.8409C11.3851 21.7359 11.155 21.582 10.9612 21.3879L2 12.4348V2H12.4321L21.3933 10.9635C21.7819 11.3545 22 11.8835 22 12.4348C22 12.9862 21.7819 13.5151 21.3933 13.9061V13.9061Z', 'M7.00002 7H6.90002']) }}</li>
+                        {% for post_tag, post_tag_href in blog_1.tags %}
+                        <li><a href="{{ post_tag_href }}">{{ post_tag }}</a></li>
+                        {% endfor %}
+                    </ul>
+
+                    <ul class="list-unstyled mpl-list mpl-list-horizontal list-hgap-sm"{{ sr_post if sr_post }}>
+                        <li>
+                            {{ icon(['M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z']) -}}
+                            Author:<a href="#">nk</a>
+                        </li>
+                        <li>
+                            {{ icon(['M16 2V6M8 2V6M3 10H21M5 4H19C20.1046 4 21 4.89543 21 6V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V6C3 4.89543 3.89543 4 5 4Z']) -}}
+                            Published:<a href="#">Today</a>
+                        </li>
+                        <li>
+                            {{ icon(['M4 15C4 15 5 14 8 14C11 14 13 16 16 16C19 16 20 15 20 15V3C20 3 19 4 16 4C13 4 11 2 8 2C5 2 4 3 4 3V15ZM4 15V22']) -}}
+                            Categories:<a href="#">First Try</a>
+                        </li>
+                        <li>
+                            {{ icon(['M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z', 'M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z']) -}}
+                            Views:<a href="#">834</a>
+                        </li>
+                        <li>
+                            {{ icon(['M20.84 4.61003C20.3292 4.09903 19.7228 3.69367 19.0554 3.41711C18.3879 3.14055 17.6725 2.9982 16.95 2.9982C16.2275 2.9982 15.5121 3.14055 14.8446 3.41711C14.1772 3.69367 13.5708 4.09903 13.06 4.61003L12 5.67003L10.94 4.61003C9.9083 3.57833 8.50903 2.99873 7.05 2.99873C5.59096 2.99873 4.19169 3.57833 3.16 4.61003C2.1283 5.64172 1.54871 7.04099 1.54871 8.50002C1.54871 9.95906 2.1283 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8793 21.7563 11.2728 22.0329 10.6054C22.3095 9.93792 22.4518 9.22251 22.4518 8.50002C22.4518 7.77754 22.3095 7.06213 22.0329 6.39467C21.7563 5.72721 21.351 5.12078 20.84 4.61003V4.61003Z']) -}}
+                            <span><a href="#">184</a></span>
+                        </li>
+                    </ul>
+
+                    <div class="mpl-list-social" data-sr="social" data-sr-interval="100" data-sr-duration="800" data-sr-distance="10">
+                        <a href="#" class="btn btn-secondary btn-hover-facebook" title="Share link on Facebook" data-sr-item="social">
+                            {{ icon_fill(['M23.625 12C23.625 5.57812 18.4219 0.375 12 0.375C5.57812 0.375 0.375 5.57812 0.375 12C0.375 17.8022 4.62609 22.6116 10.1836 23.4844V15.3605H7.23047V12H10.1836V9.43875C10.1836 6.52547 11.918 4.91625 14.5744 4.91625C15.8466 4.91625 17.1769 5.14313 17.1769 5.14313V8.0025H15.7106C14.2669 8.0025 13.8164 8.89875 13.8164 9.81797V12H17.0405L16.5248 15.3605H13.8164V23.4844C19.3739 22.6116 23.625 17.8022 23.625 12Z']) }}
+                        </a>
+                        <a href="#" class="btn btn-secondary btn-hover-twitter" title="Share link on Twitter" data-sr-item="social">
+                            {{ icon_fill(['M21.533 7.11163C21.5482 7.32482 21.5482 7.53805 21.5482 7.75124C21.5482 14.2537 16.599 21.7461 7.5533 21.7461C4.76648 21.7461 2.17767 20.939 0 19.538C0.395953 19.5837 0.776625 19.5989 1.18781 19.5989C3.48727 19.5989 5.60405 18.8223 7.29441 17.4974C5.13197 17.4517 3.31978 16.0355 2.69541 14.0863C3 14.1319 3.30455 14.1624 3.62437 14.1624C4.06598 14.1624 4.50764 14.1014 4.91878 13.9949C2.66498 13.538 0.974578 11.5583 0.974578 9.16747V9.10658C1.62937 9.47207 2.39086 9.70049 3.19791 9.73091C1.87303 8.84764 1.00505 7.34005 1.00505 5.63446C1.00505 4.72077 1.24866 3.88321 1.67508 3.15224C4.09641 6.137 7.73602 8.08621 11.8172 8.29944C11.7411 7.93396 11.6954 7.55328 11.6954 7.17257C11.6954 4.46188 13.8883 2.25378 16.6141 2.25378C18.0304 2.25378 19.3095 2.84769 20.208 3.80708C21.3197 3.59389 22.3857 3.18271 23.3299 2.61927C22.9643 3.76142 22.1877 4.72082 21.1674 5.32991C22.1573 5.22336 23.1167 4.94919 23.9999 4.56852C23.33 5.5431 22.4924 6.41108 21.533 7.11163V7.11163Z']) }}
+                        </a>
+                        <a href="#" class="btn btn-secondary btn-hover-google-plus" title="Share link on Google Plus" data-sr-item="social">
+                            {{ icon_fill(['M23 12.2719C23 18.9047 18.433 23.625 11.6885 23.625C5.22213 23.625 0 18.4312 0 12C0 5.56875 5.22213 0.375 11.6885 0.375C14.8369 0.375 17.4857 1.52344 19.5264 3.41719L16.3451 6.45938C12.1834 2.46563 4.44447 5.46563 4.44447 12C4.44447 16.0547 7.70123 19.3406 11.6885 19.3406C16.3168 19.3406 18.0512 16.0406 18.3246 14.3297H11.6885V10.3312H22.8162C22.9246 10.9266 23 11.4984 23 12.2719Z']) }}
+                        </a>
+                    </div>
+
+
+                    {{ page_navigation({ title: 'Moved which', subtitle: 'Next', href: '#' }, { title: 'Them air above', subtitle: 'Previous', href: '#' }, data=sr_post) }}
+
+
+                    <h2{{ sr_post if sr_post }}>Comments <small>(2)</small></h2>
+
+                    <ul class="list-unstyled list-vgap-md">
+                        <li{{ sr_post if sr_post }}>
+                            {{ media_comment(
+                                user_1.img, user_1.name, '25 minutes ago',
+                                ["Ludum mutavit. Verbum est ex. Et ... sunt occidat. Videtur quod est super omne oppidum. Quis transfretavit tu iratus es contudit cranium cum dolor apparatus. Qui curis! Modo nobis certamen est, qui non credunt at."]
+                            ) }}
+                        </li>
+                        <li{{ sr_post if sr_post }}>
+                            {{ media_comment(
+                                user_5.img, user_5.name, '5 minutes ago',
+                                ["Yeah!"]
+                            ) }}
+                        </li>
+                    </ul>
+
+
+                    <h2{{ sr_post if sr_post }}>Leave a Reply</h2>
+
+                    <form action="#" class="mb-0"{{ sr_post if sr_post }}>
+                        <div class="row vgap">
+                            <div class="col-12 col-sm-6">
+                                {{ form_control('username', 'text', '', 'username', 'Your Name') }}
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                {{ form_control('email', 'email', '', 'email', 'Your Email') }}
+                            </div>
+                            <div class="col-12">
+                                {{ form_textarea('message', '', 'message', 'Your Comment') }}
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-md">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </article>
+            </div>
+
+            <div class="col-auto mpl-sidebar"{% if sr_widget %} {{ sr_widget }}{% endif %}>
+                {{ widget_search() }}
+                {{ widget_categories_badge('Categories', [['All', '40', '#'], ['Audio', '14', '#'], ['Photo', '13', '#'], ['Video', '5', '#'], ['Controllers', '8', '#']]) }}
+                {{ widget_posts_2('Popular Read') }}
+                {{ widget_twitter('Our Twitter') }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

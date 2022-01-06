@@ -1,0 +1,49 @@
+/*
+ * Content
+ */
+.content-wrap {
+    padding: .1px;
+    margin: 0 auto;
+    overflow: hidden;
+    background: $color_bg;
+    will-change: transform, filter;
+    transition: transform .8s cubic-bezier(.2, 1, .2, 1), filter .3s ease-in-out;
+    transform: translateX(0);
+}
+
+.mpl-navbar-mobile-open .content-wrap {
+    @include media-breakpoint-up(sm) {
+        transform: translateX(-100px);
+    }
+    @include media-breakpoint-down(xs) {
+        transform: translateX(-40px);
+    }
+}
+
+.mpl-content {
+    @include media-breakpoint-only(xl) {
+        flex: 0 0 850px;
+        max-width: 850px;
+    }
+    @include media-breakpoint-only(lg) {
+        flex: 0 0 680px;
+        max-width: 680px;
+    }
+    @include media-breakpoint-down(md) {
+        @include create-col(1, 1);
+    }
+}
+
+.mpl-sidebar {
+    @include media-breakpoint-only(xl) {
+        flex: 0 0 350px;
+        max-width: 350px;
+    }
+    @include media-breakpoint-only(lg) {
+        flex: 0 0 320px;
+        max-width: 320px;
+    }
+    @include media-breakpoint-down(md) {
+        @include create-col(1, 1);
+    }
+}

@@ -1,0 +1,37 @@
+.mpl-icon-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 30px;
+    text-align: center;
+    @if not $skew {
+        background-color: $color_bg_2;
+        @include border-radius(5px);
+    }
+    @if $skew {
+        &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: $color_bg_2;
+            @include border-radius(5px);
+            @include skew(xs);
+            z-index: -1;
+        }
+    }
+}
+
+.mpl-icon-box-icon {
+    margin-bottom: 30px;
+    color: $color_text;
+
+    > .icon {
+        width: 28px;
+        height: 28px;
+    }
+}

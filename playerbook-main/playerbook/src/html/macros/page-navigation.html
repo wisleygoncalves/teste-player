@@ -1,0 +1,26 @@
+{% from "macros/icon-svg.html" import icon %}
+
+{% macro page_navigation(next="", prev="", data="") %}
+<nav class="mpl-page-pagination"{% if data %} {{ data }}{% endif %}>
+    <ul>
+        {% if prev %}
+        <li class="mpl-page-pagination-prev">
+            <a href="{{ prev.href }}" class="mpl-page-pagination-link">
+                <span class="h5 mpl-page-pagination-title">{{ prev.title }}</span>
+                <span class="mpl-page-pagination-subtitle">{{ prev.subtitle }}</span>
+                {{ icon(['M15 18L9 12L15 6']) }}
+            </a>
+        </li>
+        {% endif %}
+        {% if next %}
+        <li class="mpl-page-pagination-next">
+            <a href="{{ next.href }}" class="mpl-page-pagination-link">
+                <span class="h5 mpl-page-pagination-title">{{ next.title }}</span>
+                <span class="mpl-page-pagination-subtitle">{{ next.subtitle }}</span>
+                {{ icon(['M9 18L15 12L9 6']) }}
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endmacro %}

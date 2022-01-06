@@ -1,0 +1,51 @@
+$cursor_size: 4px !default;
+$cursor_size_hover: 8px !default;
+$cursor_outer_size: 24px !default;
+$cursor_outer_size_hover: 50px !default;
+
+.mpl-cursor-enabled * {
+    // stylelint-disable-next-line
+    cursor: none !important;
+}
+
+.mpl-cursor-outer,
+.mpl-cursor {
+    position: fixed;
+    top: -$cursor_outer_size / 2;
+    left: -$cursor_outer_size / 2;
+    width: $cursor_outer_size;
+    height: $cursor_outer_size;
+    pointer-events: none;
+    background-color: rgba($color_text, 0);
+    border: 2px solid $color_text;
+    border-radius: 50%;
+    opacity: .25;
+    transition: width .2s ease, height .2s ease, top .2s ease, left .2s ease, background-color .2s ease, opacity .2s ease;
+    will-change: transform, width, height, top, left, background-color, opacity;
+    backface-visibility: hidden;
+    z-index: 9999999;
+}
+.mpl-cursor-outer.mpl-cursor-hover {
+    top: -$cursor_outer_size_hover / 2;
+    left: -$cursor_outer_size_hover / 2;
+    width: $cursor_outer_size_hover;
+    height: $cursor_outer_size_hover;
+    background-color: $color_text;
+    opacity: .1;
+}
+.mpl-cursor {
+    top: -$cursor_size / 2;
+    left: -$cursor_size / 2;
+    width: $cursor_size;
+    height: $cursor_size;
+    background-color: $color_text;
+    border: none;
+    opacity: 1;
+
+    &.mpl-cursor-hover {
+        top: -$cursor_size_hover / 2;
+        left: -$cursor_size_hover / 2;
+        width: $cursor_size_hover;
+        height: $cursor_size_hover;
+    }
+}

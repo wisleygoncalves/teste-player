@@ -1,0 +1,32 @@
+// Add blur effect.
+// backdrop-filter working bad with custom cursors (low performance)
+// so we decided to use filter blur.
+
+// Mobile menu.
+body.mpl-navbar-mobile-open {
+    .mpl-navbar-top,
+    .content-wrap {
+        filter: blur($backdrop_blur);
+    }
+}
+
+// Fancybox.
+.mpl-navbar-top,
+.mpl-navbar-mobile,
+.content-wrap {
+    body.fancybox-active & {
+        filter: blur($backdrop_blur);
+    }
+    body.fancybox-active-closing & {
+        filter: none;
+    }
+}
+
+// Bootstrap Modal.
+body.modal-open {
+    .mpl-navbar-top,
+    .mpl-navbar-mobile,
+    .content-wrap {
+        filter: blur($backdrop_blur);
+    }
+}

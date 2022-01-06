@@ -1,0 +1,54 @@
+{% set page_title = 'Search' %}
+{% set header_image = bg_1 %}
+{% set header_small = true %}
+
+{% extends 'layouts/layout-1.html' %}
+
+{% block header %}
+<div class="mpl-banner-content mpl-box-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10">
+                <h1 class="display-1 mb-0">Search</h1>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="mpl-box-md">
+    <div class="container">
+        <form action="search.html" class="mb-50">
+            <div class="row hgap-xs">
+                <div class="col">
+                    {{ form_control('search', 'text', '', 'search', 'Site Search') }}
+                </div>
+                <div class="col-auto">
+                    <a href="#" class="btn btn-md">
+                        {{ icon(['M21 21L16.65 16.65M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z']) }}
+                    </a>
+                </div>
+            </div>
+        </form>
+
+
+        <div class="row vgap" data-sr="search" data-sr-duration="1000" data-sr-distance="20">
+            <div class="col-12 col-lg-6">
+                <h2>Products</h2>
+
+                {{ product_horizontal(product_1.image.sm, product_1.name, '100%', product_1.price, href='shop-product.html', data="data-sr-item=search") }}
+                {{ product_horizontal(product_2.image.sm, product_2.name, '100%', product_2.price, product_2.price_old, product_2.discount, href='shop-product.html', data="data-sr-item=search") }}
+                {{ product_horizontal(product_3.image.sm, product_3.name, '100%', product_3.price, href='shop-product.html', data="data-sr-item=search") }}
+            </div>
+            <div class="col-12 col-lg-6">
+                <h2>Posts+</h2>
+
+                {{ post_block(blog_1.image.sm, blog_1.name, blog_1.tags, href="blog-post-gallery.html", data="data-sr-item=search") }}
+                {{ post_block(blog_2.image.sm, blog_2.name, blog_2.tags, href="blog-post-carousel.html", data="data-sr-item=search") }}
+                {{ post_block(blog_3.image.sm, blog_3.name, blog_3.tags, href="blog-post-simple.html", data="data-sr-item=search") }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

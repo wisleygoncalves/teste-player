@@ -1,0 +1,66 @@
+{
+    "main_style_file": "monsterplay",
+    "adobe_fonts": "vgd1cli",
+    "google_fonts": false,
+    "custom_css": false,
+    "custom_styles": false,
+    "custom_script": false,
+    "page_title": false,
+    "content_class": false,
+    "preloader_show": true,
+    "logo": "assets/images/Icon PNG.png",
+    "sr_widget": "data-sr=widget data-sr-duration=1200 data-sr-distance=20",
+    "sr_post": " data-sr data-sr-duration=1200 data-sr-distance=10",
+    "header_show": true,
+    "header_parallax": true,
+    "header_parallax_speed": 0.8,
+    "header_image": "assets/images/dark/bg-banner-1.jpg",
+    "content_parallax": true,
+    "content_parallax_speed": 0.8,
+    "nav_small": false,
+    "nav_search": true,
+    "nav_cart": false,
+    "nav_login": true,
+    "footer_show": true,
+    "footer_text": "<p>2021 &copy; <a href='https://playerbook.com'>PlayerBook</a>. Todos os direitos reservados.</p>",
+    "footer_bg": "assets/images/dark/bg-footer.jpg",
+    "footer_social_block": true,
+    "footer_widgets_block": false,
+    "footer_parallax": true,
+    "footer_parallax_speed": 0.9,
+    "bg_1": "assets/images/dark/bg-banner-1.jpg",
+    "bg_2": "assets/images/dark/bg-banner-2.jpg",
+    "bg_3": "assets/images/dark/bg-banner-3.jpg",
+    "navigation": {
+        "blog-post-simple.html": {
+            "name": "WhitePaper"
+        },
+        "checkout.html": {
+            "name": "Pré-Cadastro"
+        }
+    },
+    "blog_1": {
+        "name": "Black Mesa",
+        "image": {
+            "full": "assets/images/dark/blog-1-1920x1080.jpg",
+            "md": "assets/images/dark/blog-1-760x560.jpg",
+            "sm": "assets/images/dark/blog-1-160x140.jpg"
+        },
+        "tags": [["WhitePaper", "#"], ["Cripto Token", "#"], ["PlayerBook", "#"]],
+        "date": "03 de Novembro de 2021",
+        "rating": "1.0",
+        "href": "blog-post-gallery.html"
+    },
+    "blog_2": {
+        "name": "WhitePaper",
+        "image": {
+            "full": "assets/images/dark/blog-2-1920x1080.jpg",
+            "md": "assets/images/dark/blog-2-760x560.jpg",
+            "sm": "assets/images/dark/blog-2-160x140.jpg"
+        },
+        "tags": [["Nioh 2", "#"], ["Coming soon", "#"], ["First review", "#"], ["Sale date", "#"]],
+        "date": "January 17, 2021",
+        "rating": "90",
+        "href": "blog-post-carousel.html"
+    }
+}

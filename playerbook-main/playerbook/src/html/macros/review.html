@@ -1,0 +1,15 @@
+{% from "macros/img.html" import img %}
+
+{% macro review(image="", text="", name="") %}
+<div class="mpl-review">
+    <div class="mpl-review-content">
+        <div class="mpl-review-text">
+            <p>{{ text }}</p>
+        </div>
+        <div class="mpl-review-name">{{ name }}</div>
+    </div>
+    <div class="mpl-review-avatar">
+        {{ img(image) }}
+    </div>
+</div>
+{% endmacro %}

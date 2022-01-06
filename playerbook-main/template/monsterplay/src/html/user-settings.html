@@ -1,0 +1,129 @@
+{% set page_title = 'User Settings' %}
+{% set header_image = bg_2 %}
+{% set header_small = true %}
+
+{% extends 'layouts/layout-1.html' %}
+
+{% block header %}
+<div class="mpl-banner-content mpl-box-lg">
+    <div class="container">
+        {% include "shared/user-header.html" %}
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container" data-sr="user-links" data-sr-interval="120" data-sr-duration="1000" data-sr-distance="20">
+    <ul class="mpl-user-navigation mpl-carousel" data-gap="0" data-slides="auto">
+        <li data-sr-item="user-links"><a href="user-activity.html">Activity</a></li>
+        <li data-sr-item="user-links"><a href="user-profile.html">Profile</a></li>
+        <li data-sr-item="user-links"><a href="user-messages.html">Messages<span class="badge badge-brand">8</span></a></li>
+        <li class="active" data-sr-item="user-links"><a href="user-settings.html">Settings</a></li>
+        <li data-sr-item="user-links"><a href="#">Groups</a></li>
+        <li data-sr-item="user-links"><a href="#">Forums</a></li>
+    </ul>
+</div>
+
+<div class="mpl-box-md">
+    <div class="container">
+        <div class="row hgap-lg vgap-lg">
+            <div class="col-lg mpl-content">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="nav-item"><a href="#general" class="nav-link active" aria-controls="general" role="tab" data-toggle="tab" aria-selected="true">General</a></li>
+                    <li role="presentation" class="nav-item"><a href="#notifications" class="nav-link" aria-controls="notifications" role="tab" data-toggle="tab" aria-selected="false">Notifications</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade show active" id="general">
+                        <form action="#" data-sr="user-setting" data-sr-duration="1000" data-sr-distance="20">
+                            <div class="mpl-snippet-fill" data-sr-item="user-setting">
+                                <h2>Change Password</h2>
+
+                                <div class="row hgap-sm vgap-sm">
+                                    <div class="col-12 col-sm-6">
+                                        {{ form_control('setting_password', 'password', 'Current Password:', 'setting_password', 'Current Password') }}
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        {{ form_control('setting_new_password', 'password', 'New Password:', 'setting_new_password', 'New Password') }}
+                                    </div>
+                                </div>
+
+                                <button class="mpl-link mt-30">Change Password</button>
+                            </div>
+
+                            <div class="mpl-snippet-fill" data-sr-item="user-setting">
+                                <h2>Email</h2>
+
+                                <div class="row hgap-sm vgap-sm">
+                                    <div class="col-12 col-sm-6">
+                                        {{ form_control('setting_email', 'email', 'Current Email:', 'setting_email', value='play*******@gmail.com', disabled="true") }}
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        {{ form_control('setting_new_email', 'email', 'New Email:', 'setting_new_email', 'New Email') }}
+                                    </div>
+                                </div>
+
+                                <button class="mpl-link mt-30">Change Email</button>
+                            </div>
+
+                            <div class="mpl-snippet-fill" data-sr-item="user-setting">
+                                <h2>Phone Number</h2>
+
+                                <div class="row hgap-sm vgap-sm">
+                                    <div class="col-12 col-sm-6">
+                                        {{ form_control('setting_phone', 'text', 'Current Phone:', 'setting_phone', value='+1 *** ** ** 11', disabled="true") }}
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        {{ form_control('setting_new_phone', 'text', 'New Phone:', 'setting_new_phone', 'New Phone') }}
+                                    </div>
+                                </div>
+
+                                <button class="mpl-link mt-30">Change Phone</button>
+                            </div>
+
+                            <div class="mpl-snippet-fill" data-sr-item="user-setting">
+                                <h2>Language</h2>
+
+                                {{ form_select_language('setting_language', id="setting_language") }}
+
+                                <button class="mpl-link mt-30">Save Regional Settings</button>
+                            </div>
+
+                            <div class="mpl-snippet-fill" data-sr-item="user-setting">
+                                <h2>Appearance</h2>
+
+                                {{ form_checkbox('setting_font', 'Use Large Fonts', 'setting_font') }}
+                            </div>
+                        </form>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane fade" id="notifications">
+                        <form action="#">
+                            <div class="mpl-snippet-fill">
+                                <h2>Notifications</h2>
+
+                                <div class="row vgap-sm">
+                                    <div class="col-12">
+                                        {{ form_checkbox('notification_update', 'Update notifications', 'notification_update', 'true') }}
+                                    </div>
+                                    <div class="col-12">
+                                        {{ form_checkbox('notification_news', 'News notifications', 'notification_news', 'true') }}
+                                    </div>
+                                    <div class="col-12">
+                                        {{ form_checkbox('notification_off', 'Turn off all notifications.', 'notification_off') }}
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-auto-lg mpl-sidebar"{% if sr_widget %} {{ sr_widget }}{% endif %}>
+                {{ widget_about('About', ["Ecce dabo Pinkman Isai OK? Sicut locutus est tibi, et datus est, et hic sine Semper consequat volumus ... et ille in urbe ista licet? Et infernus, ubi tu non Virginiae ornare vel ipsum. Ut enim Albuquerque et ille eum iure hic, et ego ducam te ad iustitiam."]) }}
+                {{ widget_location('Location') }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

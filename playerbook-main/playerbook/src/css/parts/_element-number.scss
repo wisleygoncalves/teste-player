@@ -1,0 +1,13 @@
+.mpl-number {
+    font-size: .875rem;
+    text-align: center;
+    text-transform: uppercase;
+
+    > div {
+        margin-bottom: 0;
+
+        + div {
+            margin-top: 8px;
+        }
+    }
+}

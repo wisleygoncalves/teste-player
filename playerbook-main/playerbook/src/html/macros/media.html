@@ -1,0 +1,61 @@
+{% from "macros/rating.html" import rating %}
+{% from "macros/img.html" import img %}
+
+{% macro media_review(image="", name="", date="", rating_width="", texts="", href="#") %}
+<div class="media mpl-media-review">
+    <div class="media-head">
+        <a href="{{ href }}" class="media-image">
+            {% if image %}{{ img(image) }}{% endif %}
+        </a>
+        <div>
+            <a href="{{ href }}" class="media-title h5">{{ name }}</a>
+            <div class="media-subtitle">{{ date }}</div>
+        </div>
+        {{ rating(rating_width) }}
+    </div>
+    <div class="media-body">
+        {% for text in texts %}
+        <p>{{ text }}</p>
+        {% endfor %}
+    </div>
+</div>
+{% endmacro %}
+
+
+{% macro media_comment(image="", name="", date="", texts="", href="#", href_reply="#") %}
+<div class="media mpl-media-comment">
+    <div class="media-head">
+        <a href="{{ href }}" class="media-image">
+            {% if image %}{{ img(image) }}{% endif %}
+        </a>
+        <div>
+            <a href="{{ href }}" class="media-title h5">{{ name }}</a>
+            <div class="media-subtitle">{{ date }}</div>
+        </div>
+    </div>
+    <div class="media-body">
+        {% for text in texts %}
+        <p>{{ text }}</p>
+        {% endfor %}
+        <a href="{{ href_reply }}" class="mpl-link">Reply</a>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro media_comment_unwrap(image="", name="", date="", texts="", href="#", href_reply="#") %}
+<div class="media-head">
+    <a href="{{ href }}" class="media-image">
+        {% if image %}{{ img(image) }}{% endif %}
+    </a>
+    <div>
+        <a href="{{ href }}" class="media-title h5">{{ name }}</a>
+        <div class="media-subtitle">{{ date }}</div>
+    </div>
+</div>
+<div class="media-body">
+    {% for text in texts %}
+    <p>{{ text }}</p>
+    {% endfor %}
+    <a href="{{ href_reply }}" class="mpl-link">Reply</a>
+</div>
+{% endmacro %}

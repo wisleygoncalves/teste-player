@@ -1,0 +1,125 @@
+.mpl-timeline-item {
+    position: relative;
+    padding-bottom: 20px;
+
+    + .mpl-timeline-item {
+        margin-top: 30px;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 80px;
+        bottom: -10px;
+        left: 28px;
+        width: 3px;
+        background-color: $color_bg_2;
+        @include border-radius(3px);
+    }
+
+    &:last-child::before {
+        bottom: 0;
+    }
+
+    // head
+    .mpl-timeline-head {
+        display: flex;
+        align-items: center;
+    }
+
+    .mpl-timeline-title {
+        margin-bottom: 0;
+    }
+
+    .mpl-timeline-subtitle {
+        margin-top: 4px;
+        font-size: .875rem;
+        color: $color_text_2;
+    }
+
+    .mpl-timeline-image {
+        position: relative;
+        display: flex;
+        @include create-col(auto);
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        margin-right: 20px;
+        color: $color_text;
+        background-color: $color_bg_2;
+        border-radius: 100%;
+
+        > .icon {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2px;
+        }
+
+        > .mpl-image {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 100%;
+
+            > img {
+                @include img-ofi();
+            }
+        }
+    }
+
+    .mpl-timeline-responsive {
+        position: relative;
+
+        &::before {
+            content: "";
+            display: block;
+            padding-top: 55%;
+        }
+
+        > .mpl-timeline-responsive-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            @include border-radius(5px);
+        }
+    }
+
+
+    // body
+    .mpl-timeline-body {
+        padding-left: 80px;
+        margin-top: 20px;
+
+        p {
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            > a {
+                color: $color_text;
+
+                &:hover {
+                    color: $color_brand;
+                }
+            }
+        }
+    }
+}
+
+@each $name, $color in $color_alert {
+    .mpl-timeline-#{$name} .mpl-timeline-image::before {
+        content: "";
+        position: absolute;
+        right: 2px;
+        bottom: 2px;
+        width: 6px;
+        height: 6px;
+        background-color: $color;
+        border-radius: 100%;
+    }
+}

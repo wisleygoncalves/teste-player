@@ -1,0 +1,40 @@
+// stylelint-disable scss/dollar-variable-default
+@import "_helpers";
+@import "variables";
+
+
+// colors text
+$color_text_1: #cac2df;
+$color_text_2: #b3adc9;
+
+
+// colors backgrounds
+$color_bg: #1f1c29;
+$color_bg_1: #1f1c29;
+$color_bg_2: #272333;
+$color_bg_3: #302c3f;
+$color_bg_4: #3b364d;
+$color_bg_light: #252231;
+$color_bg_footer: #292636;
+$color_backdrop: rgba($color_bg_1, .6);
+
+// colors alerts
+$color_brand: #6b54b6;
+$color_alert: replace($color_alert, $color_secondary, #2d293b, true);
+$color_secondary: #2d293b;
+
+
+// heading
+$heading_weight: 700;
+
+
+// images opacity
+$banners_opacity: .4;
+$images_opacity: .7;
+$images_hover_opacity: .9;
+
+// navbar
+$navbar_expand: sm;
+
+
+@import "_includes";

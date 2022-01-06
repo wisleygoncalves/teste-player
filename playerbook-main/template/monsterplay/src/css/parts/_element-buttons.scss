@@ -1,0 +1,348 @@
+$width_element_skew: 10px !default;
+
+.btn {
+    position: relative;
+    display: inline-flex;
+    align-items: stretch;
+    padding: 10px 25px;
+    font-family: $font_btn;
+    font-size: .75rem;
+    font-weight: 600;
+    color: $color_text;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    background-image: linear-gradient(to top, $color_btn_default 0, $color_btn_default 100%);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 0, 100%;
+    border: 0;
+    @include border-radius(3px);
+    transition: color .2s ease-in-out, background-color .2s ease-in-out, background-size .2s ease-in-out, border-color .2s ease-in-out;
+    z-index: 0;
+
+    &::after,
+    &.dropdown-toggle::after {
+        content: ".";
+        display: block;
+        width: 0;
+        margin: 0;
+        color: transparent;
+        border: 0;
+    }
+
+    // disabled
+    &.disabled,
+    &:disabled {
+        cursor: default;
+    }
+
+    .icon {
+        align-self: center;
+        width: 14px;
+        height: 14px;
+        margin-top: -1rem;
+        margin-bottom: -1rem;
+        stroke-width: 2px;
+    }
+
+    .name + .icon,
+    .icon + .name {
+        margin-left: 10px;
+    }
+
+    @if not $skew {
+        background-color: $color_brand;
+
+        &:hover,
+        &:focus,
+        &:not(:disabled):not(.disabled):active {
+            background-color: $color_brand;
+            background-size: 100%, 100%;
+        }
+    }
+
+    @if $skew {
+        background-color: transparent;
+
+        &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: $color_brand;
+            background-image: linear-gradient(to top, $color_btn_default 0, $color_btn_default 100%);
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-size: 0, 100%;
+            @include border-radius(3px);
+            transition: color .2s ease-in-out, background-color .2s ease-in-out, background-size .2s ease-in-out, border-color .2s ease-in-out;
+            @include skew(sm);
+            z-index: -1;
+        }
+
+        &:hover,
+        &:focus,
+        &:not(:disabled):not(.disabled):active {
+            background-color: transparent;
+
+            &::before {
+                background-color: $color_brand;
+                background-size: 100%, 100%;
+            }
+        }
+    }
+
+    &:hover,
+    &:focus {
+        color: $color_btn_default_text;
+        box-shadow: none;
+    }
+    &:not(:disabled):not(.disabled):active {
+        color: $color_brand;
+    }
+}
+
+
+// only icon
+.btn-icon {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+// sizes
+.btn-md {
+    padding: 13.5px 25px;
+    font-size: .875rem;
+
+    .icon {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+.btn-sm {
+    padding: 8.5px 20px;
+    font-size: .625rem;
+}
+
+
+// block
+.btn-block {
+    justify-content: center;
+}
+
+
+// default
+.btn-default {
+    color: $color_btn_default_text;
+
+    @if not $skew {
+        background-color: $color_btn_default;
+        background-image: linear-gradient(to top, $color_brand 0, $color_brand 100%);
+
+        &:hover,
+        &:focus,
+        &:not(:disabled):not(.disabled):active {
+            background-color: $color_btn_default;
+        }
+    }
+
+    @if $skew {
+        background-color: transparent;
+
+        &::before {
+            background-color: $color_btn_default;
+            background-image: linear-gradient(to top, $color_brand 0, $color_brand 100%);
+        }
+
+        &:hover::before,
+        &:focus::before,
+        &:not(:disabled):not(.disabled):active::before {
+            background-color: $color_btn_default;
+        }
+    }
+
+    &:hover,
+    &:focus,
+    &:not(:disabled):not(.disabled):active {
+        color: #fff;
+    }
+}
+
+.active > .btn-secondary,
+.active > .btn-default {
+    color: #fff;
+
+    @if not $skew {
+        background-color: $color_brand;
+
+        &:hover,
+        &:focus,
+        &:not(:disabled):not(.disabled):active {
+            background-color: $color_brand;
+        }
+    }
+    @if $skew {
+        &::before,
+        &:hover::before,
+        &:focus::before,
+        &:not(:disabled):not(.disabled):active::before {
+            background-color: $color_brand;
+        }
+    }
+
+    &:hover,
+    &:focus,
+    &:not(:disabled):not(.disabled):active {
+        color: #fff;
+    }
+}
+
+
+// colors
+@each $name, $color in $color_alert {
+    .show > .btn-#{$name},
+    .show > .btn-#{$name}.dropdown-toggle {
+        box-shadow: none;
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+    .btn-#{$name}:not(:disabled):not(.disabled):active:focus {
+        box-shadow: none;
+    }
+
+    .btn-#{$name} {
+        &:hover,
+        &:focus {
+            color: $color;
+        }
+    }
+
+    @if not $skew {
+        .btn-#{$name} {
+            background-color: $color;
+            background-image: linear-gradient(to top, $color_btn_default 0, $color_btn_default 100%);
+
+            &:hover,
+            &:focus,
+            &:not(:disabled):not(.disabled):active {
+                background-color: $color;
+            }
+        }
+        .btn-#{$name}:not(:disabled):not(.disabled):active,
+        .show > .btn-#{$name}.dropdown-toggle {
+            background-color: $color;
+            background-size: 100%, 100%;
+        }
+    }
+
+    @if $skew {
+        .btn-#{$name},
+        .dropleft .btn-#{$name}.dropdown-toggle {
+            &::before {
+                background-color: $color;
+                background-image: linear-gradient(to top, $color_btn_default 0, $color_btn_default 100%);
+            }
+
+            &:hover,
+            &:focus,
+            &:not(:disabled):not(.disabled):active {
+                background-color: transparent;
+
+                &::before {
+                    background-color: $color;
+                }
+            }
+        }
+
+        .show > .btn-#{$name}.dropdown-toggle,
+        .show.dropleft > .btn-#{$name}.dropdown-toggle {
+            background-color: transparent;
+        }
+    }
+}
+
+
+// social
+@each $name, $color in $color_social {
+    .btn-#{$name} {
+        @if not $skew {
+            background-color: $color;
+            background-image: linear-gradient(to top, $color_btn_default 0, $color_btn_default 100%);
+
+            &:hover,
+            &:focus,
+            &:not(:disabled):not(.disabled):active {
+                background-color: $color;
+            }
+        }
+        @if $skew {
+            &::before {
+                background-color: $color;
+                background-image: linear-gradient(to top, $color_btn_default 0, $color_btn_default 100%);
+            }
+            &:hover,
+            &:focus,
+            &:not(:disabled):not(.disabled):active {
+                background-color: transparent;
+
+                &::before {
+                    background-color: $color;
+                }
+            }
+        }
+
+        &:hover,
+        &:focus {
+            color: $color;
+        }
+    }
+
+    // hover
+    .btn-hover-#{$name} {
+        @if not $skew {
+            background-image: linear-gradient(to top, $color 0, $color 100%);
+        }
+        @if $skew {
+            &::before {
+                background-image: linear-gradient(to top, $color 0, $color 100%);
+            }
+            &:hover,
+            &:focus,
+            &:not(:disabled):not(.disabled):active {
+                background-color: transparent;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            color: $color_text;
+        }
+    }
+}
+
+
+// group
+.btn-group {
+    > .btn:not(:first-child) {
+        margin-left: 0;
+    }
+
+    @if $skew {
+        > .btn {
+            &:not(:last-child)::before {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+            &:not(:first-child)::before {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+    }
+}

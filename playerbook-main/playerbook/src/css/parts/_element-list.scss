@@ -1,0 +1,124 @@
+$list_gaps: (
+    "xs": 6px,
+    "sm": 20px,
+    "md": 45px,
+    "lg": 60px
+) !default;
+
+.list-vgap {
+    margin-bottom: -30px;
+
+    > li {
+        padding-bottom: 30px;
+    }
+}
+
+.list-hgap {
+    margin-right: -15px;
+    margin-left: -15px;
+
+    > li {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+@each $name, $size in $list_gaps {
+    .list-vgap-#{$name} {
+        margin-bottom: #{$size / -1};
+
+        > li {
+            padding-bottom: $size;
+        }
+    }
+    .list-hgap-#{$name} {
+        margin-right: #{$size / -2};
+        margin-left: #{$size / -2};
+
+        > li {
+            padding-right: #{$size / 2};
+            padding-left: #{$size / 2};
+        }
+    }
+}
+
+
+.mpl-list-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.mpl-list {
+    padding-left: 0;
+    color: $color_text_1;
+
+    a:not([class*="text-"]) {
+        color: $color_text;
+
+        &:hover,
+        &:focus {
+            color: $color_brand;
+        }
+    }
+
+    li {
+        display: block;
+
+        > span:first-child {
+            margin-right: 8px;
+            color: $color_text_2;
+        }
+
+        > .icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            stroke: $color_text_2;
+            vertical-align: -.2em;
+
+            &:not(:last-child) {
+                margin-right: 8px;
+            }
+
+            + a {
+                margin-left: 4px;
+            }
+        }
+    }
+}
+
+
+// positive and negative
+.mpl-list-positive,
+.mpl-list-negative {
+    color: $color_text_1;
+
+    > li {
+        position: relative;
+        padding-left: 27px;
+
+        + li {
+            margin-top: 8px;
+        }
+
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 17px;
+            height: 17px;
+            margin-right: 10px;
+            margin-left: -27px;
+            vertical-align: -.18em;
+        }
+    }
+}
+
+.mpl-list-positive > li::before {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='17' height='17' rx='8.5' fill='%23#{str-replace('' + $color_bg_3, '#', '')}'/%3e%3cpath d='M5.5 8.38889H11.5M8.38889 11.5L8.38889 5.5' stroke='%23#{str-replace('' + $color_text_1, '#', '')}' stroke-linecap='round'/%3e%3c/svg%3e");
+}
+
+.mpl-list-negative > li::before {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='17' height='17' rx='8.5' fill='%23#{str-replace('' + $color_bg_3, '#', '')}'/%3e%3cpath d='M5.5 8.38892H11.5' stroke='%23#{str-replace('' + $color_text_1, '#', '')}' stroke-linecap='round'/%3e%3c/svg%3e");
+}
+

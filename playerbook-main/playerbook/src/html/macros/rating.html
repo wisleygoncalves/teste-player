@@ -1,0 +1,36 @@
+{% from "macros/icon-svg.html" import icon %}
+{% set icon_rating = icon(['M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z']) %}
+
+{% macro rating(width="") %}
+<span class="mpl-rating">
+    <span class="mpl-rating-front"{% if width %} style="width: {{ width }};"{% endif %}>
+        {{ icon_rating }}
+        {{ icon_rating }}
+        {{ icon_rating }}
+        {{ icon_rating }}
+        {{ icon_rating }}
+    </span>
+    <span class="mpl-rating-back">
+        {{ icon_rating }}
+        {{ icon_rating }}
+        {{ icon_rating }}
+        {{ icon_rating }}
+        {{ icon_rating }}
+    </span>
+</span>
+{% endmacro %}
+
+{% macro rating_dynamic(name="") %}
+<span class="mpl-rating-dynamic">
+    <input type="radio" id="{{ name }}-rate-5" name="{{ name }}-rate" value="5">
+    <label for="{{ name }}-rate-5">{{ icon_rating }}</label>
+    <input type="radio" id="{{ name }}-rate-4" name="{{ name }}-rate" value="4">
+    <label for="{{ name }}-rate-4">{{ icon_rating }}</label>
+    <input type="radio" id="{{ name }}-rate-3" name="{{ name }}-rate" value="3">
+    <label for="{{ name }}-rate-3">{{ icon_rating }}</label>
+    <input type="radio" id="{{ name }}-rate-2" name="{{ name }}-rate" value="2">
+    <label for="{{ name }}-rate-2">{{ icon_rating }}</label>
+    <input type="radio" id="{{ name }}-rate-1" name="{{ name }}-rate" value="1">
+    <label for="{{ name }}-rate-1">{{ icon_rating }}</label>
+</span>
+{% endmacro %}

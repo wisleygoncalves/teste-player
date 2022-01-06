@@ -1,0 +1,73 @@
+{% from "macros/icon-svg.html" import icon, icon_fill %}
+{% from "macros/widgets.html" import widget_search, widget_price, widget_categories, widget_categories_badge, widget_posts, widget_posts_2, widget_products, widget_matches, widget_match, widget_location, widget_about, widget_instagram, widget_twitter, widget_facebook %}
+{% from "macros/product.html" import product, product_overlay, product_horizontal, product_horizontal_checkout, product_horizontal_cart, product_horizontal_cart_sm %}
+{% from "macros/form.html" import form_control, form_textarea, form_select_country, form_select_language, form_radio, form_checkbox %}
+{% from "macros/post.html" import post, post_md, post_md_date, post_vertical, post_block, post_overlay %}
+{% from "macros/feature.html" import feature %}
+{% from "macros/page-navigation.html" import page_navigation %}
+{% from "macros/pricing.html" import pricing %}
+{% from "macros/feature.html" import feature, feature_link %}
+{% from "macros/review.html" import review %}
+{% from "macros/media.html" import media_review, media_comment, media_comment_unwrap %}
+{% from "macros/rating.html" import rating, rating_dynamic %}
+{% from "macros/img.html" import img %}
+{% from "macros/comment-carousel.html" import comment_carousel %}
+
+{% include "layouts/_head.html" %}
+{% set main_style_file = 'monsterplay-shooter' %}
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MS2TFTQ" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    {% block preloader %}{% endblock %}
+
+    {% if preloader_show %}
+        {% include "shared/preloader.html" %}
+    {% endif %}
+
+    {% include "shared/navbar.html" %}
+    {% include "shared/navbar-mobile.html" %}
+
+
+    <div class="content-wrap">
+        <div class="mpl-navbar-mobile-overlay"></div>
+
+        {% block before_content %}{% endblock %}
+
+        <div {% if not slider_show %}{% if not header_show %}class="no-banner"{% endif %}{% endif %}{% if content_class %}class="{{ content_class }}"{% endif %}>
+            {% if not slider_show %}
+            {% if header_show %}
+            <section class="mpl-banner mpl-banner-top{{ ' mpl-banner-parallax' if header_parallax }}{{ ' mpl-banner-small' if header_small }}">
+                {% if header_image %}
+                <div class="mpl-image"{{ (' data-speed="' + header_parallax_speed + '"') | safe if header_parallax }}>
+                    <picture>
+                        <source media="(max-width: 799px)" srcset="{{ header_image_small }}">
+                        <img src="{{ header_image }}" alt="" {{ ' class="jarallax-img"' | safe if header_parallax }}>
+                    </picture>
+                </div>
+                {% endif %}
+
+                {% block header %}{% endblock %}
+            </section>
+            {% endif %}
+            {% endif %}
+
+            {% block content %}{% endblock %}
+
+            {% if footer_show %}
+                {% include "shared/footer.html" %}
+            {% endif %}
+        </div>
+    </div>
+
+    {% block after_content %}{% endblock %}
+
+    {% include "shared/popups.html" %}
+
+    {% include "layouts/_foot.html" %}
+
+    {% block javascript %}{% endblock %}
+</body>
+</html>

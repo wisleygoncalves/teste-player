@@ -1,0 +1,187 @@
+body {
+    font-family: $font_body;
+    font-size: $body_font_size;
+    line-height: $body_line_height;
+    color: $color_text_1;
+    letter-spacing: $body_letter_spacing;
+    word-wrap: break-word;
+}
+
+a {
+    color: $color_text;
+    transition: color .15s;
+
+    &:hover,
+    &:focus {
+        color: $color_brand;
+        text-decoration: none;
+    }
+    &:focus {
+        outline: none;
+    }
+
+    &.link-white {
+        color: #fff;
+
+        &:hover {
+            color: $color_brand;
+        }
+    }
+}
+
+p {
+    margin-bottom: 1.25rem;
+}
+
+small,
+.small {
+    color: $color_text_2;
+}
+
+.lead {
+    margin-bottom: 1.25rem;
+    font-size: 1.375rem;
+}
+
+// custom link
+.mpl-link {
+    display: inline-block;
+    padding: 0;
+    font-family: $font_headings;
+    font-size: .75rem;
+    font-weight: 600;
+    color: $color_text;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    background-color: transparent;
+    border: 0;
+    transition: color .15s;
+
+    &:hover {
+        color: $color_brand;
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+// blockquote
+.mpl-blockquote {
+    padding: 20px 30px;
+    border-left: 2px solid $color_bg_3;
+}
+
+// link close
+.close {
+    &:hover {
+        color: $color_text;
+
+        &:not(:disabled):not(.disabled) {
+            opacity: 1;
+        }
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+
+/*
+ * Headings
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.display-1,
+.display-2,
+.display-3 {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-family: $font_headings;
+    font-weight: $heading_weight;
+    line-height: 1.2;
+    color: $color_text;
+    letter-spacing: .01em;
+
+    > .badge {
+        font-size: 45%;
+        vertical-align: middle;
+    }
+}
+
+h1,
+.h1 {
+    font-size: 2.5rem;
+}
+
+h2,
+.h2 {
+    font-size: 2rem;
+}
+
+h3,
+.h3 {
+    font-size: 1.625rem;
+}
+
+h4,
+.h4 {
+    font-size: 1.375rem;
+}
+
+h5,
+.h5 {
+    font-size: 1.125rem;
+
+    > .badge {
+        font-size: 10px;
+    }
+}
+
+h6,
+.h6 {
+    font-size: 1rem;
+
+    > .badge {
+        font-size: 9px;
+    }
+}
+
+.display-1 {
+    font-size: 3.875rem;
+}
+
+.display-2 {
+    font-size: 3rem;
+}
+
+.display-3 {
+    font-size: 2.5rem;
+}
+
+
+/*
+ * Social List
+ */
+.social-list {
+    display: block;
+    margin-top: .625rem;
+    margin-bottom: .625rem;
+    clear: both;
+
+    &::after,
+    &::before {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}

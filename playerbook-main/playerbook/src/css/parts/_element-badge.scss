@@ -1,0 +1,19 @@
+.badge {
+    padding: 4px 6px;
+    font-size: 60%;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    border-radius: 2.5rem;
+}
+
+.badge-brand {
+    color: $color_text;
+    background-color: $color_brand;
+}
+
+@each $name, $color in $color_alert {
+    .badge-#{$name} {
+        background-color: $color;
+    }
+}

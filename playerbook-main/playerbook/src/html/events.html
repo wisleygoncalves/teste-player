@@ -1,0 +1,88 @@
+{% set page_title = 'Reserva' %}
+{% set header_image = event_header_image %}
+{% set header_image_small = event_header_small %}
+{% set header_small = true %}
+
+{% extends 'layouts/layout-1.html' %}
+
+{% block header %}
+<div class="mpl-banner-content mpl-box-lg">
+    <div class="container">
+        <h1 class="display-1 mb-0">Eventos</h1>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="mpl-box-md">
+    <div class="container">
+        <div class="d-flex justify-content-around pb-5">
+            <a href="https://forms.gle/rztqY6MSQnK776ti8" type="submit" class="btn btn-md mt-35" data-sr
+                data-sr-duration="1200" data-sr-distance="10">
+                Formulário para Investidores
+            </a>
+            <a href="https://chat.whatsapp.com/LVMaBEAOyR1DQDTr7dR9Ja" type="submit" class="btn btn-md mt-35" data-sr
+                data-sr-duration="1200" data-sr-distance="10">
+                Entrar no Grupo de WhatsApp
+            </a>
+        </div>
+        <div class="mpl-footer-wrapper pt-5">
+            <div class="mpl-footer-container container">
+                <div class="mpl-footer-content">
+                    <div class="row vgap" data-sr="footer" data-sr-interval="120" data-sr-duration="1200"
+                        data-sr-distance="20">
+                        <div class="col-6 col-sm-3" data-sr-item="footer">
+                            <a href="https://discord.gg/wEaDCW2s" class="mpl-social">
+                                <span class="mpl-social-icon">
+                                    <svg class="icon icon-fill" fill="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M15.3922 11.4C15.3922 12.132 14.8585 12.732 14.1824 12.732C13.5182 12.732 12.9726 12.132 12.9726 11.4C12.9726 10.668 13.5063 10.068 14.1824 10.068C14.8585 10.068 15.3922 10.668 15.3922 11.4ZM9.85315 10.068C9.17707 10.068 8.64333 10.668 8.64333 11.4C8.64333 12.132 9.18893 12.732 9.85315 12.732C10.5292 12.732 11.063 12.132 11.063 11.4C11.0748 10.668 10.5292 10.068 9.85315 10.068ZM22.3784 2.472V24C19.3902 21.3284 20.3459 22.2128 16.8749 18.948L17.5035 21.168H4.05312C2.71282 21.168 1.62161 20.064 1.62161 18.696V2.472C1.62161 1.104 2.71282 0 4.05312 0H19.9469C21.2872 0 22.3784 1.104 22.3784 2.472ZM18.998 13.848C18.998 9.984 17.29 6.852 17.29 6.852C15.582 5.556 13.9571 5.592 13.9571 5.592L13.791 5.784C15.8074 6.408 16.7444 7.308 16.7444 7.308C13.9269 5.7457 10.6173 5.74542 7.88422 6.96C7.44536 7.164 7.18442 7.308 7.18442 7.308C7.18442 7.308 8.16889 6.36 10.3039 5.736L10.1853 5.592C10.1853 5.592 8.5603 5.556 6.85231 6.852C6.85231 6.852 5.14433 9.984 5.14433 13.848C5.14433 13.848 6.14065 15.588 8.76194 15.672C8.76194 15.672 9.20079 15.132 9.55662 14.676C8.05028 14.22 7.48095 13.26 7.48095 13.26C7.65543 13.3836 7.94316 13.5437 7.96725 13.56C9.96926 14.6943 12.813 15.0659 15.3685 13.98C15.7836 13.824 16.2462 13.596 16.7325 13.272C16.7325 13.272 16.1395 14.256 14.5857 14.7C14.9415 15.156 15.3685 15.672 15.3685 15.672C17.9898 15.588 18.998 13.848 18.998 13.848V13.848Z" />
+                                    </svg>
+                                </span>
+                                <span class="mpl-social-name h5">Discord</span>
+                            </a>
+                        </div>
+                        <div class="col-6 col-sm-3" data-sr-item="footer">
+                            <a href="https://facebook.com/playerbook.com.br" class="mpl-social">
+                                <span class="mpl-social-icon">
+                                    <svg class="icon icon-fill" fill="currentColor" viewBox="0 0 64 64"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M39.8 12.2H48V0h-9.7C26.6.5 24.2 7.1 24 14v6.1h-8V32h8v32h12V32h9.9l1.9-11.9H36v-3.7a3.962 3.962 0 0 1 3.8-4.2z" />
+                                    </svg>
+                                </span>
+                                <span class="mpl-social-name h5">Facebook</span>
+                            </a>
+                        </div>
+                        <div class="col-6 col-sm-3" data-sr-item="footer">
+                            <a href="https://instagram.com/playerbook.com.br" class="mpl-social">
+                                <span class="mpl-social-icon">
+                                    <svg class="icon icon-fill" fill="currentColor" viewBox="0 0 16 16"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                                    </svg>
+                                </span>
+                                <span class="mpl-social-name h5">Instagram</span>
+                            </a>
+                        </div>
+                        <div class="col-6 col-sm-3" data-sr-item="footer">
+                            <a href="https://linkedIn.com/company/playerbook" class="mpl-social">
+                                <span class="mpl-social-icon">
+                                    <svg class="icon icon-fill" fill="currentColor" viewBox="0 0 64 64"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M1.15 21.7h13V61h-13zm46.55-1.3c-5.7 0-9.1 2.1-12.7 6.7v-5.4H22V61h13.1V39.7c0-4.5 2.3-8.9 7.5-8.9s8.3 4.4 8.3 8.8V61H64V38.7c0-15.5-10.5-18.3-16.3-18.3zM7.7 2.6C3.4 2.6 0 5.7 0 9.5s3.4 6.9 7.7 6.9 7.7-3.1 7.7-6.9S12 2.6 7.7 2.6z" />
+                                    </svg>
+                                </span>
+                                <span class="mpl-social-name h5">LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

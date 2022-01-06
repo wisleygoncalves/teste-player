@@ -1,0 +1,15 @@
+{% macro feature(icon="", title="", text="", heading="h3", class="") %}
+<div class="mpl-feature{% if class %} {{ class }}{% endif %}">
+    <div class="mpl-feature-icon">{{ icon | safe }}</div>
+    <div class="mpl-feature-title {{ heading }}">{{ title }}</div>
+    <div class="mpl-feature-text">{{ text }}</div>
+</div>
+{% endmacro %}
+
+{% macro feature_link(icon="", title="", text="", heading="h3", href="#", class="") %}
+<a href="{{ href }}" class="mpl-feature{% if class %} {{ class }}{% endif %}">
+    <span class="mpl-feature-icon">{{ icon | safe }}</span>
+    <span class="mpl-feature-title {{ heading }}">{{ title }}</span>
+    <span class="mpl-feature-text">{{ text }}</span>
+</a>
+{% endmacro %}
